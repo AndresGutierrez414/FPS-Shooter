@@ -2206,8 +2206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1462092255}
-  playerSpeed: 5
-  jumpHeight: 12
+  playerSpeed: 8
+  jumpHeight: 8
   gravityValue: 25
   jumpMax: 2
   shootDamage: 1
