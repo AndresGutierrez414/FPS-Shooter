@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public Image HPBar;
+    public TextMeshProUGUI enemiesRemainingText;
 
     public int enemiesRemaining;
 
@@ -76,6 +78,8 @@ public class gameManager : MonoBehaviour
     public void updateGameGoal(int amount)
     {
         enemiesRemaining += amount;
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0"); // "F1" 1 float // "F0" int
+
 
         // if no more enemies, bring up win menu and pause game //
         if (enemiesRemaining <= 0)

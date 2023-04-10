@@ -25,6 +25,9 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] int bulletSpeed;
 
+    [SerializeField] GameObject drop;
+
+
     Vector3 playerDir;
     bool playerInRange;
     float angleToPlayer;
@@ -122,6 +125,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            Instantiate(drop, transform.position, drop.transform.rotation);
             gameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);
         }
