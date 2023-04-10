@@ -16,12 +16,9 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("bullet trigger");
         IDamage damagable = other.GetComponent<IDamage>();
-        Debug.Log(damagable);
         if (damagable != null)
         {
-            Debug.Log("bullet function called");
             damagable.takeDamage(damage);
         }
 
