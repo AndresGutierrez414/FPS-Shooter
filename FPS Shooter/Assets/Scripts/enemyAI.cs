@@ -7,7 +7,9 @@ public class enemyAI : MonoBehaviour, IDamage
 {
     // variables //
     [Header("----- Components -----")]
-    [SerializeField] Renderer model;
+    //[SerializeField] Renderer model;
+    [SerializeField] Material model;
+
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
@@ -119,9 +121,11 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashColor()
     {
-        model.material.color = Color.red;
+        //model.material.color = Color.red;
+        model.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material.color = Color.white;
+        model.color = Color.white;
+        //model.material.color = Color.white;
     }
 
     void facePlayer()
