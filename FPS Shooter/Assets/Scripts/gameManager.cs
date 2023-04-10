@@ -17,6 +17,8 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject winMenu;
+    public GameObject loseMenu;
+    public Image HPBar;
 
     public int enemiesRemaining;
 
@@ -82,5 +84,12 @@ public class gameManager : MonoBehaviour
             activeMenu.SetActive(true);
             pauseState();
         }
+    }
+
+    public void playerDead()
+    {
+        pauseState();
+        activeMenu = loseMenu;
+        activeMenu.SetActive(true);
     }
 }

@@ -6,10 +6,11 @@ public class playerController : MonoBehaviour
 {
     // variables //
     [Header("----- Components -----")]
-    [SerializeField] private CharacterController controller; // [SerializeField] -> we can see in the editor
+    [SerializeField] private CharacterController controller;
 
 
     [Header("----- Player Stats -----")]
+    [Range(1, 10)][SerializeField] int HP;
     [Range(3, 8)][SerializeField] float playerSpeed;
     [Range(8, 25)][SerializeField] float jumpHeight;
     [Range(10, 50)][SerializeField] float gravityValue;
@@ -26,17 +27,18 @@ public class playerController : MonoBehaviour
     private bool groundedPlayer;
 
     bool isShooting;
-
     Vector3 move;
+    int HPOrig;
 
     private void Start()
     {
-
+        HPOrig = HP;
+        playerUIUpdate();
     }
 
     void Update()
     {
-        if (!gameManager.instance.isPaused)
+        if (gameManager.instance.activeMenu == null)
         {
             Movement();
 
@@ -86,5 +88,21 @@ public class playerController : MonoBehaviour
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+
+    public void takeDamage(int amount)
+    {
+        HP -= amount;
+        playerUIUpdate();
+
+        if (HP <= 0)
+        {
+            gameManager.instance.playerDead();
+        }
+    }
+
+    void playerUIUpdate()
+    {
+        gameManager.instance.HPBar.fillAmount = (float)HP / (float)HPOrig;
     }
 }
