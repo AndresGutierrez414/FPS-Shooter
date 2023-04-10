@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   timer: 3
+  rotationSpeed: 360
 --- !u!33 &8850408588830500385
 MeshFilter:
   m_ObjectHideFlags: 0
