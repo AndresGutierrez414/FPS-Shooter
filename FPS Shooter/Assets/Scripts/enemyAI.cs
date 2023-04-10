@@ -9,7 +9,6 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     //[SerializeField] Renderer model;
     [SerializeField] Material model;
-
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
@@ -55,7 +54,6 @@ public class enemyAI : MonoBehaviour, IDamage
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
         Debug.DrawRay(headPos.position, playerDir);
-        Debug.Log(angleToPlayer);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))

@@ -1765,8 +1765,8 @@ MonoBehaviour:
   shootDamage: 1
   shootRate: 1
   shootDist: 1
-  bullet: {fileID: 0}
-  bulletSpeed: 30
+  bullet: {fileID: 57802747959512216, guid: 540bfdabdf5bdbf4285127eb4f1464e3, type: 3}
+  bulletSpeed: 15
 --- !u!95 &3364604888158286540
 Animator:
   serializedVersion: 5
