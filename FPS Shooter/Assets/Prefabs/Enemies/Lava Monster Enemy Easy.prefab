@@ -1721,7 +1721,7 @@ GameObject:
   - component: {fileID: 1914947249}
   - component: {fileID: 1914947250}
   m_Layer: 6
-  m_Name: Lava Monster Enemy
+  m_Name: Lava Monster Enemy Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
