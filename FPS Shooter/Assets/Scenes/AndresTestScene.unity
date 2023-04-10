@@ -1183,10 +1183,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 148750912451595470, guid: 2b612c13d14f7db43b5b3da4cf32db0c, type: 3}
-      propertyPath: drop
-      value: 
-      objectReference: {fileID: 7269106189603644637, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
     - target: {fileID: 8294089178165686796, guid: 2b612c13d14f7db43b5b3da4cf32db0c, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy (1)
