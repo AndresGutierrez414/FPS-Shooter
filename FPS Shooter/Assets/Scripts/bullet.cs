@@ -12,6 +12,7 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // destroy projectile after set time //
         Destroy(gameObject, timer);
     }
 
@@ -24,6 +25,7 @@ public class bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IDamage damagable = other.GetComponent<IDamage>();
+        // check if collision is with object that can take damage //
         if (damagable != null)
         {
             damagable.takeDamage(damage);

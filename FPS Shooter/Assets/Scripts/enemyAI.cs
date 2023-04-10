@@ -50,22 +50,27 @@ public class enemyAI : MonoBehaviour, IDamage
 
     bool canSeePlayer()
     {
+        // Calculate direction to player //
         playerDir = (gameManager.instance.player.transform.position - headPos.position);
+        // Calculate angle between enemy's forward direction and player //
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
         Debug.DrawRay(headPos.position, playerDir);
-
+        // raycast check if enemy has line of sight to the player // 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
+            // if raycast hit player and if player is in enemy's field of view //
             if (hit.collider.CompareTag("Player") && angleToPlayer <= sightAngle)
             {
                 agent.stoppingDistance = stoppingDistanceOrig;
                 agent.SetDestination(gameManager.instance.player.transform.position);
 
+                // Face player if enemy is close enough //
                 if (agent.remainingDistance < agent.stoppingDistance)
                     facePlayer();
 
+                // Shoot if enemy is not shooting //
                 if (!isShooting)
                 {
                     StartCoroutine(shoot());
@@ -81,6 +86,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         isShooting = true;
 
+        // Instantiate bullet and set initial velocity //
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
 
@@ -107,7 +113,9 @@ public class enemyAI : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
+        // Set destination of enemy to player's position //
         agent.SetDestination(gameManager.instance.player.transform.position);
+        // Reset stopping distance for Agent //
         agent.stoppingDistance = 0;
 
         StartCoroutine(flashColor());
@@ -121,15 +129,14 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashColor()
     {
-        //model.material.color = Color.red;
         model.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.color = Color.white;
-        //model.material.color = Color.white;
     }
 
     void facePlayer()
     {
+        // Calculate rotation needed to face player //
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
