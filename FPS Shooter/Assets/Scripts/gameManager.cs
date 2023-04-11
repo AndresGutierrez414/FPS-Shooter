@@ -6,49 +6,45 @@ using TMPro;
 
 public class gameManager : MonoBehaviour
 {
-    // variables //
+    //Componets and variables//
+    public static gameManager instance;                     //The single instance of the gameManager singleton
 
-    public static gameManager instance;
-
-    [Header("----- Player Stuff -----")]
+    [Header("----- Player Stuff -----")]                    //Player game object and controller
     public GameObject player;
     public playerController playerScript;
 
-    [Header("----- UI Stuff -----")]
+    [Header("----- UI Stuff -----")]                        //UI menus and HUD elements
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public bool isPaused;
+
     public Image HPBar;
     public TextMeshProUGUI enemiesRemainingText;
-
     public int enemiesRemaining;
 
-    public bool isPaused;
     float timeScaleOriginal;
 
-    // awake called before start
+    //Awake() is called before Start(). Used to prevent accidental null reference
     void Awake()
     {
         instance = this;
+        timeScaleOriginal = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
-        timeScaleOriginal = Time.timeScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if escape key down //
-        if (Input.GetButtonDown("Cancel") && activeMenu == null)
+        if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
         {
-            // toggle bool //
-            isPaused = !isPaused;
+            isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
             activeMenu = pauseMenu;
-
             activeMenu.SetActive(isPaused);
 
-            if (isPaused)
+            if (isPaused)                                   //Check for pause state
             {
                 pauseState();
             }
@@ -59,16 +55,14 @@ public class gameManager : MonoBehaviour
 
     public void pauseState()
     {
-        // stops time in game //
-        Time.timeScale = 0;
-        Cursor.visible = true;
+        Time.timeScale = 0;                                 //Za Waruldo! Toki wo tomare! Oh, and allows the cursor to move in the window
+        Cursor.visible = true;                              /*The World! Time is stopped!*/
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void unpauseState()
     {
-        // resume time to original state //
-        Time.timeScale = timeScaleOriginal;
+        Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
         Cursor.visible= false;
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
@@ -80,11 +74,9 @@ public class gameManager : MonoBehaviour
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0"); // "F1" 1 float // "F0" int
 
-
-        // if no more enemies, bring up win menu and pause game //
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0)                          //Check for no enemies remaining
         {
-            activeMenu = winMenu;
+            activeMenu = winMenu;                           //Set win menu to active menu and pause the game
             activeMenu.SetActive(true);
             pauseState();
         }
@@ -92,7 +84,7 @@ public class gameManager : MonoBehaviour
 
     public void playerDead()
     {
-        pauseState();
+        pauseState();                                       //Set lose menu to active menu and pause the game
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
     }
