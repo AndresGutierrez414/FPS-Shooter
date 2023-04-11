@@ -15,18 +15,22 @@ public class playerController : MonoBehaviour, IDamage
     [Range(8, 25)][SerializeField] float jumpHeight;
     [Range(10, 50)][SerializeField] float gravityValue;
     [Range(1, 3)][SerializeField] int jumpMax;
+    [SerializeField] GameObject cube;
 
 
     [Header("----- Gun Stats -----")]
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float shootRate;
+    [Range(0.8f, 2f)] [SerializeField] float pillowShootRate;
     [Range(1, 100)][SerializeField] int shootDist;
+    [Range(1, 4)] [SerializeField] int pillowShootDist;
 
     int jumpedTimes;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
     bool isShooting;
+    bool isPlacingP;
     Vector3 move;
     int HPOrig;
 
@@ -44,6 +48,10 @@ public class playerController : MonoBehaviour, IDamage
 
             if (!isShooting && Input.GetButton("Shoot"))
                 StartCoroutine(shoot());
+
+            if(!isPlacingP && Input.GetButton("PlacePillow"))
+                StartCoroutine(placePillow());
+
         }
 
     }
@@ -105,4 +113,20 @@ public class playerController : MonoBehaviour, IDamage
     {
         gameManager.instance.HPBar.fillAmount = (float)HP / (float)HPOrig;
     }
+
+    IEnumerator placePillow()
+    {
+
+        isPlacingP = true;
+        RaycastHit hit2;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit2, pillowShootDist))
+        {
+            Instantiate(cube, hit2.point, transform.rotation);
+        }
+
+            yield return new WaitForSeconds(pillowShootRate);
+
+        isPlacingP = false;
+    }
+
 }
