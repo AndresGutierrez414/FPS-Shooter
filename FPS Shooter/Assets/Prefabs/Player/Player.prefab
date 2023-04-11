@@ -154,15 +154,15 @@ MonoBehaviour:
   controller: {fileID: 4303810387877515687}
   HP: 10
   playerSpeed: 8
-  jumpHeight: 8
   gravityValue: 25
-  jumpMax: 2
-  cube: {fileID: 12482004233389737, guid: 93c224a9490a4b543938c00d31cd6da1, type: 3}
+  jumpHeight: 8
+  maxJumps: 1
   shootDamage: 1
-  shootRate: 0.5
+  fireRate: 1
   pillowShootRate: 2
   shootDist: 40
   pillowShootDist: 4
+  cube: {fileID: 12482004233389737, guid: 93c224a9490a4b543938c00d31cd6da1, type: 3}
 --- !u!33 &4303810387877515673
 MeshFilter:
   m_ObjectHideFlags: 0

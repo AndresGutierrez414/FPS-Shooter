@@ -1358,17 +1358,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f32d28340e6c8449e1421c43433246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 2100000, guid: 7941ab01d68fb8843b74b58995cecd0f, type: 2}
   agent: {fileID: 2644258322208339811}
   headPos: {fileID: 8021984686876978479}
   shootPos: {fileID: 2644258321732852847}
+  model: {fileID: 2100000, guid: 7941ab01d68fb8843b74b58995cecd0f, type: 2}
   HP: 3
+  sightAngle: 90
+  playerFaceSpeed: 5
   healthSlider: {fileID: 4853788759590721694}
   healthLeft: {fileID: 7896093585605689946}
-  playerFaceSpeed: 5
-  sightAngle: 90
   shootDamage: 1
-  shootRate: 0.9
+  fireRate: 1
   shootDist: 1
   bullet: {fileID: 5548825962725024512, guid: f0057c6ed366f1245b7ef37750ca5c37, type: 3}
   bulletSpeed: 18
