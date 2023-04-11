@@ -8,7 +8,6 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] private CharacterController controller;
 
-
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
     [Range(1, 10)][SerializeField] int HP;
     int maxHP;

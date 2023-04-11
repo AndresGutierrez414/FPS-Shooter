@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class endGoal : MonoBehaviour
 {
-    // variables //
-
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

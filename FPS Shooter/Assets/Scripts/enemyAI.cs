@@ -6,40 +6,42 @@ using UnityEngine.UI;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
-    // variables //
+    //Componets and variables//
     [Header("----- Components -----")]
-    //[SerializeField] Renderer model;
-    [SerializeField] Material model;
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform headPos;
+    [SerializeField] Transform headPos;                     //Enemy line of sight position and projectile firing position
     [SerializeField] Transform shootPos;
+    [SerializeField] Material model;                        /***Chance: Original code grabbed the color from the renderer,
+    //[SerializeField] Renderer model;                          but the ones we are using have their heirarchy set up weird***/
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField] int HP;
+    [SerializeField] int HP;                                //Enemy max hit points and current hit points
     private int maxHP;
-    [SerializeField] private Slider healthSlider; // health bar
-    [SerializeField] private Image healthLeft; // health bar filler
-    [SerializeField] int playerFaceSpeed;
-    [SerializeField] int sightAngle;
 
-    [Header("----- Gun Stats -----")]
+    [SerializeField] int sightAngle;                        //Enemy stationary rotation speed and line of sight arc angle
+    [SerializeField] int playerFaceSpeed;
+    float stoppingDistanceOrig;                             //Tracking the original stopping distance
+
+    Vector3 playerDir;                                      //Player information
+    float angleToPlayer;
+    bool playerInRange;
+
+
+    [SerializeField] private Slider healthSlider;           //Enemy health bar UI and health bar UI filler 
+    [SerializeField] private Image healthLeft;
+
+    [Header("----- Gun Stats -----")]                       //Enemy weapon statistics
     [Range(1, 10)][SerializeField] int shootDamage;
-    [Range(0.1f, 5f)][SerializeField] float shootRate;
+    [Range(0.1f, 5f)][SerializeField] float fireRate;
     [Range(1, 100)][SerializeField] int shootDist;
-    [SerializeField] GameObject bullet;
+    bool isShooting;
+
+    [SerializeField] GameObject bullet;                     //Enemy weapon projectile model and speed
     [SerializeField] int bulletSpeed;
 
-    private Animator animator;
+    private Animator animator;                              //Enemy animator and death drop game object
     [SerializeField] GameObject drop;
 
-    Vector3 playerDir;
-    bool playerInRange;
-    float angleToPlayer;
-    bool isShooting;
-    float stoppingDistanceOrig;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         gameManager.instance.updateGameGoal(1);
@@ -53,10 +55,9 @@ public class enemyAI : MonoBehaviour, IDamage
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //agent.speed = movementSpeed; // test  //Chance: This made like 999+ warning in Unity. What are you trying to do here?
+        //agent.speed = movementSpeed; // test  /***Chance: This made like 999+ warning in Unity. What are you trying to do here?***/
         float agentSpeed = agent.velocity.magnitude;
         animator.SetFloat("Speed", agentSpeed);
 
@@ -66,10 +67,11 @@ public class enemyAI : MonoBehaviour, IDamage
         }
     }
 
+    //Checks if 
     bool canSeePlayer()
     {
-        // calculate direction to player chest pos //
-        Vector3 playerChestPos = gameManager.instance.player.transform.position;
+        // calculate direction to player chest pos //                                   /***Chance: What's the point to all this?***/
+        Vector3 playerChestPos = gameManager.instance.player.transform.position;        /***How it different from casting to this value?***/
         playerChestPos.y += gameManager.instance.player.transform.localScale.y / 2;
         playerDir = (playerChestPos - headPos.position);
 
@@ -118,10 +120,11 @@ public class enemyAI : MonoBehaviour, IDamage
         GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(bulletDirection));
         bulletClone.GetComponent<Rigidbody>().velocity = bulletDirection * bulletSpeed;
 
-        yield return new WaitForSeconds(shootRate);
+        yield return new WaitForSeconds(fireRate);
         isShooting = false;
     }
 
+    //Check for player when something enters its collider
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -130,6 +133,7 @@ public class enemyAI : MonoBehaviour, IDamage
         }
     }
 
+    //Check for player when something exits its collider
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -160,6 +164,7 @@ public class enemyAI : MonoBehaviour, IDamage
         }
     }
 
+    //Flashes the enemy red
     IEnumerator flashColor()
     {
         model.color = Color.red;
@@ -167,12 +172,11 @@ public class enemyAI : MonoBehaviour, IDamage
         model.color = Color.white;
     }
 
+    //Faces the player
     void facePlayer()
     {
         // Calculate rotation needed to face player //
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
-
-   
 }
