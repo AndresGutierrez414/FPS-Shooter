@@ -53,8 +53,11 @@ public class enemyAI : MonoBehaviour, IDamage
 
     bool canSeePlayer()
     {
-        // Calculate direction to player //
-        playerDir = (gameManager.instance.player.transform.position - headPos.position);
+        // calculate direction to player chest pos //
+        Vector3 playerChestPos = gameManager.instance.player.transform.position;
+        playerChestPos.y += gameManager.instance.player.transform.localScale.y / 2;
+        playerDir = (playerChestPos - headPos.position);
+
         // Calculate angle between enemy's forward direction and player //
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
@@ -89,9 +92,14 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         isShooting = true;
 
+        // Calculate direction from shootPos to player's chest //
+        Vector3 playerChestPos = gameManager.instance.player.transform.position;
+        playerChestPos.y += gameManager.instance.player.transform.localScale.y / 2;
+        Vector3 bulletDirection = (playerChestPos - shootPos.position).normalized;
+
         // Instantiate bullet and set initial velocity //
-        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(bulletDirection));
+        bulletClone.GetComponent<Rigidbody>().velocity = bulletDirection * bulletSpeed;
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;

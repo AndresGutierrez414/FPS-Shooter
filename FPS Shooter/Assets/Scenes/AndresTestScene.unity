@@ -1370,10 +1370,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 5548825962725024512, guid: f0057c6ed366f1245b7ef37750ca5c37, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
@@ -1646,22 +1642,6 @@ PrefabInstance:
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: HP
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 6802078874061164554, guid: 5f92fe5649652494ab6d85c4c3c1d399, type: 3}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: shootRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: bulletSpeed
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c651c0aa7b565544b86f866f70670508, type: 3}

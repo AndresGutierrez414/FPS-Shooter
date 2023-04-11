@@ -1759,7 +1759,7 @@ MonoBehaviour:
   agent: {fileID: 1914947250}
   headPos: {fileID: 5467821285630680318}
   shootPos: {fileID: 1593519550}
-  HP: 3
+  HP: 2
   playerFaceSpeed: 5
   sightAngle: 90
   shootDamage: 1
