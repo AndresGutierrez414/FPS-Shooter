@@ -157,7 +157,7 @@ MonoBehaviour:
   jumpHeight: 8
   gravityValue: 25
   jumpMax: 2
-  cube: {fileID: 7814593636957588016, guid: d6456fe633c3bc442913712ec48276bf, type: 3}
+  cube: {fileID: 12482004233389737, guid: 93c224a9490a4b543938c00d31cd6da1, type: 3}
   shootDamage: 1
   shootRate: 0.5
   pillowShootRate: 2
