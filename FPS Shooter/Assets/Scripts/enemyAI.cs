@@ -56,7 +56,7 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        //agent.speed = movementSpeed; // test
+        //agent.speed = movementSpeed; // test  //Chance: This made like 999+ warning in Unity. What are you trying to do here?
         float agentSpeed = agent.velocity.magnitude;
         animator.SetFloat("Speed", agentSpeed);
 
