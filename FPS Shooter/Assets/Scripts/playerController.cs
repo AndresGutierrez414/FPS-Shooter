@@ -23,7 +23,7 @@ public class playerController : MonoBehaviour, IDamage
     [Range(0.1f, 5f)][SerializeField] float shootRate;
     [Range(0.8f, 2f)] [SerializeField] float pillowShootRate;
     [Range(1, 100)][SerializeField] int shootDist;
-    [Range(1, 4)] [SerializeField] int pillowShootDist;
+    [Range(1, 50)] [SerializeField] int pillowShootDist;
 
     int jumpedTimes;
     private Vector3 playerVelocity;
