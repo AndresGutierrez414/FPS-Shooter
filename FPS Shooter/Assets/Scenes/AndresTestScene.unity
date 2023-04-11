@@ -373,10 +373,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: healthBarPrefab
-      value: 
-      objectReference: {fileID: 3194964375085536705, guid: 93c048fa7050d294c8a5e8f1d44e6304, type: 3}
     - target: {fileID: 8294089178165686796, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Easy
@@ -1374,10 +1370,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: healthBarPrefab
-      value: 
-      objectReference: {fileID: 3194964375085536705, guid: 93c048fa7050d294c8a5e8f1d44e6304, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
@@ -1428,103 +1420,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
---- !u!1001 &3659203775255525810
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1065
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 392
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 532.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 196
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185665, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659203774305185693, guid: 740fcef47f224724b9745272a7e46064, type: 3}
-      propertyPath: m_Name
-      value: World UI Canvas
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 740fcef47f224724b9745272a7e46064, type: 3}
 --- !u!1001 &3730085014154172642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1748,10 +1643,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: healthBarPrefab
-      value: 
-      objectReference: {fileID: 3194964375085536705, guid: 93c048fa7050d294c8a5e8f1d44e6304, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c651c0aa7b565544b86f866f70670508, type: 3}
 --- !u!4 &7580239009096936074 stripped

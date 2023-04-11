@@ -14,8 +14,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField] private int hp;
-    [SerializeField] private int maxHP;
+    [SerializeField] int HP;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int sightAngle;
 
@@ -26,13 +25,8 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] int bulletSpeed;
 
-    //[Header("----- Health Bar -----")]
-    //[SerializeField] GameObject enemyHealthCanvasPrefab;
-    //private GameObject enemyHealthCanvas;
-
     [SerializeField] GameObject drop;
-    [SerializeField] private GameObject healthBarPrefab;
-    private enemyHealthBar healthBar;
+
 
     Vector3 playerDir;
     bool playerInRange;
@@ -41,29 +35,11 @@ public class enemyAI : MonoBehaviour, IDamage
     float stoppingDistanceOrig;
 
 
-    public int HP
-    {
-        get { return hp; }
-        set { hp = value; }
-    }
-
-    public int MaxHP
-    {
-        get { return maxHP; }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
-
-        // Instantiate the health bar prefab as a child of the enemy
-        GameObject healthBarInstance = Instantiate(healthBarPrefab, transform.position, Quaternion.identity, transform);
-        healthBar = healthBarInstance.GetComponent<enemyHealthBar>();
-
-        // Set initial health bar value
-        healthBar.updateHealthBar();
     }
 
     // Update is called once per frame
@@ -147,9 +123,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
-        hp -= amount;
-        // update health bar //
-        healthBar.updateHealthBar();
+        HP -= amount;
         // Set destination of enemy to player's position //
         agent.SetDestination(gameManager.instance.player.transform.position);
         // Reset stopping distance for Agent //
@@ -157,7 +131,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
         StartCoroutine(flashColor());
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             Instantiate(drop, transform.position, drop.transform.rotation);
             gameManager.instance.updateGameGoal(-1);
