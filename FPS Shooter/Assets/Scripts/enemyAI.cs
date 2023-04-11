@@ -29,8 +29,8 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] int bulletSpeed;
 
+    private Animator animator;
     [SerializeField] GameObject drop;
-
 
     Vector3 playerDir;
     bool playerInRange;
@@ -45,14 +45,21 @@ public class enemyAI : MonoBehaviour, IDamage
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
 
+        // health bar setup //
         maxHP = HP;
         healthSlider.maxValue = maxHP;
         healthSlider.value = HP;
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //agent.speed = movementSpeed; // test
+        float agentSpeed = agent.velocity.magnitude;
+        animator.SetFloat("Speed", agentSpeed);
+
         if (playerInRange)
         {
             canSeePlayer();
@@ -98,6 +105,8 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
+        animator.SetTrigger("Attack");
+
         isShooting = true;
 
         // Calculate direction from shootPos to player's chest //
@@ -131,6 +140,8 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
+        animator.SetTrigger("Damaged");
+
         HP -= amount;
         healthSlider.value = HP;
         healthLeft.fillAmount = (float)HP / maxHP;
@@ -162,4 +173,6 @@ public class enemyAI : MonoBehaviour, IDamage
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
+
+   
 }
