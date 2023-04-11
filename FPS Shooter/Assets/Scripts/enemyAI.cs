@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
@@ -15,6 +16,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
+    private int maxHP;
+    [SerializeField] private Slider healthSlider; // health bar
+    [SerializeField] private Image healthLeft; // health bar filler
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int sightAngle;
 
@@ -40,6 +44,10 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
+
+        maxHP = HP;
+        healthSlider.maxValue = maxHP;
+        healthSlider.value = HP;
     }
 
     // Update is called once per frame
@@ -124,6 +132,8 @@ public class enemyAI : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
+        healthSlider.value = HP;
+        healthLeft.fillAmount = (float)HP / maxHP;
         // Set destination of enemy to player's position //
         agent.SetDestination(gameManager.instance.player.transform.position);
         // Reset stopping distance for Agent //

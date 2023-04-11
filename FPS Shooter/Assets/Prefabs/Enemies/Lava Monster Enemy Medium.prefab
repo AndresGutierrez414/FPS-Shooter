@@ -1362,6 +1362,8 @@ MonoBehaviour:
   headPos: {fileID: 8021984686876978479}
   shootPos: {fileID: 2644258321732852847}
   HP: 3
+  healthSlider: {fileID: 0}
+  healthLeft: {fileID: 0}
   playerFaceSpeed: 5
   sightAngle: 90
   shootDamage: 1
