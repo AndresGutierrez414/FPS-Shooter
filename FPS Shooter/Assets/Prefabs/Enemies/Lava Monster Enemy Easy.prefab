@@ -1759,7 +1759,8 @@ MonoBehaviour:
   agent: {fileID: 1914947250}
   headPos: {fileID: 5467821285630680318}
   shootPos: {fileID: 1593519550}
-  HP: 2
+  hp: 2
+  maxHP: 2
   playerFaceSpeed: 5
   sightAngle: 90
   shootDamage: 1
@@ -1768,6 +1769,7 @@ MonoBehaviour:
   bullet: {fileID: 57802747959512216, guid: 540bfdabdf5bdbf4285127eb4f1464e3, type: 3}
   bulletSpeed: 15
   drop: {fileID: 7269106189603644637, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
+  healthBar: {fileID: 0}
 --- !u!95 &3364604888158286540
 Animator:
   serializedVersion: 5
