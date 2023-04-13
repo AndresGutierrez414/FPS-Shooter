@@ -1430,7 +1430,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.2
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -2949,7 +2949,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 69350070693bea14084c1e4c7c2c8497, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 299166cc9328e484ba27f7c6c60bcc79, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ba8162d09542e34b9a72bb543447494, type: 2}
     - target: {fileID: 919132149155446097, guid: 69350070693bea14084c1e4c7c2c8497, type: 3}
       propertyPath: m_Name
       value: 03.Hips
@@ -3345,7 +3345,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2d4922b3510de5449ba037c5324e0154, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9a526ccb9696d6545b3991e93bfb18bd, type: 2}
+      objectReference: {fileID: 2100000, guid: 787cb25de3401c44b939f2599cda764c, type: 2}
     - target: {fileID: 919132149155446097, guid: 2d4922b3510de5449ba037c5324e0154, type: 3}
       propertyPath: m_Name
       value: 03.Head
@@ -4467,7 +4467,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f15bd2c1232c9084ea5b43b4f49cc52c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 196a83e4fac7a644ebc189706f6c2082, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ba8162d09542e34b9a72bb543447494, type: 2}
     - target: {fileID: 919132149155446097, guid: f15bd2c1232c9084ea5b43b4f49cc52c, type: 3}
       propertyPath: m_Name
       value: 03.Spine
@@ -4731,7 +4731,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9eef72d48b46b0a4ea079f5cd425a413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 299166cc9328e484ba27f7c6c60bcc79, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ba8162d09542e34b9a72bb543447494, type: 2}
     - target: {fileID: 919132149155446097, guid: 9eef72d48b46b0a4ea079f5cd425a413, type: 3}
       propertyPath: m_Name
       value: 03.Chest

@@ -3400,26 +3400,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2644258322208339811, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Speed
-      value: 4.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5523718503384532785, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6042eaad9823b6f488f160b2bce47ac7, type: 2}
-    - target: {fileID: 5523718503824104572, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6042eaad9823b6f488f160b2bce47ac7, type: 2}
-    - target: {fileID: 5523718504528635362, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 787cb25de3401c44b939f2599cda764c, type: 2}
-    - target: {fileID: 5523718504718646598, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6042eaad9823b6f488f160b2bce47ac7, type: 2}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
@@ -3682,10 +3662,6 @@ PrefabInstance:
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991925833354036510, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: m_Speed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
