@@ -2274,11 +2274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6119128001445444288, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6119128001445444288, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8170492679666855254, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
       propertyPath: m_RootOrder
@@ -3587,6 +3587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3730085013620220985, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3730085014866538731, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
       propertyPath: m_Name
       value: UI

@@ -44,7 +44,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        gameManager.instance.updateGameGoal(1);
+        //gameManager.instance.updateGameGoal(1); // for winning when game goal is 0 
         stoppingDistanceOrig = agent.stoppingDistance;
 
         // health bar setup //
@@ -159,7 +159,7 @@ public class enemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             Instantiate(drop, transform.position, drop.transform.rotation);
-            gameManager.instance.updateGameGoal(-1);
+            //gameManager.instance.updateGameGoal(-1); // for winning when enemy count is 0
             Destroy(gameObject);
         }
     }

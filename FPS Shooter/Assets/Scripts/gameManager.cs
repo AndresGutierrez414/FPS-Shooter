@@ -69,18 +69,18 @@ public class gameManager : MonoBehaviour
         activeMenu= null;
     }
 
-    public void updateGameGoal(int amount)
-    {
-        enemiesRemaining += amount;
-        enemiesRemainingText.text = enemiesRemaining.ToString("F0"); // "F1" 1 float // "F0" int
+    //public void updateGameGoal(int amount)
+    //{
+    //    enemiesRemaining += amount;
+    //    enemiesRemainingText.text = enemiesRemaining.ToString("F0"); // "F1" 1 float // "F0" int
 
-        if (enemiesRemaining <= 0)                          //Check for no enemies remaining
-        {
-            activeMenu = winMenu;                           //Set win menu to active menu and pause the game
-            activeMenu.SetActive(true);
-            pauseState();
-        }
-    }
+    //    if (enemiesRemaining <= 0)                          //Check for no enemies remaining
+    //    {
+    //        activeMenu = winMenu;                           //Set win menu to active menu and pause the game
+    //        activeMenu.SetActive(true);
+    //        pauseState();
+    //    }
+    //}
 
     public void playerDead()
     {
