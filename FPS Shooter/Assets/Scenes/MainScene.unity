@@ -3165,6 +3165,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1184203256994873412, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
   m_PrefabInstance: {fileID: 1138003580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1091945096
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739120055579211823, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_Name
+      value: Lava Flow Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858138647985061206, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
 --- !u!4 &1094566712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1184203256994873412, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}

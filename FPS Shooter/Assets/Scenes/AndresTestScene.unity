@@ -3781,10 +3781,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava Flow Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 6858138647979253626, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
-      propertyPath: uvAnimationRate.x
-      value: 0.02
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
 --- !u!4 &7580239009096936074 stripped
