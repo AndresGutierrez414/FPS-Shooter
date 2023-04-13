@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8170492679666855254}
   - component: {fileID: 6662440930375163830}
-  - component: {fileID: 1975848973}
   - component: {fileID: 4134386448070939983}
   - component: {fileID: 4297051624031156688}
   - component: {fileID: 6119128001445444288}
@@ -48,20 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba50b992b11aa9f47a2741f7bb0b0e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1975848973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5859042031172001111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d28cb150ad86f4a8100312a4aea7a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uvAnimationRate: {x: 1, y: 0}
-  textureName: _MainTex
 --- !u!33 &4134386448070939983
 MeshFilter:
   m_ObjectHideFlags: 0
