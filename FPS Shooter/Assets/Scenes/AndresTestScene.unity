@@ -3404,6 +3404,22 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 4.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5523718503384532785, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6042eaad9823b6f488f160b2bce47ac7, type: 2}
+    - target: {fileID: 5523718503824104572, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6042eaad9823b6f488f160b2bce47ac7, type: 2}
+    - target: {fileID: 5523718504528635362, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cb25de3401c44b939f2599cda764c, type: 2}
+    - target: {fileID: 5523718504718646598, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6042eaad9823b6f488f160b2bce47ac7, type: 2}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
@@ -3751,7 +3767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 2031789526151024245, guid: 00841db0382326c4d88c4405aa4b0da0, type: 3}
       propertyPath: m_LocalPosition.z
