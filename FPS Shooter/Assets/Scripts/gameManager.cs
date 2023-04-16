@@ -12,6 +12,7 @@ public class gameManager : MonoBehaviour
     [Header("----- Player Stuff -----")]                    //Player game object and controller
     public GameObject player;
     public playerController playerScript;
+    public GameObject playerSpawnLocation;
 
     [Header("----- UI Stuff -----")]                        //UI menus and HUD elements
     public GameObject activeMenu;
@@ -32,6 +33,7 @@ public class gameManager : MonoBehaviour
         instance = this;
         timeScaleOriginal = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
         playerScript = player.GetComponent<playerController>();
     }
 

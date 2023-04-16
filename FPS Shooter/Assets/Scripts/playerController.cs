@@ -130,4 +130,14 @@ public class playerController : MonoBehaviour, IDamage
         isPlacingP = false;
     }
 
+    //Function that will respawn the player
+    public void RespawnPlayer()
+    {
+        HP = maxHP;
+        playerUIUpdate();
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawnLocation.transform.position;
+        controller.enabled = true;
+    }
+
 }
