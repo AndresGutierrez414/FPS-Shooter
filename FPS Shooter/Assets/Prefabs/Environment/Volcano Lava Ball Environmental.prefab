@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minYPos: 0
-  launchForceRange: {x: 30, y: 30}
+  launchForceRange: {x: 30, y: 60}
   launchArcRange: {x: 25, y: 80}
 --- !u!33 &7786552435349272023
 MeshFilter:
@@ -157,7 +157,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 5

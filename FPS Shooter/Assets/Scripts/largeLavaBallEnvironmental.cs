@@ -8,18 +8,15 @@ public class largeLavaBallEnvironmental : MonoBehaviour
     [SerializeField] float minYPos;
     [SerializeField] Vector2 launchForceRange;
     [SerializeField] Vector2 launchArcRange;
+    private float initialTrailTime;
 
     private Rigidbody rb;
+    private TrailRenderer trailRenderer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -27,13 +24,14 @@ public class largeLavaBallEnvironmental : MonoBehaviour
     {
         if (transform.position.y < minYPos)
         {
+            trailRenderer.enabled = false;
             gameObject.SetActive(false);
         }
     }
 
     private void OnEnable()
     {
-            LaunchLavaBall();
+        LaunchLavaBall();
     }
 
     private void LaunchLavaBall()
@@ -41,12 +39,17 @@ public class largeLavaBallEnvironmental : MonoBehaviour
         float launchForce = Random.Range(launchForceRange.x, launchForceRange.y);
         float launchArc = Random.Range(launchArcRange.x, launchArcRange.y);
         LaunchWithForceAndArc(launchForce, launchArc);
+
+        trailRenderer.Clear();
+        trailRenderer.enabled = true;
     }
 
     public void LaunchWithForceAndArc(float force, float arc)
     {
         // Apply the random launch force and arc
-        Vector3 launchDirection = Quaternion.Euler(0, arc, 0) * Vector3.up;
+        float randomYRotation = Random.Range(0, 360);
+        Vector3 launchDirection = Quaternion.Euler(arc, randomYRotation, 0) * Vector3.forward;
+        launchDirection.y = Mathf.Abs(launchDirection.y); // Ensure the launch direction is upwards
         rb.velocity = Vector3.zero;
         rb.AddForce(launchDirection * force, ForceMode.Impulse);
     }
