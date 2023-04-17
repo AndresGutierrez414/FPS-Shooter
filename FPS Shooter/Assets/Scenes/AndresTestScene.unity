@@ -1069,6 +1069,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: animTransSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1788,7 +1792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 797471312228275203, guid: d2a8806a3d5344f49a505112515e59f6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 797471312228275203, guid: d2a8806a3d5344f49a505112515e59f6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3395,10 +3399,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 781986537}
     m_Modifications:
-    - target: {fileID: 230074287782782902, guid: 5836cbcc37f787646a78c0232fbb254b, type: 3}
-      propertyPath: spawnInterval
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 230074287782782903, guid: 5836cbcc37f787646a78c0232fbb254b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3522,10 +3522,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3730085014264234776, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
-      propertyPath: playerSpawnLocation
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3730085014866538731, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
       propertyPath: m_Name
       value: UI

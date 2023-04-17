@@ -59,6 +59,8 @@ public class enemyAI : MonoBehaviour, IDamage
         healthSlider.value = HP;
 
         animator = GetComponent<Animator>();
+
+        agent.updateRotation = false; // test
     }
 
     void Update()
@@ -67,6 +69,12 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             speed = Mathf.Lerp(speed, agent.velocity.normalized.magnitude, Time.deltaTime * animTransSpeed);
             animator.SetFloat("Speed", speed);
+
+            if (agent.velocity.magnitude > 0.1f) // test
+            {
+                Quaternion rotation = Quaternion.LookRotation(agent.velocity.normalized);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
+            }
 
             // if player in range and can see player //
             if (playerInRange && !canSeePlayer()) 
@@ -174,6 +182,7 @@ public class enemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            agent.stoppingDistance = 0;
         }
     }
 

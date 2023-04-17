@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lavaBallPrefab: {fileID: 1589991515824316270, guid: 7469e5a8db88cca4dbed95b358ecebe2, type: 3}
-  spawnInterval: 0.5
+  spawnInterval: 0.15
   xRange: {x: 50, y: -40}
   zRange: {x: 50, y: -40}
   yOffset: -1
