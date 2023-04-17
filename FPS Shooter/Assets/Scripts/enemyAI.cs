@@ -9,38 +9,43 @@ public class enemyAI : MonoBehaviour, IDamage
     //Componets and variables//
     [Header("----- Components -----")]
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform headPos;                     //Enemy line of sight position and projectile firing position
+    [SerializeField] Transform headPos;                     
     [SerializeField] Transform shootPos;
-    [SerializeField] Material model;                        /***Chance: Original code grabbed the color from the renderer,
-    //[SerializeField] Renderer model;                          but the ones we are using have their heirarchy set up weird***/
+    [SerializeField] Material model;      
+    [SerializeField] Animator animator;
+
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField] int HP;                                //Enemy max hit points and current hit points
+    [SerializeField] int HP;                                
     private int maxHP;
-
-    [SerializeField] int sightAngle;                        //Enemy stationary rotation speed and line of sight arc angle
+    [SerializeField] int sightAngle;                        
     [SerializeField] int playerFaceSpeed;
-    float stoppingDistanceOrig;                             //Tracking the original stopping distance
+    [SerializeField] int roamPauseTime;
+    [SerializeField] int roamDist;
+    [SerializeField] float animTransSpeed;
 
-    Vector3 playerDir;                                      //Player information
+    Vector3 playerDir;                                      
     float angleToPlayer;
     bool playerInRange;
 
-
-    [SerializeField] private Slider healthSlider;           //Enemy health bar UI and health bar UI filler 
+    // health bar canvas //
+    [SerializeField] private Slider healthSlider;           
     [SerializeField] private Image healthLeft;
 
-    [Header("----- Gun Stats -----")]                       //Enemy weapon statistics
+    [Header("----- Gun Stats -----")]                       
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float fireRate;
     [Range(1, 100)][SerializeField] int shootDist;
+    [SerializeField] GameObject bullet;                     
+    [SerializeField] int bulletSpeed;
     bool isShooting;
 
-    [SerializeField] GameObject bullet;                     //Enemy weapon projectile model and speed
-    [SerializeField] int bulletSpeed;
-
-    private Animator animator;                              //Enemy animator and death drop game object
     [SerializeField] GameObject drop;
+    float stoppingDistanceOrig;
+    bool destinationChosen;
+    Vector3 startingPos;
+    float speed;
+
 
     void Start()
     {
@@ -57,7 +62,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void Update()
     {
-        //agent.speed = movementSpeed; // test  /***Chance: This made like 999+ warning in Unity. What are you trying to do here?***/
+        //agent.speed = movementSpeed; // test  
         float agentSpeed = agent.velocity.magnitude;
         animator.SetFloat("Speed", agentSpeed);
 
@@ -70,8 +75,8 @@ public class enemyAI : MonoBehaviour, IDamage
     //Checks if 
     bool canSeePlayer()
     {
-        // calculate direction to player chest pos //                                   /***Chance: What's the point to all this?***/
-        Vector3 playerChestPos = gameManager.instance.player.transform.position;        /***How it different from casting to this value?***/
+        // calculate direction to player chest pos //                                   
+        Vector3 playerChestPos = gameManager.instance.player.transform.position;        
         playerChestPos.y += gameManager.instance.player.transform.localScale.y / 2;
         playerDir = (playerChestPos - headPos.position);
 
