@@ -13,7 +13,11 @@ public class largeLavaBallEnvironmental : MonoBehaviour
     private Rigidbody rb;
     private TrailRenderer trailRenderer;
 
-    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private GameObject bigExplosionPrefab;
+    [SerializeField] private GameObject sparklesPrefab;
+    [SerializeField] private GameObject showckwavePrefab;
+    [SerializeField] private GameObject verticalEffectPrefab;
+
 
     private void Awake()
     {
@@ -33,18 +37,24 @@ public class largeLavaBallEnvironmental : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Floor")) 
+        Debug.Log("collision detected");
+        if (collision.collider.CompareTag("Floor"))
         {
+            Debug.Log("Create explosion called");
             createExplosion();
         }
     }
 
     private void createExplosion()
     {
-        if (explosionPrefab != null)
+        if (bigExplosionPrefab != null)
         {
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject bigExplosion = Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
         }
+        GameObject sparkles = Instantiate(sparklesPrefab, transform.position, Quaternion.identity);
+        GameObject shockwave = Instantiate(showckwavePrefab, transform.position, Quaternion.identity);
+        GameObject verticalEffect = Instantiate(verticalEffectPrefab, transform.position, Quaternion.identity);
+
     }
 
     private void OnEnable()

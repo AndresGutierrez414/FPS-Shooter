@@ -49,9 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f3e8aeccac3a6469704adfd1657896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minYPos: 0
+  minYPos: -5
   launchForceRange: {x: 30, y: 60}
   launchArcRange: {x: 25, y: 80}
+  bigExplosionPrefab: {fileID: 3037224178719683777, guid: 91f0999981c96e946a73dd2fc223f5b5, type: 3}
+  sparklesPrefab: {fileID: 1663654293529362519, guid: 4ecdeedcf462b99489d6392f649640ef, type: 3}
+  showckwavePrefab: {fileID: 747998970257853232, guid: c1890c4dc7e10f84a894705eec0441d2, type: 3}
+  verticalEffectPrefab: {fileID: 3988719876146219437, guid: 43604da9ea273d744a4da7874159686f, type: 3}
 --- !u!33 &7786552435349272023
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,7 +117,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &7000469108581821119
 TrailRenderer:
