@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawn Location
   - Large Lava Ball
+  - Floor
   layers:
   - Default
   - TransparentFX
