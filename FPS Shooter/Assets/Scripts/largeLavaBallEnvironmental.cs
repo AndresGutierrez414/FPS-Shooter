@@ -13,6 +13,8 @@ public class largeLavaBallEnvironmental : MonoBehaviour
     private Rigidbody rb;
     private TrailRenderer trailRenderer;
 
+    [SerializeField] private GameObject explosionPrefab;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,6 +28,22 @@ public class largeLavaBallEnvironmental : MonoBehaviour
         {
             trailRenderer.enabled = false;
             gameObject.SetActive(false);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Floor")) 
+        {
+            createExplosion();
+        }
+    }
+
+    private void createExplosion()
+    {
+        if (explosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
     }
 
