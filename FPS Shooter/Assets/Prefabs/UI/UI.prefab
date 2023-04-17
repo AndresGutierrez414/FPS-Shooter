@@ -556,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3730085013620220990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1632,14 +1632,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  playerSpawnLocation: {fileID: 0}
   activeMenu: {fileID: 0}
   pauseMenu: {fileID: 3730085014469912129}
   winMenu: {fileID: 3730085013776530863}
   loseMenu: {fileID: 3730085013785859077}
+  isPaused: 0
   HPBar: {fileID: 3730085013682853039}
   enemiesRemainingText: {fileID: 3730085013788552478}
   enemiesRemaining: 0
-  isPaused: 0
 --- !u!114 &3730085014264234779
 MonoBehaviour:
   m_ObjectHideFlags: 0

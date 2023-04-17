@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 01000000010000000100000000000000000000000100000001000000010000000100000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Rig
+    m_Weight: 1
+  - m_Path: Rig/root
+    m_Weight: 1
+  - m_Path: Rig/root/footSatellite01
+    m_Weight: 0
+  - m_Path: Rig/root/footSatellite02
+    m_Weight: 0
+  - m_Path: Rig/root/footSatellite03
+    m_Weight: 0
+  - m_Path: Rig/root/footSatellite04
+    m_Weight: 0
+  - m_Path: Rig/root/hips
+    m_Weight: 1
+  - m_Path: Rig/root/hips/hipsSatelliteRoot
+    m_Weight: 0
+  - m_Path: Rig/root/hips/hipsSatelliteRoot/hipsSatellite04
+    m_Weight: 0
+  - m_Path: Rig/root/hips/hipsSatelliteRoot/hipsSatellite05
+    m_Weight: 0
+  - m_Path: Rig/root/hips/hipsSatelliteRoot/hipsSatellite06
+    m_Weight: 0
+  - m_Path: Rig/root/hips/hipsSatelliteRoot/hipsSatellitel01
+    m_Weight: 0
+  - m_Path: Rig/root/hips/hipsSatelliteRoot/hipsSatellitel02
+    m_Weight: 0
+  - m_Path: Rig/root/hips/hipsSatelliteRoot/hipsSatellitel03
+    m_Weight: 0
+  - m_Path: Rig/root/hips/spine
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot/backSatellite01
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot/backSatellite02
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot/backSatellite03
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot/backSatellite04
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot/backSatellite05
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/backSatellitesRoot/backSatellite06
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/head
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/head/jaw
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_index_01.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_index_01.L/f_index_02.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_index_01.L/f_index_02.L/f_index_03.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_middle_01.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_middle_01.L/f_middle_02.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_middle_01.L/f_middle_02.L/f_middle_03.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_ring_01.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_ring_01.L/f_ring_02.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/f_ring_01.L/f_ring_02.L/f_ring_03.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/thumb_01.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/thumb_01.L/thumb_02.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.L/upper_arm.L/forearm.L/hand.L/thumb_01.L/thumb_02.L/thumb_03.L
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_index_01.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_index_01.R/f_index_02.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_index_01.R/f_index_02.R/f_index_03.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_middle_01.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_middle_01.R/f_middle_02.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_middle_01.R/f_middle_02.R/f_middle_03.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_ring_01.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_ring_01.R/f_ring_02.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/f_ring_01.R/f_ring_02.R/f_ring_03.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/thumb_01.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/thumb_01.R/thumb_02.R
+    m_Weight: 1
+  - m_Path: Rig/root/hips/spine/chest/shoulder.R/upper_arm.R/forearm.R/hand.R/thumb_01.R/thumb_02.R/thumb_03.R
+    m_Weight: 1

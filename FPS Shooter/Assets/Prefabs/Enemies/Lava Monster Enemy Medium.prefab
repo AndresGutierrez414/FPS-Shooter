@@ -1362,9 +1362,13 @@ MonoBehaviour:
   headPos: {fileID: 8021984686876978479}
   shootPos: {fileID: 2644258321732852847}
   model: {fileID: 2100000, guid: 7941ab01d68fb8843b74b58995cecd0f, type: 2}
+  animator: {fileID: 721473960453948189}
   HP: 3
   sightAngle: 90
   playerFaceSpeed: 5
+  roamPauseTime: 1
+  roamDist: 20
+  animTransSpeed: 3
   healthSlider: {fileID: 4853788759590721694}
   healthLeft: {fileID: 7896093585605689946}
   shootDamage: 1
@@ -1383,7 +1387,7 @@ Animator:
   m_GameObject: {fileID: 6316523630448657373}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 918f06e849805464189af268ec211684, type: 3}
-  m_Controller: {fileID: 9100000, guid: db756abd0c9c5964a8f4b8127cf72bd0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50f0f5746f714414f9b2cfda0c64b0ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
