@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spawn Location
+  - Large Lava Ball
   layers:
   - Default
   - TransparentFX
