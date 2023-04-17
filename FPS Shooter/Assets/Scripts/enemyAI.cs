@@ -24,9 +24,6 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int roamDist;
     [SerializeField] float animTransSpeed;
 
-    Vector3 playerDir;
-    float angleToPlayer;
-    bool playerInRange;
 
     // health bar canvas //
     [SerializeField] private Slider healthSlider;
@@ -40,7 +37,13 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int bulletSpeed;
     bool isShooting;
 
+    [Header("----- Death Settings -----")]
+    [SerializeField] float deathAnimationTime;
     [SerializeField] GameObject drop;
+
+    Vector3 playerDir;
+    float angleToPlayer;
+    bool playerInRange;
     float stoppingDistanceOrig;
     bool destinationChosen;
     Vector3 startingPos;
@@ -210,8 +213,8 @@ public class enemyAI : MonoBehaviour, IDamage
             GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
 
-            Destroy(gameObject); // replace this with death animation
-
+            animator.enabled = false;
+            StartCoroutine(deathAnimation(deathAnimationTime));
         }
         // if not dead //
         else
@@ -220,6 +223,25 @@ public class enemyAI : MonoBehaviour, IDamage
             agent.SetDestination(gameManager.instance.player.transform.position);
             agent.stoppingDistance = 0;
         }
+    }
+
+    IEnumerator deathAnimation(float time)
+    {
+        float elapsedTime = 0f;
+        Quaternion initialRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(-90, transform.eulerAngles.y, transform.eulerAngles.z);
+
+        while (elapsedTime < time)
+        {
+            transform.rotation = Quaternion.Lerp(initialRotation, targetRotation, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.rotation = targetRotation;
+
+        // Destroy the GameObject after the set time
+        Destroy(gameObject, time);
     }
 
     //Flashes the enemy red

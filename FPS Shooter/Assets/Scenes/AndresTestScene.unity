@@ -1069,20 +1069,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: animTransSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3364604888158286540, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3364604888158286540, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8294089178165686796, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}

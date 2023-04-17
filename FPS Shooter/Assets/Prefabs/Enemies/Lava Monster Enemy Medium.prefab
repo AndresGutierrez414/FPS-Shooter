@@ -1376,6 +1376,7 @@ MonoBehaviour:
   shootDist: 1
   bullet: {fileID: 5548825962725024512, guid: f0057c6ed366f1245b7ef37750ca5c37, type: 3}
   bulletSpeed: 18
+  deathAnimationTime: 1
   drop: {fileID: 7269106189603644637, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
 --- !u!95 &721473960453948189
 Animator:
@@ -1390,7 +1391,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 50f0f5746f714414f9b2cfda0c64b0ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
