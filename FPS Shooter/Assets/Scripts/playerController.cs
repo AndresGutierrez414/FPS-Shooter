@@ -36,6 +36,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         maxHP = HP;
         playerUIUpdate();
+        respawnPlayer();
     }
 
     void Update()
@@ -131,7 +132,7 @@ public class playerController : MonoBehaviour, IDamage
     }
 
     //Function that will respawn the player
-    public void RespawnPlayer()
+    public void respawnPlayer()
     {
         HP = maxHP;
         playerUIUpdate();

@@ -40,10 +40,8 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Updating");
         if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
         {
-            Debug.Log("Escape key pressed");
             isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
