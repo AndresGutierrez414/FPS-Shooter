@@ -9,34 +9,34 @@ public class enemyAI : MonoBehaviour, IDamage
     //Componets and variables//
     [Header("----- Components -----")]
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform headPos;                     
+    [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
-    [SerializeField] Material model;      
+    [SerializeField] Material model;
     [SerializeField] Animator animator;
 
 
     [Header("----- Enemy Stats -----")]
-    [SerializeField] int HP;                                
+    [SerializeField] int HP;
     private int maxHP;
-    [SerializeField] int sightAngle;                        
+    [SerializeField] int sightAngle;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
     [SerializeField] float animTransSpeed;
 
-    Vector3 playerDir;                                      
+    Vector3 playerDir;
     float angleToPlayer;
     bool playerInRange;
 
     // health bar canvas //
-    [SerializeField] private Slider healthSlider;           
+    [SerializeField] private Slider healthSlider;
     [SerializeField] private Image healthLeft;
 
-    [Header("----- Gun Stats -----")]                       
+    [Header("----- Gun Stats -----")]
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float fireRate;
     [Range(1, 100)][SerializeField] int shootDist;
-    [SerializeField] GameObject bullet;                     
+    [SerializeField] GameObject bullet;
     [SerializeField] int bulletSpeed;
     bool isShooting;
 
@@ -51,6 +51,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         //gameManager.instance.updateGameGoal(1); // for winning when game goal is 0 
         stoppingDistanceOrig = agent.stoppingDistance;
+        startingPos = transform.position;
 
         // health bar setup //
         maxHP = HP;
@@ -62,21 +63,63 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void Update()
     {
-        //agent.speed = movementSpeed; // test  
-        float agentSpeed = agent.velocity.magnitude;
-        animator.SetFloat("Speed", agentSpeed);
-
-        if (playerInRange)
+        if (agent.isActiveAndEnabled)
         {
-            canSeePlayer();
+            speed = Mathf.Lerp(speed, agent.velocity.normalized.magnitude, Time.deltaTime * animTransSpeed);
+            animator.SetFloat("Speed", speed);
+
+            if (playerInRange && !canSeePlayer())
+            {
+                StartCoroutine(roam());
+            }
+            else if (agent.destination != gameManager.instance.player.transform.position)
+            {
+                StartCoroutine(roam());
+            }
+        }
+
+
+
+
+
+
+        ////agent.speed = movementSpeed; // test  
+        //float agentSpeed = agent.velocity.magnitude;
+        //animator.SetFloat("Speed", agentSpeed);
+
+        //if (playerInRange)
+        //{
+        //    canSeePlayer();
+        //}
+    }
+
+    IEnumerator roam()
+    {
+        if (!destinationChosen && agent.remainingDistance < 0.05f)
+        {
+            destinationChosen = true;
+
+            agent.stoppingDistance = 0;
+
+            yield return new WaitForSeconds(roamPauseTime);
+            destinationChosen = false;
+
+            // generate roandom pos to go to //
+            Vector3 randPos = Random.insideUnitSphere * roamDist;
+            // keep unit in roam area of start pos //
+            randPos += startingPos;
+
+            // check pos then move to pos //
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randPos, out hit, roamDist, 1);
+            agent.SetDestination(hit.position);
         }
     }
 
-    //Checks if 
     bool canSeePlayer()
     {
         // calculate direction to player chest pos //                                   
-        Vector3 playerChestPos = gameManager.instance.player.transform.position;        
+        Vector3 playerChestPos = gameManager.instance.player.transform.position;
         playerChestPos.y += gameManager.instance.player.transform.localScale.y / 2;
         playerDir = (playerChestPos - headPos.position);
 
@@ -112,9 +155,8 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
-        animator.SetTrigger("Attack");
-
         isShooting = true;
+        animator.SetTrigger("Shoot");
 
         // Calculate direction from shootPos to player's chest //
         Vector3 playerChestPos = gameManager.instance.player.transform.position;
@@ -149,9 +191,10 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
-        animator.SetTrigger("Damaged");
-
         HP -= amount;
+        StartCoroutine(flashColor());
+
+
         healthSlider.value = HP;
         healthLeft.fillAmount = (float)HP / maxHP;
         // Set destination of enemy to player's position //
@@ -159,13 +202,26 @@ public class enemyAI : MonoBehaviour, IDamage
         // Reset stopping distance for Agent //
         agent.stoppingDistance = 0;
 
-        StartCoroutine(flashColor());
-
+        // if dead //
         if (HP <= 0)
         {
-            Instantiate(drop, transform.position, drop.transform.rotation);
-            //gameManager.instance.updateGameGoal(-1); // for winning when enemy count is 0
-            Destroy(gameObject);
+            StopAllCoroutines();
+
+            if (drop)
+                Instantiate(drop, transform.position, drop.transform.rotation);
+
+            GetComponent<CapsuleCollider>().enabled = false;
+            agent.enabled = false;
+
+            Destroy(gameObject); // replace this with death animation
+
+        }
+        // if not dead //
+        else
+        {
+            animator.SetTrigger("Damage");
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            agent.stoppingDistance = 0;
         }
     }
 
