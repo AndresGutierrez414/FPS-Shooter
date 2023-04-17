@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077597269300057976}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 3.16781, y: -2.8430533, z: 225.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,6 +112,69 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5605811347247328246}
+  - {fileID: 4433317595947088658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7400674306992120173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2554795672292933390}
+    m_Modifications:
+    - target: {fileID: 6571372870961338993, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_Name
+      value: Volcano Lava Ball Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+--- !u!4 &4433317595947088658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6571372870961339007, guid: e6763cb67d7229d48aaed96ccea9bafe, type: 3}
+  m_PrefabInstance: {fileID: 7400674306992120173}
+  m_PrefabAsset: {fileID: 0}
