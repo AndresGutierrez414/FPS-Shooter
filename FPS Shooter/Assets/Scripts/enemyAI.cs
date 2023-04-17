@@ -77,20 +77,6 @@ public class enemyAI : MonoBehaviour, IDamage
                 StartCoroutine(roam());
             }
         }
-
-
-
-
-
-
-        ////agent.speed = movementSpeed; // test  
-        //float agentSpeed = agent.velocity.magnitude;
-        //animator.SetFloat("Speed", agentSpeed);
-
-        //if (playerInRange)
-        //{
-        //    canSeePlayer();
-        //}
     }
 
     IEnumerator roam()
