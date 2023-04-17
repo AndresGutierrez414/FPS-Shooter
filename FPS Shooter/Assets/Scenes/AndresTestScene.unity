@@ -1069,30 +1069,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 907477623}
-    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: roamDist
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: roamPauseTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: animTransSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3364604888158286540, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 50f0f5746f714414f9b2cfda0c64b0ff, type: 2}
     - target: {fileID: 8294089178165686796, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Easy
@@ -1103,7 +1083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8669805888058058934, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.25
+      value: -42.25
       objectReference: {fileID: 0}
     - target: {fileID: 8669805888058058934, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1544,11 +1524,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1184203256994873412, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
   m_PrefabInstance: {fileID: 1468930098}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &907477623 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3364604888158286540, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-  m_PrefabInstance: {fileID: 680993171}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &909835826 stripped
 Transform:
@@ -3433,26 +3408,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 721473960453948189, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 50f0f5746f714414f9b2cfda0c64b0ff, type: 2}
-    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 8505301590707867959}
-    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: roamDist
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: roamPauseTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: animTransSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
@@ -3471,7 +3426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6693224713112557927, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.75
+      value: -41.5
       objectReference: {fileID: 0}
     - target: {fileID: 6693224713112557927, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3510,10 +3465,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3730085013620220985, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3730085014866538731, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
       propertyPath: m_Name
       value: UI
@@ -3678,7 +3629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3686,7 +3637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.75
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3716,30 +3667,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 7580239009096936078}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: roamDist
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: roamPauseTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: animTransSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9049669666051043680, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 50f0f5746f714414f9b2cfda0c64b0ff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c651c0aa7b565544b86f866f70670508, type: 3}
 --- !u!1001 &5500424728271752003
@@ -3918,18 +3849,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
   m_PrefabInstance: {fileID: 4775123466563895696}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &7580239009096936078 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9049669666051043680, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-  m_PrefabInstance: {fileID: 4775123466563895696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8505301590707867955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6693224713112557927, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-  m_PrefabInstance: {fileID: 3092841348018309204}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8505301590707867959 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 721473960453948189, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
   m_PrefabInstance: {fileID: 3092841348018309204}
   m_PrefabAsset: {fileID: 0}

@@ -68,10 +68,12 @@ public class enemyAI : MonoBehaviour, IDamage
             speed = Mathf.Lerp(speed, agent.velocity.normalized.magnitude, Time.deltaTime * animTransSpeed);
             animator.SetFloat("Speed", speed);
 
-            if (playerInRange && !canSeePlayer())
+            // if player in range and can see player //
+            if (playerInRange && !canSeePlayer()) 
             {
                 StartCoroutine(roam());
             }
+            // if can see player //
             else if (agent.destination != gameManager.instance.player.transform.position)
             {
                 StartCoroutine(roam());
