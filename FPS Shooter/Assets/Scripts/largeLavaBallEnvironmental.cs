@@ -37,10 +37,8 @@ public class largeLavaBallEnvironmental : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision detected");
         if (collision.collider.CompareTag("Floor"))
         {
-            Debug.Log("Create explosion called");
             createExplosion();
             trailRenderer.enabled = false;
             gameObject.SetActive(false);
