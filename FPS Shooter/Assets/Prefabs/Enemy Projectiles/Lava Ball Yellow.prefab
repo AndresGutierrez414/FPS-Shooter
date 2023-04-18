@@ -52,6 +52,7 @@ MonoBehaviour:
   damage: 1
   timer: 3
   rotationSpeed: 360
+  explosionPrefab: {fileID: 257832554345818403, guid: ba602e7ca14e9244eaee5fea93cdbe42, type: 3}
 --- !u!33 &2628547753122151091
 MeshFilter:
   m_ObjectHideFlags: 0
