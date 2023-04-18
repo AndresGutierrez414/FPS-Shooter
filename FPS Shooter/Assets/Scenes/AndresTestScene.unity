@@ -3800,22 +3800,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3758163075569623698, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.775
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758163076177316252, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758163076177316254, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: HP
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Boss
