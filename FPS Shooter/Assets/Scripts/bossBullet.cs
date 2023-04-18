@@ -9,6 +9,8 @@ public class bossBullet : MonoBehaviour
     [SerializeField] int timer;
     [SerializeField] float rotationSpeed;
 
+    [SerializeField] private GameObject explosionPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,9 @@ public class bossBullet : MonoBehaviour
         if (damagable != null)
         {
             damagable.takeDamage(damage);
-
+            GameObject exlosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
+        GameObject exlosionFloor = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
