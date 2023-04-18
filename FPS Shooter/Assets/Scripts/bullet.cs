@@ -10,19 +10,16 @@ public class bullet : MonoBehaviour
     [SerializeField] int timer;
     [SerializeField] float rotationSpeed;
 
-    [Header("----------Components/Prefabs----------")]
+    [Header("----------Effects----------")]
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private AudioClip explosionSound;
-
-    private AudioSource audioSource;
+    [Range(0, 1)] [SerializeField] private float audioVolume;
 
 
     void Start()
     {
         // destroy projectile after set time //
         Destroy(gameObject, timer);
-
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -54,9 +51,21 @@ public class bullet : MonoBehaviour
 
     private void playExplosionSound()
     {
-        if (audioSource != null && explosionSound != null)
+        if (explosionSound != null)
         {
-            audioSource.PlayOneShot(explosionSound);
+            // create an new GameObject at explosion location //
+            GameObject audioObject = new GameObject("ExplosionAudio");
+            audioObject.transform.position = transform.position;
+
+            // add audio source component to new object //
+            AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+            audioSource.clip = explosionSound;
+            audioSource.spatialBlend = 1; // 1 -> for 3D sound
+            audioSource.volume = audioVolume;
+            audioSource.Play();
+
+            // destroy audio source after done playing sound //
+            Destroy(audioObject, explosionSound.length);
         }
     }
 }
