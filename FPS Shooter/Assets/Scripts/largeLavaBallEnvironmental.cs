@@ -42,15 +42,17 @@ public class largeLavaBallEnvironmental : MonoBehaviour
         {
             Debug.Log("Create explosion called");
             createExplosion();
+            trailRenderer.enabled = false;
+            gameObject.SetActive(false);
         }
     }
 
     private void createExplosion()
     {
-        if (bigExplosionPrefab != null)
-        {
-            GameObject bigExplosion = Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
-        }
+        //if (bigExplosionPrefab != null)
+        //{
+        //}
+        GameObject bigExplosion = Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
         GameObject sparkles = Instantiate(sparklesPrefab, transform.position, Quaternion.identity);
         GameObject shockwave = Instantiate(showckwavePrefab, transform.position, Quaternion.identity);
         GameObject verticalEffect = Instantiate(verticalEffectPrefab, transform.position, Quaternion.identity);
