@@ -9,7 +9,8 @@ public class bullet : MonoBehaviour
     [SerializeField] int timer;
     [SerializeField] float rotationSpeed;
 
-    // Start is called before the first frame update
+    [SerializeField] private GameObject explosionPrefab;
+
     void Start()
     {
         // destroy projectile after set time //
@@ -29,7 +30,9 @@ public class bullet : MonoBehaviour
         if (damagable != null)
         {
             damagable.takeDamage(damage);
+            GameObject exlosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
+        GameObject exlosionFloor = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
