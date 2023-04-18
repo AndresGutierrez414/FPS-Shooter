@@ -13,6 +13,8 @@ public class playerController : MonoBehaviour, IDamage
     int maxHP;
 
     [Range(3, 8)][SerializeField] float playerSpeed;            //Player movement speed and current velocity
+    [Range(4, 10)] [SerializeField] float playerSprint;          //Player sprint
+    [Range(0, 5)] [SerializeField] float sprintAcceleration;
     Vector3 playerVelocity;
     Vector3 movementVec;
 
@@ -29,8 +31,12 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 100)][SerializeField] int shootDist;
     [Range(1, 4)][SerializeField] int pillowShootDist;
     [SerializeField] GameObject cube;                           //Pillow object
+    private float currentSpeed;
+    private float targetSpeed;
+
     bool isShooting;
     bool isPlacingP;
+    bool isSprinting;
 
     private void Start()
     {
@@ -65,8 +71,27 @@ public class playerController : MonoBehaviour, IDamage
             timesJumped = 0;
         }
 
+        float targetSpeed = isSprinting ? playerSprint : playerSpeed;   // Determine the target speed based on whether the player is sprinting or not
+
         movementVec = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
-        controller.Move(movementVec * Time.deltaTime * playerSpeed); //Applies user input to the controller
+
+        // Smoothly transition the player's speed to the target speed using sprintAcceleration
+        float currentSpeed = Vector3.ProjectOnPlane(controller.velocity, Vector3.up).magnitude;
+        float speedDifference = targetSpeed - currentSpeed;
+        float acceleration = isSprinting ? sprintAcceleration : 1f;
+        movementVec *= (currentSpeed + speedDifference * acceleration) * Time.deltaTime;
+
+        controller.Move(movementVec); //Applies user input to the controller
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isSprinting = true;  // Start sprinting when left shift key is pressed
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false;  // Stop sprinting when left shift key is released
+        }
 
         if (Input.GetButtonDown("Jump") && timesJumped < maxJumps)  //Check for space bar press. Handles max amounts of jumps
         {
