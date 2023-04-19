@@ -38,6 +38,8 @@ public class playerController : MonoBehaviour, IDamage
     bool isPlacingP;
     bool isSprinting;
 
+    public float rotationAxis;
+
     private void Start()
     {
         maxHP = HP;
@@ -149,7 +151,11 @@ public class playerController : MonoBehaviour, IDamage
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, pillowShootDist))
         {
-            Instantiate(cube, hit.point, transform.rotation);   //Instantiates cube at the hit location
+            GameObject pillow = Instantiate(cube, hit.point, Quaternion.identity);   //Instantiates cube at the hit location // transform.rotation
+
+            // allign pillow up vector with surface //
+            //pillow.transform.forward = hit.normal;     // <- maybe
+
         }
 
         yield return new WaitForSeconds(pillowShootRate);
