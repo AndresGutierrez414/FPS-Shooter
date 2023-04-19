@@ -53,6 +53,9 @@ MonoBehaviour:
   timer: 3
   rotationSpeed: 360
   explosionPrefab: {fileID: 4028180355135575991, guid: e87a52292694a5946b3bfe38e72397b5, type: 3}
+  explosionSound: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
+  audioVolume: 0.2
+  audioDistance: 10
 --- !u!33 &3971839671588440505
 MeshFilter:
   m_ObjectHideFlags: 0

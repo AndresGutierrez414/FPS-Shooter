@@ -5,11 +5,17 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     // variables //
+    [Header("----------Stats----------")]
     [SerializeField] int damage;
     [SerializeField] int timer;
     [SerializeField] float rotationSpeed;
 
+    [Header("----------Effects----------")]
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private AudioClip explosionSound;
+    [Range(0, 1)] [SerializeField] private float audioVolume;
+    [SerializeField] private float audioDistance;
+
 
     void Start()
     {
@@ -30,10 +36,44 @@ public class bullet : MonoBehaviour
         if (damagable != null)
         {
             damagable.takeDamage(damage);
+
+            // explosion effect //
             GameObject exlosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            // explosion audio //
+            playExplosionSound();
         }
+        // explosion effect //
         GameObject exlosionFloor = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        // explosion audio //
+        playExplosionSound();
 
         Destroy(gameObject);
+    }
+
+    private void playExplosionSound()
+    {
+        if (explosionSound != null)
+        {
+            // create an new GameObject at explosion location //
+            GameObject audioObject = new GameObject("ExplosionAudio");
+            audioObject.transform.position = transform.position;
+
+            // add audio source component to new object //
+            AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+
+            // configure audio source component //
+            audioSource.clip = explosionSound;
+            audioSource.spatialBlend = 1; // 1 -> for 3D sound
+            // set volume rolloff to logarithmic and adjust max distance
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            audioSource.maxDistance = audioDistance;
+            // adjust volume
+            audioSource.volume = audioVolume;
+
+            audioSource.Play();
+
+            // destroy audio source after done playing sound //
+            Destroy(audioObject, explosionSound.length);
+        }
     }
 }

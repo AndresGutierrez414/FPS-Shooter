@@ -154,6 +154,8 @@ MonoBehaviour:
   controller: {fileID: 4303810387877515687}
   HP: 10
   playerSpeed: 8
+  playerSprint: 6
+  sprintAcceleration: 2
   gravityValue: 25
   jumpHeight: 8
   maxJumps: 1
