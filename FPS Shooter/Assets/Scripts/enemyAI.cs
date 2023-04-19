@@ -41,6 +41,14 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] float deathAnimationTime;
     [SerializeField] GameObject drop;
 
+    [Header("----- Rising Settings -----")]
+    [SerializeField] private bool riseFromGround;
+    [SerializeField] public float riseDelay;
+    [SerializeField] private float riseTime;
+    [SerializeField] private float yOffset;
+    private Vector3 initialPosition;
+    private Vector3 offsetPosition;
+
     Vector3 playerDir;
     float angleToPlayer;
     bool playerInRange;
@@ -52,6 +60,20 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
+        // Store the initial position
+        initialPosition = transform.position;
+        offsetPosition = new Vector3(initialPosition.x, initialPosition.y - yOffset, initialPosition.z);
+        transform.position = offsetPosition;
+
+        if (riseFromGround)
+        {
+            agent.enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+            //animator.enabled = false;
+            StartCoroutine(RiseFromGround(riseDelay, riseTime));
+        }
+
+
         //gameManager.instance.updateGameGoal(1); // for winning when game goal is 0 
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -63,7 +85,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
         animator = GetComponent<Animator>();
 
-        agent.updateRotation = false; // test
+        agent.updateRotation = false;
     }
 
     void Update()
@@ -242,6 +264,28 @@ public class enemyAI : MonoBehaviour, IDamage
 
         // Destroy the GameObject after the set time
         Destroy(gameObject, time);
+    }
+
+    IEnumerator RiseFromGround(float delay, float time)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float elapsedTime = 0f;
+       
+        transform.position = offsetPosition;
+
+        while (elapsedTime < time)
+        {
+            transform.position = Vector3.Lerp(offsetPosition, initialPosition, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = initialPosition;
+
+        agent.enabled = true;
+        GetComponent<CapsuleCollider>().enabled = true;
+        animator.enabled = true;
     }
 
     //Flashes the enemy red
