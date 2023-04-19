@@ -5,18 +5,24 @@ using UnityEngine;
 public class largeLavaBallEnvironmental : MonoBehaviour
 {
     // variables //
+    [Header("----------Stats----------")]
     [SerializeField] float minYPos;
     [SerializeField] Vector2 launchForceRange;
     [SerializeField] Vector2 launchArcRange;
     private float initialTrailTime;
 
+    [Header("----------Components----------")]
     private Rigidbody rb;
     private TrailRenderer trailRenderer;
 
+    [Header("----------Explosion Effects----------")]
     [SerializeField] private GameObject bigExplosionPrefab;
     [SerializeField] private GameObject sparklesPrefab;
     [SerializeField] private GameObject showckwavePrefab;
     [SerializeField] private GameObject verticalEffectPrefab;
+    [SerializeField] private AudioClip explosionSound;
+    [Range(0, 1)][SerializeField] private float audioVolume;
+    [SerializeField] private float audioDistance;
 
 
     private void Awake()
@@ -40,6 +46,7 @@ public class largeLavaBallEnvironmental : MonoBehaviour
         if (collision.collider.CompareTag("Floor"))
         {
             createExplosion();
+            playExplosionSound();
             trailRenderer.enabled = false;
             gameObject.SetActive(false);
         }
@@ -47,14 +54,10 @@ public class largeLavaBallEnvironmental : MonoBehaviour
 
     private void createExplosion()
     {
-        //if (bigExplosionPrefab != null)
-        //{
-        //}
         GameObject bigExplosion = Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
         GameObject sparkles = Instantiate(sparklesPrefab, transform.position, Quaternion.identity);
         GameObject shockwave = Instantiate(showckwavePrefab, transform.position, Quaternion.identity);
         GameObject verticalEffect = Instantiate(verticalEffectPrefab, transform.position, Quaternion.identity);
-
     }
 
     private void OnEnable()
@@ -80,5 +83,32 @@ public class largeLavaBallEnvironmental : MonoBehaviour
         launchDirection.y = Mathf.Abs(launchDirection.y); // Ensure the launch direction is upwards
         rb.velocity = Vector3.zero;
         rb.AddForce(launchDirection * force, ForceMode.Impulse);
+    }
+
+    private void playExplosionSound()
+    {
+        if (explosionSound != null)
+        {
+            // create an new GameObject at explosion location //
+            GameObject audioObject = new GameObject("ExplosionAudio");
+            audioObject.transform.position = transform.position;
+
+            // add audio source component to new object //
+            AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+
+            // configure audio source component //
+            audioSource.clip = explosionSound;
+            audioSource.spatialBlend = 1; // 1 -> for 3D sound
+            // set volume rolloff to logarithmic and adjust max distance
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            audioSource.maxDistance = audioDistance;
+            // adjust volume
+            audioSource.volume = audioVolume;
+
+            audioSource.Play();
+
+            // destroy audio source after done playing sound //
+            Destroy(audioObject, explosionSound.length);
+        }
     }
 }

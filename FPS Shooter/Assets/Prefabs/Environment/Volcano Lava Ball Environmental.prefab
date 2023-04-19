@@ -56,6 +56,9 @@ MonoBehaviour:
   sparklesPrefab: {fileID: 1663654293529362519, guid: 4ecdeedcf462b99489d6392f649640ef, type: 3}
   showckwavePrefab: {fileID: 747998970257853232, guid: c1890c4dc7e10f84a894705eec0441d2, type: 3}
   verticalEffectPrefab: {fileID: 3988719876146219437, guid: 43604da9ea273d744a4da7874159686f, type: 3}
+  explosionSound: {fileID: 8300000, guid: 8524588a69a4f3e40bb597b6221138f1, type: 3}
+  audioVolume: 1
+  audioDistance: 200
 --- !u!33 &7786552435349272023
 MeshFilter:
   m_ObjectHideFlags: 0
