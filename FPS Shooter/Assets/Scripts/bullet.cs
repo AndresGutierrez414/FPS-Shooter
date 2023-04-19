@@ -14,6 +14,7 @@ public class bullet : MonoBehaviour
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private AudioClip explosionSound;
     [Range(0, 1)] [SerializeField] private float audioVolume;
+    [SerializeField] private float audioDistance;
 
 
     void Start()
@@ -59,9 +60,16 @@ public class bullet : MonoBehaviour
 
             // add audio source component to new object //
             AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+
+            // configure audio source component //
             audioSource.clip = explosionSound;
             audioSource.spatialBlend = 1; // 1 -> for 3D sound
+            // set volume rolloff to logarithmic and adjust max distance
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            audioSource.maxDistance = audioDistance;
+            // adjust volume
             audioSource.volume = audioVolume;
+
             audioSource.Play();
 
             // destroy audio source after done playing sound //

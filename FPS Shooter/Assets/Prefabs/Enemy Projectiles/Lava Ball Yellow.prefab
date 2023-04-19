@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1895370845976165766}
   - component: {fileID: 2977926080306898395}
   - component: {fileID: 6215846287037824288}
-  - component: {fileID: -1942475840761005805}
+  - component: {fileID: 6783020549979045194}
   m_Layer: 7
   m_Name: Lava Ball Yellow
   m_TagString: Untagged
@@ -55,7 +55,8 @@ MonoBehaviour:
   rotationSpeed: 360
   explosionPrefab: {fileID: 257832554345818403, guid: ba602e7ca14e9244eaee5fea93cdbe42, type: 3}
   explosionSound: {fileID: 8300000, guid: c2153dcd0edd22f40bdebf613271bae7, type: 3}
-  audioVolume: 0.1
+  audioVolume: 0.2
+  audioDistance: 10
 --- !u!33 &2628547753122151091
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!82 &-1942475840761005805
+--- !u!82 &6783020549979045194
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,7 +255,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
