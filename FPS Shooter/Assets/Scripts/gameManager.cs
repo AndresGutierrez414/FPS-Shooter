@@ -23,7 +23,8 @@ public class gameManager : MonoBehaviour
     public bool isPaused;
 
     public Image HPBar;
-    public Image SprintBar;
+    // SPRINT BAR CODE // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //public Image SprintBar;
     public TextMeshProUGUI enemiesRemainingText;
     public int enemiesRemaining;
 
@@ -72,19 +73,6 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(false);
         activeMenu= null;
     }
-
-    //public void updateGameGoal(int amount)
-    //{
-    //    enemiesRemaining += amount;
-    //    enemiesRemainingText.text = enemiesRemaining.ToString("F0"); // "F1" 1 float // "F0" int
-
-    //    if (enemiesRemaining <= 0)                          //Check for no enemies remaining
-    //    {
-    //        activeMenu = winMenu;                           //Set win menu to active menu and pause the game
-    //        activeMenu.SetActive(true);
-    //        pauseState();
-    //    }
-    //}
 
     public void playerDead()
     {

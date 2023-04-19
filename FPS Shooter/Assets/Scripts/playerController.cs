@@ -78,18 +78,19 @@ public class playerController : MonoBehaviour, IDamage
         float targetSpeed = isSprinting ? playerSprint : playerSpeed;   // Determine the target speed based on whether the player is sprinting or not
 
         movementVec = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
+        // SPRINT BAR CODE // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //if (isSprinting)
+        //{
+        //   gameManager.instance.SprintBar.fillAmount -= sprintDrainRate * Time.deltaTime; // Decrease fill amount based on sprint drain rate
+        //}
+        //else
+        //{
+        //    gameManager.instance.SprintBar.fillAmount += sprintRechargeRate * Time.deltaTime; // Increase fill amount based on sprint recharge rate
+        //}
 
-        if (isSprinting)
-        {
-           gameManager.instance.SprintBar.fillAmount -= sprintDrainRate * Time.deltaTime; // Decrease fill amount based on sprint drain rate
-        }
-        else
-        {
-            gameManager.instance.SprintBar.fillAmount += sprintRechargeRate * Time.deltaTime; // Increase fill amount based on sprint recharge rate
-        }
 
         // Clamp the fill amount of the SprintBar to be within [0, 1] range
-        gameManager.instance.SprintBar.fillAmount = Mathf.Clamp01(gameManager.instance.SprintBar.fillAmount);
+        //gameManager.instance.SprintBar.fillAmount = Mathf.Clamp01(gameManager.instance.SprintBar.fillAmount);
 
         // Smoothly transition the player's speed to the target speed using sprintAcceleration
         float currentSpeed = Vector3.ProjectOnPlane(controller.velocity, Vector3.up).magnitude;

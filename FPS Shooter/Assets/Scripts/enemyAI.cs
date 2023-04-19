@@ -14,7 +14,6 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] Material model;
     [SerializeField] Animator animator;
 
-
     [Header("----- Enemy Stats -----")]
     [SerializeField] int HP;
     private int maxHP;
@@ -23,7 +22,6 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
     [SerializeField] float animTransSpeed;
-
 
     // health bar canvas //
     [SerializeField] private Slider healthSlider;
@@ -40,6 +38,10 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("----- Death Settings -----")]
     [SerializeField] float deathAnimationTime;
     [SerializeField] GameObject drop;
+    [SerializeField] private GameObject deathExplosionPrefab;
+    [SerializeField] private AudioClip explosionSound;
+    [Range(0, 1)][SerializeField] private float audioVolume;
+    [SerializeField] private float audioDistance;
 
     [Header("----- Rising Settings -----")]
     [SerializeField] private bool riseFromGround;
@@ -49,6 +51,7 @@ public class enemyAI : MonoBehaviour, IDamage
     private Vector3 initialPosition;
     private Vector3 offsetPosition;
 
+    // other variables //
     Vector3 playerDir;
     float angleToPlayer;
     bool playerInRange;
@@ -69,12 +72,10 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
-            //animator.enabled = false;
             StartCoroutine(RiseFromGround(riseDelay, riseTime));
         }
 
 
-        //gameManager.instance.updateGameGoal(1); // for winning when game goal is 0 
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
 
@@ -95,7 +96,8 @@ public class enemyAI : MonoBehaviour, IDamage
             speed = Mathf.Lerp(speed, agent.velocity.normalized.magnitude, Time.deltaTime * animTransSpeed);
             animator.SetFloat("Speed", speed);
 
-            if (agent.velocity.magnitude > 0.1f) // test
+            // if moving update look direction //
+            if (agent.velocity.magnitude > 0.1f)
             {
                 Quaternion rotation = Quaternion.LookRotation(agent.velocity.normalized);
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
@@ -237,6 +239,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
             animator.enabled = false;
             StartCoroutine(deathAnimation(deathAnimationTime));
+            playExplosionSound();
         }
         // if not dead //
         else
@@ -302,5 +305,32 @@ public class enemyAI : MonoBehaviour, IDamage
         // Calculate rotation needed to face player //
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
+    }
+
+    private void playExplosionSound()
+    {
+        if (explosionSound != null)
+        {
+            // create an new GameObject at explosion location //
+            GameObject audioObject = new GameObject("ExplosionAudio");
+            audioObject.transform.position = transform.position;
+
+            // add audio source component to new object //
+            AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+
+            // configure audio source component //
+            audioSource.clip = explosionSound;
+            audioSource.spatialBlend = 1; // 1 -> for 3D sound
+            // set volume rolloff to logarithmic and adjust max distance
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            audioSource.maxDistance = audioDistance;
+            // adjust volume
+            audioSource.volume = audioVolume;
+
+            audioSource.Play();
+
+            // destroy audio source after done playing sound //
+            Destroy(audioObject, explosionSound.length);
+        }
     }
 }

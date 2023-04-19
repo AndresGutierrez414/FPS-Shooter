@@ -1805,7 +1805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 797471312228275203, guid: d2a8806a3d5344f49a505112515e59f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 797471312228275203, guid: d2a8806a3d5344f49a505112515e59f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3519,6 +3519,14 @@ PrefabInstance:
       propertyPath: rotationAxis
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: sprintDrainRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: sprintRechargeRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3563,6 +3571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4303810387877515676, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515686, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3593,9 +3605,25 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: audioVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: audioDistance
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: fd706038486fee041947a774223dc22e, type: 3}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: riseFromGround
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: deathExplosionPrefab
+      value: 
+      objectReference: {fileID: 1050995876298449858, guid: 6d96a04c83eaafb4c8239d5924133eb4, type: 3}
     - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Boss
