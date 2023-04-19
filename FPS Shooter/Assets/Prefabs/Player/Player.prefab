@@ -156,15 +156,18 @@ MonoBehaviour:
   playerSpeed: 8
   playerSprint: 6
   sprintAcceleration: 2
+  sprintDrainRate: 0.5
+  sprintRechargeRate: 0.5
   gravityValue: 25
   jumpHeight: 8
   maxJumps: 1
   shootDamage: 1
-  fireRate: 1
+  fireRate: 0.5
   pillowShootRate: 2
   shootDist: 40
   pillowShootDist: 4
   cube: {fileID: 12482004233389737, guid: 93c224a9490a4b543938c00d31cd6da1, type: 3}
+  rotationAxis: 0
 --- !u!33 &4303810387877515673
 MeshFilter:
   m_ObjectHideFlags: 0
