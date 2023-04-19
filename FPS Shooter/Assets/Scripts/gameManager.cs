@@ -23,6 +23,7 @@ public class gameManager : MonoBehaviour
     public bool isPaused;
 
     public Image HPBar;
+    public Image SprintBar;
     public TextMeshProUGUI enemiesRemainingText;
     public int enemiesRemaining;
 
