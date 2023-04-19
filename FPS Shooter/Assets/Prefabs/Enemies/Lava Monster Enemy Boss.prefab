@@ -1150,6 +1150,14 @@ MonoBehaviour:
   bulletSpeed: 10
   deathAnimationTime: 1
   drop: {fileID: 7269106189603644637, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
+  deathExplosionPrefab: {fileID: 1050995876298449858, guid: 6d96a04c83eaafb4c8239d5924133eb4, type: 3}
+  explosionSound: {fileID: 8300000, guid: fd706038486fee041947a774223dc22e, type: 3}
+  audioVolume: 1
+  audioDistance: 200
+  riseFromGround: 1
+  riseDelay: 5
+  riseTime: 5
+  yOffset: 24
 --- !u!95 &1915955319656005088
 Animator:
   serializedVersion: 5

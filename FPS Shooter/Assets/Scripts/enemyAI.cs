@@ -239,7 +239,6 @@ public class enemyAI : MonoBehaviour, IDamage
 
             animator.enabled = false;
             StartCoroutine(deathAnimation(deathAnimationTime));
-            playExplosionSound();
         }
         // if not dead //
         else
@@ -264,6 +263,9 @@ public class enemyAI : MonoBehaviour, IDamage
         }
 
         transform.rotation = targetRotation;
+
+        GameObject exlosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.Euler(-90, transform.eulerAngles.y, transform.eulerAngles.z)); // Quaternion.identity
+        playExplosionSound();
 
         // Destroy the GameObject after the set time
         Destroy(gameObject, time);
