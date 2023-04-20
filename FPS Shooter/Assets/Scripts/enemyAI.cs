@@ -40,7 +40,20 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("----- Death Settings -----")]
     [SerializeField] float deathAnimationTime;
     [SerializeField] GameObject drop;
+    [SerializeField] private GameObject deathExplosionPrefab;
+    [SerializeField] private AudioClip explosionSound;
+    [Range(0, 1)][SerializeField] private float audioVolume;
+    [SerializeField] private float audioDistance;
 
+    [Header("----- Rising Settings -----")]
+    [SerializeField] private bool riseFromGround;
+    [SerializeField] public float riseDelay;
+    [SerializeField] private float riseTime;
+    [SerializeField] private float yOffset;
+    private Vector3 initialPosition;
+    private Vector3 offsetPosition;
+
+    // other variables //
     Vector3 playerDir;
     float angleToPlayer;
     bool playerInRange;
@@ -52,7 +65,18 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        //gameManager.instance.updateGameGoal(1); // for winning when game goal is 0 
+        // Store the initial position
+        initialPosition = transform.position;
+        offsetPosition = new Vector3(initialPosition.x, initialPosition.y - yOffset, initialPosition.z);
+        transform.position = offsetPosition;
+
+        if (riseFromGround)
+        {
+            agent.enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+            StartCoroutine(RiseFromGround(riseDelay, riseTime));
+        }
+
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
 
@@ -63,7 +87,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
         animator = GetComponent<Animator>();
 
-        agent.updateRotation = false; // test
+        agent.updateRotation = false;
     }
 
     void Update()
@@ -73,7 +97,8 @@ public class enemyAI : MonoBehaviour, IDamage
             speed = Mathf.Lerp(speed, agent.velocity.normalized.magnitude, Time.deltaTime * animTransSpeed);
             animator.SetFloat("Speed", speed);
 
-            if (agent.velocity.magnitude > 0.1f) // test
+            // if moving, update look direction //
+            if (agent.velocity.magnitude > 0.1f)
             {
                 Quaternion rotation = Quaternion.LookRotation(agent.velocity.normalized);
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
@@ -215,6 +240,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
             animator.enabled = false;
             StartCoroutine(deathAnimation(deathAnimationTime));
+            
         }
         // if not dead //
         else
@@ -240,6 +266,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
         transform.rotation = targetRotation;
 
+        GameObject exlosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.Euler(-90, transform.eulerAngles.y, transform.eulerAngles.z));
+        playExplosionSound();
+
         // Destroy the GameObject after the set time
         Destroy(gameObject, time);
     }
@@ -258,5 +287,54 @@ public class enemyAI : MonoBehaviour, IDamage
         // Calculate rotation needed to face player //
         Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
+    }
+
+    IEnumerator RiseFromGround(float delay, float time)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float elapsedTime = 0f;
+
+        transform.position = offsetPosition;
+
+        while (elapsedTime < time)
+        {
+            transform.position = Vector3.Lerp(offsetPosition, initialPosition, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = initialPosition;
+
+        agent.enabled = true;
+        GetComponent<CapsuleCollider>().enabled = true;
+        animator.enabled = true;
+    }
+
+    private void playExplosionSound()
+    {
+        if (explosionSound != null)
+        {
+            // create an new GameObject at explosion location //
+            GameObject audioObject = new GameObject("ExplosionAudio");
+            audioObject.transform.position = transform.position;
+
+            // add audio source component to new object //
+            AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+
+            // configure audio source component //
+            audioSource.clip = explosionSound;
+            audioSource.spatialBlend = 1; // 1 -> for 3D sound
+            // set volume rolloff to logarithmic and adjust max distance
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            audioSource.maxDistance = audioDistance;
+            // adjust volume
+            audioSource.volume = audioVolume;
+
+            audioSource.Play();
+
+            // destroy audio source after done playing sound //
+            Destroy(audioObject, explosionSound.length);
+        }
     }
 }
