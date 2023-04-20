@@ -9,23 +9,27 @@ public class gameManager : MonoBehaviour
     //Componets and variables//
     public static gameManager instance;                     //The single instance of the gameManager singleton
 
-    [Header("----- Player Stuff -----")]                    //Player game object and controller
-    public GameObject player;
-    public playerController playerScript;
-    public GameObject playerSpawnLocation;
+    [Header("---------- Player Stuff ----------")]                    //Player game object and controller
+    [SerializeField] public GameObject player;
+    [SerializeField] public playerController playerScript;
+    [SerializeField] public GameObject playerSpawnLocation;
+    [SerializeField] public Image HPBar;
+    [SerializeField] public Image SprintBar;
 
-    [Header("----- UI Stuff -----")]                        //UI menus and HUD elements
-    public GameObject activeMenu;
-    public GameObject pauseMenu;
-    public GameObject winMenu;
-    public GameObject loseMenu;
-    public GameObject checkPoint;
-    public bool isPaused;
+    [Header("---------- UI Stuff ----------")]                        //UI menus and HUD elements
+    [SerializeField] public GameObject activeMenu;
+    [SerializeField] public GameObject pauseMenu;
+    [SerializeField] public GameObject winMenu;
+    [SerializeField] public GameObject loseMenu;
+    [SerializeField] public GameObject checkPoint;
+    [SerializeField] public bool isPaused;
 
-    public Image HPBar;
-    public Image SprintBar;
+    [Header("----------Enemy Stuff----------")]
     public TextMeshProUGUI enemiesRemainingText;
     public int enemiesRemaining;
+
+    [Header("----------Audio Stuff----------")]
+    [SerializeField] public AudioSource backgroundMusic;
 
     float timeScaleOriginal;
 
@@ -37,6 +41,11 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
         playerScript = player.GetComponent<playerController>();
+    }
+
+    private void Start()
+    {
+        playBackgroundMusic();
     }
 
     // Update is called once per frame
@@ -73,23 +82,24 @@ public class gameManager : MonoBehaviour
         activeMenu= null;
     }
 
-    //public void updateGameGoal(int amount)
-    //{
-    //    enemiesRemaining += amount;
-    //    enemiesRemainingText.text = enemiesRemaining.ToString("F0"); // "F1" 1 float // "F0" int
-
-    //    if (enemiesRemaining <= 0)                          //Check for no enemies remaining
-    //    {
-    //        activeMenu = winMenu;                           //Set win menu to active menu and pause the game
-    //        activeMenu.SetActive(true);
-    //        pauseState();
-    //    }
-    //}
-
     public void playerDead()
     {
         pauseState();                                       //Set lose menu to active menu and pause the game
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+
+    public void playBackgroundMusic()
+    {
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Play();
+        }
+    }
+
+    public void stopBackgroundMusic()
+    {
+        if (backgroundMusic != null && backgroundMusic.isPlaying)
+            backgroundMusic.Stop();
     }
 }
