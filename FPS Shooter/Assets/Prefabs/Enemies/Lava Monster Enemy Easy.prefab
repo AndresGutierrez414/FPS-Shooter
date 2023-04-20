@@ -1779,7 +1779,7 @@ MonoBehaviour:
   deathExplosionPrefab: {fileID: 1311446642108171206, guid: be97477665d7d984da22e8b53f9650c2, type: 3}
   explosionSound: {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
   audioVolume: 1
-  audioDistance: 100
+  audioDistance: 500
   riseFromGround: 1
   riseDelay: 3
   riseTime: 3
