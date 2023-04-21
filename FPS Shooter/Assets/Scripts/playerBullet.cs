@@ -5,8 +5,8 @@ using UnityEngine;
 public class playerBullet : MonoBehaviour
 {
     // variables //
-    [SerializeField] int damage;
-    [SerializeField] int timer;
+    [SerializeField] public int damage;
+    [SerializeField] public int timer;
 
     // Start is called before the first frame update
     void Start()

@@ -173,6 +173,13 @@ public class playerController : MonoBehaviour, IDamage
         isShooting = true;
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+
+        playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.damage = shootDamage;
+        }
+
         yield return new WaitForSeconds(fireRate);
         isShooting = false;
     }
