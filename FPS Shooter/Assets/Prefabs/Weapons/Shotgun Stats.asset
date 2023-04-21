@@ -15,5 +15,5 @@ MonoBehaviour:
   shootingDamage: 10
   shootingRate: 2
   shootingDist: 10
-  gunModel: {fileID: 0}
+  gunModel: {fileID: 1651499009955404386, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
   gunBlastAudio: {fileID: 0}

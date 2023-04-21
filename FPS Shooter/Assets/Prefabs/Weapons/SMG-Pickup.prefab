@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6035043677108721580}
   - component: {fileID: 4552884849178179996}
   m_Layer: 0
-  m_Name: MP40
+  m_Name: SMG-Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
