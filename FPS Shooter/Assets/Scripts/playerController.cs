@@ -31,6 +31,9 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float fireRate;
     [Range(1, 100)][SerializeField] int shootDist;
+    [SerializeField] GameObject bullet;
+    [SerializeField] int bulletSpeed;
+    [SerializeField] Transform shootPos;
     public MeshRenderer gunMaterial;
     public MeshFilter gunModel;
     public int selectedGun;
@@ -63,7 +66,8 @@ public class playerController : MonoBehaviour, IDamage
             Movement();
 
             if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
-                StartCoroutine(shoot());
+                StartCoroutine(shootBullet());
+                //StartCoroutine(shoot());
 
             if(!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
                 StartCoroutine(placePillow());
@@ -160,6 +164,15 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
 
+        yield return new WaitForSeconds(fireRate);
+        isShooting = false;
+    }
+
+    IEnumerator shootBullet()
+    {
+        isShooting = true;
+        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
         yield return new WaitForSeconds(fireRate);
         isShooting = false;
     }
