@@ -53,6 +53,9 @@ public class enemyAI : MonoBehaviour, IDamage
     private Vector3 initialPosition;
     private Vector3 offsetPosition;
 
+    [Header("----- Collider Child Objects -----")]
+    [SerializeField] private GameObject sphereColliderChild;
+
     // other variables //
     Vector3 playerDir;
     float angleToPlayer;
@@ -195,24 +198,36 @@ public class enemyAI : MonoBehaviour, IDamage
         isShooting = false;
     }
 
-    //Check for player when something enters its collider
-    public void OnTriggerEnter(Collider other)
+    public void playerEnteredRange()
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
+        playerInRange = true;
     }
 
-    //Check for player when something exits its collider
-    public void OnTriggerExit(Collider other)
+    public void playerExitedRange()
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            agent.stoppingDistance = 0;
-        }
+        playerInRange = false;
+        agent.stoppingDistance = 0;
     }
+
+
+    //Check for player when something enters its collider
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        playerInRange = true;
+    //    }
+    //}
+
+    ////Check for player when something exits its collider
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        playerInRange = false;
+    //        agent.stoppingDistance = 0;
+    //    }
+    //}
 
     public void takeDamage(int amount)
     {

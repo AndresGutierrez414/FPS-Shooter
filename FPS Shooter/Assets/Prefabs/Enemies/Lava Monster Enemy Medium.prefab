@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &259968723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259968724}
+  - component: {fileID: 259968726}
+  - component: {fileID: 259968725}
+  m_Layer: 6
+  m_Name: Sphere Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259968724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259968723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6693224713112557927}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259968726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259968723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdec840f6de42c640be3a408abe9de1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEnemyAI: {fileID: 2783843345234640159}
+--- !u!135 &259968725
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259968723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &37020826769857307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1378,6 @@ GameObject:
   - component: {fileID: 6693224713112557927}
   - component: {fileID: 2783843345234640159}
   - component: {fileID: 721473960453948189}
-  - component: {fileID: 2644258322208339809}
   - component: {fileID: 2644258322208339808}
   - component: {fileID: 2644258322208339811}
   m_Layer: 6
@@ -1343,6 +1401,7 @@ Transform:
   m_Children:
   - {fileID: 7166015914720352076}
   - {fileID: 365151778194860394}
+  - {fileID: 259968724}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1386,6 +1445,7 @@ MonoBehaviour:
   riseDelay: 3
   riseTime: 3
   yOffset: 5
+  sphereColliderChild: {fileID: 259968723}
 --- !u!95 &721473960453948189
 Animator:
   serializedVersion: 5
@@ -1406,19 +1466,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!135 &2644258322208339809
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316523630448657373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &2644258322208339808
 CapsuleCollider:
   m_ObjectHideFlags: 0
