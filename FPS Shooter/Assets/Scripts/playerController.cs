@@ -79,6 +79,16 @@ public class playerController : MonoBehaviour, IDamage
 
         movementVec = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
 
+        if (gameManager.instance.SprintBar.fillAmount > 0 && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        {
+            isSprinting = true; // Start sprinting when left shift key is pressed and player is moving, and fill amount is greater than 0
+        }
+
+        if (!isSprinting || gameManager.instance.SprintBar.fillAmount <= 0 || Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false; // Stop sprinting when left shift key is released or fill amount is 0
+        }
+
         if (isSprinting)
         {
            gameManager.instance.SprintBar.fillAmount -= sprintDrainRate * Time.deltaTime; // Decrease fill amount based on sprint drain rate
@@ -98,16 +108,6 @@ public class playerController : MonoBehaviour, IDamage
         movementVec *= (currentSpeed + speedDifference * acceleration) * Time.deltaTime;
 
         controller.Move(movementVec); //Applies user input to the controller
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            isSprinting = true;  // Start sprinting when left shift key is pressed
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            isSprinting = false;  // Stop sprinting when left shift key is released
-        }
 
         if (Input.GetButtonDown("Jump") && timesJumped < maxJumps)  //Check for space bar press. Handles max amounts of jumps
         {
