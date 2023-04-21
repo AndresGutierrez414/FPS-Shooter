@@ -35,18 +35,17 @@ public class playerController : MonoBehaviour, IDamage
     public MeshFilter gunModel;
     public int selectedGun;
 
+    [Header("----- Pillow Stats -----")]                           //Weapon statistics 
     [Range(0.8f, 2f)][SerializeField] float pillowShootRate;
     [Range(1, 4)][SerializeField] int pillowShootDist;
-    [SerializeField] GameObject cube;                           //Pillow object
+    [SerializeField] GameObject cube;                              //Pillow object
+
+
     private float currentSpeed;
     private float targetSpeed;
-
-
-
     bool isShooting;
     bool isPlacingP;
     bool isSprinting;
-
     public float rotationAxis;
 
     private void Start()
@@ -65,9 +64,6 @@ public class playerController : MonoBehaviour, IDamage
 
             if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
                 StartCoroutine(shoot());
-
-            //if (!isShooting && Input.GetButton("Fire1"))        //Check for mouse 1 press
-            //    StartCoroutine(shoot());
 
             if(!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
                 StartCoroutine(placePillow());

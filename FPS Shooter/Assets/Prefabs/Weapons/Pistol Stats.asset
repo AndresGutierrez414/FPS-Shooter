@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b56a1d1f5eb4ca479e1538e493ca64c, type: 3}
-  m_Name: MP40-Stats
+  m_Name: Pistol Stats
   m_EditorClassIdentifier: 
-  shootingDamage: 1
-  shootingRate: 0.5
+  shootingDamage: 2
+  shootingRate: 1
   shootingDist: 40
-  gunModel: {fileID: 5242247484002530937, guid: e19f2b74d7d9a6f40a279d9ee78da879, type: 3}
+  gunModel: {fileID: 0}
   gunBlastAudio: {fileID: 0}
