@@ -6,12 +6,12 @@ public class GunsPickUp : MonoBehaviour
 {
     [SerializeField] GunLists gun;
     [SerializeField] MeshFilter model;
-    [SerializeField] MeshRenderer material;
+    [SerializeField] MeshRenderer mat;
 
     private void Start()
     {
         model.mesh = gun.gunModel.GetComponent<MeshFilter>().sharedMesh;
-        material.material = gun.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        mat.material = gun.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
     private void OnTriggerEnter(Collider other)
     {

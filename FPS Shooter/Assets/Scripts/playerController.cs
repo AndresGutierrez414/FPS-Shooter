@@ -30,17 +30,18 @@ public class playerController : MonoBehaviour, IDamage
     public List<GunLists> gunList = new List<GunLists>();
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float fireRate;
-    [Range(0.8f, 2f)][SerializeField] float pillowShootRate;
     [Range(1, 100)][SerializeField] int shootDist;
+    public MeshRenderer gunMaterial;
+    public MeshFilter gunModel;
+    public int selectedGun;
+
+    [Range(0.8f, 2f)][SerializeField] float pillowShootRate;
     [Range(1, 4)][SerializeField] int pillowShootDist;
     [SerializeField] GameObject cube;                           //Pillow object
     private float currentSpeed;
     private float targetSpeed;
 
-    public int selectedGun;
 
-    public MeshRenderer gunMaterial;
-    public MeshFilter gunModel;
 
     bool isShooting;
     bool isPlacingP;
@@ -59,11 +60,14 @@ public class playerController : MonoBehaviour, IDamage
     {
         if (gameManager.instance.activeMenu == null)
         {
-            Movement();
             selectGun();
+            Movement();
 
-            if (!isShooting && Input.GetButton("Fire1"))        //Check for mouse 1 press
+            if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
                 StartCoroutine(shoot());
+
+            //if (!isShooting && Input.GetButton("Fire1"))        //Check for mouse 1 press
+            //    StartCoroutine(shoot());
 
             if(!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
                 StartCoroutine(placePillow());
@@ -197,11 +201,11 @@ public class playerController : MonoBehaviour, IDamage
         gunList.Add(gunStat);
 
         shootDamage = gunStat.shootingDamage;
-        shootDist = (int) gunStat.shootingDist;
+        shootDist = gunStat.shootingDist;
         fireRate = gunStat.shootingRate;
 
-        gunMaterial.material = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
         gunModel.mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunMaterial.material = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
         selectedGun = gunList.Count - 1;
     }
@@ -221,7 +225,7 @@ public class playerController : MonoBehaviour, IDamage
     void changeGun()
     {
         shootDamage = gunList[selectedGun].shootingDamage;
-        shootDist = (int) gunList[selectedGun].shootingDist;
+        shootDist = gunList[selectedGun].shootingDist;
         fireRate = gunList[selectedGun].shootingRate;
 
         gunModel.mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
