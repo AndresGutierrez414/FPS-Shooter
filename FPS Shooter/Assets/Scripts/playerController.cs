@@ -60,6 +60,7 @@ public class playerController : MonoBehaviour, IDamage
         if (gameManager.instance.activeMenu == null)
         {
             Movement();
+            selectGun();
 
             if (!isShooting && Input.GetButton("Fire1"))        //Check for mouse 1 press
                 StartCoroutine(shoot());
