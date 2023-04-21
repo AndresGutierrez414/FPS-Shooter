@@ -27,6 +27,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isPlayerGrounded;
 
     [Header("----- Gun Stats -----")]                           //Weapon statistics 
+    public List<GunLists> gunList = new List<GunLists>();
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float fireRate;
     [Range(0.8f, 2f)][SerializeField] float pillowShootRate;
@@ -35,6 +36,11 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] GameObject cube;                           //Pillow object
     private float currentSpeed;
     private float targetSpeed;
+
+    public int selectedGun;
+
+    public MeshRenderer gunMaterial;
+    public MeshFilter gunModel;
 
     bool isShooting;
     bool isPlacingP;
@@ -184,6 +190,42 @@ public class playerController : MonoBehaviour, IDamage
         controller.enabled = false;
         transform.position = gameManager.instance.playerSpawnLocation.transform.position;
         controller.enabled = true;
+    }
+    public void gunPick(GunLists gunStat)
+    {
+        gunList.Add(gunStat);
+
+        shootDamage = gunStat.shootingDamage;
+        shootDist = (int) gunStat.shootingDist;
+        fireRate = gunStat.shootingRate;
+
+        gunMaterial.material = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        gunModel.mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
+
+        selectedGun = gunList.Count - 1;
+    }
+    void selectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            changeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            changeGun();
+        }
+    }
+    void changeGun()
+    {
+        shootDamage = gunList[selectedGun].shootingDamage;
+        shootDist = (int) gunList[selectedGun].shootingDist;
+        fireRate = gunList[selectedGun].shootingRate;
+
+        gunModel.mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunMaterial.material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
     }
 
 }
