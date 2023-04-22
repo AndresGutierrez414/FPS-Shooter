@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b56a1d1f5eb4ca479e1538e493ca64c, type: 3}
   m_Name: Shotgun Stats
   m_EditorClassIdentifier: 
-  shootingDamage: 10
+  shootingDamage: 4
   shootingRate: 2
   shootingDist: 10
+  bulletCount: 6
+  spreadAngle: 10
   gunModel: {fileID: 1651499009955404386, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
   gunBlastAudio: {fileID: 0}

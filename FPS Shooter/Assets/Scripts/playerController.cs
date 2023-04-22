@@ -171,32 +171,46 @@ public class playerController : MonoBehaviour, IDamage
     IEnumerator shootBullet()
     {
         isShooting = true;
-        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
 
-        RaycastHit hit;
-        Vector3 targetPoint;
-        float maxRaycastDistance = 1000f;
-
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        int bulletCount = gunList[selectedGun].bulletCount;
+        // for each bullet //
+        for (int i = 0; i < bulletCount; i++)
         {
-            // If the raycast hits an object, use the hit point as the target //
-            targetPoint = hit.point;
-        }
-        else
-        {
-            // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
-            targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
-        }
+            GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
 
-        // Calculate the direction vector from the shootPos to the target point
-        Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
-        bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+            RaycastHit hit;
+            Vector3 targetPoint;
+            float maxRaycastDistance = 1000f;
 
-        playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
-        if (bulletScript != null)
-        {
-            bulletScript.damage = shootDamage;
-            bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            {
+                // If the raycast hits an object, use the hit point as the target //
+                targetPoint = hit.point;
+            }
+            else
+            {
+                // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
+                targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
+            }
+
+            // apply rand angle offset if shotgun //
+            float spreadAngle = gunList[selectedGun].spreadAngle;
+            Quaternion randomRotation = Quaternion.Euler(
+                Random.Range(-spreadAngle, spreadAngle),
+                Random.Range(-spreadAngle, spreadAngle), 
+                0);
+
+            // Calculate the direction vector from the shootPos to the target point
+            Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
+            shootDirection = randomRotation * shootDirection;
+            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+
+            playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.damage = shootDamage;
+                bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+            }
         }
 
         yield return new WaitForSeconds(fireRate);
