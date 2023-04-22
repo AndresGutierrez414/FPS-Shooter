@@ -174,17 +174,23 @@ public class playerController : MonoBehaviour, IDamage
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
 
         RaycastHit hit;
+        Vector3 targetPoint;
+        float maxRaycastDistance = 1000f;
+
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            Vector3 shootDirection = (hit.point - shootPos.position).normalized;
-            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+            // If the raycast hits an object, use the hit point as the target //
+            targetPoint = hit.point;
         }
         else
         {
-            Vector3 shootDirection = Camera.main.transform.forward;
-            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+            // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
+            targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
         }
 
+        // Calculate the direction vector from the shootPos to the target point
+        Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
+        bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
 
         playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
         if (bulletScript != null)
