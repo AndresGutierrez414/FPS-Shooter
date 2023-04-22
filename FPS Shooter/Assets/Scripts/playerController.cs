@@ -13,10 +13,10 @@ public class playerController : MonoBehaviour, IDamage
     int maxHP;
 
     [Range(3, 8)][SerializeField] float playerSpeed;            //Player movement speed and current velocity
-    [Range(4, 10)] [SerializeField] float playerSprint;          // Used for player sprint
-    [Range(0, 5)] [SerializeField] float sprintAcceleration;    // Player sprint acceleration
-    [Range(0, 10)] [SerializeField] float sprintDrainRate;      // Player sprint drain rate
-    [Range(0, 10)] [SerializeField] float sprintRechargeRate;   // Player sprint recharge rate;
+    [Range(4, 10)][SerializeField] float playerSprint;          // Used for player sprint
+    [Range(0, 5)][SerializeField] float sprintAcceleration;    // Player sprint acceleration
+    [Range(0, 10)][SerializeField] float sprintDrainRate;      // Player sprint drain rate
+    [Range(0, 10)][SerializeField] float sprintRechargeRate;   // Player sprint recharge rate;
     Vector3 playerVelocity;
     Vector3 movementVec;
 
@@ -67,9 +67,9 @@ public class playerController : MonoBehaviour, IDamage
 
             if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
                 StartCoroutine(shootBullet());
-                //StartCoroutine(shoot());
+            //StartCoroutine(shoot());
 
-            if(!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
+            if (!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
                 StartCoroutine(placePillow());
 
         }
@@ -102,7 +102,7 @@ public class playerController : MonoBehaviour, IDamage
 
         if (isSprinting)
         {
-           gameManager.instance.SprintBar.fillAmount -= sprintDrainRate * Time.deltaTime; // Decrease fill amount based on sprint drain rate
+            gameManager.instance.SprintBar.fillAmount -= sprintDrainRate * Time.deltaTime; // Decrease fill amount based on sprint drain rate
         }
         else
         {
@@ -127,7 +127,7 @@ public class playerController : MonoBehaviour, IDamage
         }
 
         playerVelocity.y -= gravityValue * Time.deltaTime;      //Applies gravity (and jump if there has been one) to the controller
-        controller.Move(playerVelocity * Time.deltaTime);       
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
     //Called whenever the player takes damage
@@ -172,7 +172,19 @@ public class playerController : MonoBehaviour, IDamage
     {
         isShooting = true;
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            Vector3 shootDirection = (hit.point - shootPos.position).normalized;
+            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+        }
+        else
+        {
+            Vector3 shootDirection = Camera.main.transform.forward;
+            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+        }
+
 
         playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
         if (bulletScript != null)

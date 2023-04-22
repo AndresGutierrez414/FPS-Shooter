@@ -518,11 +518,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1184203256994873412, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
   m_PrefabInstance: {fileID: 588576067}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &300578638 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7650606408465015120, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-  m_PrefabInstance: {fileID: 4303810386990633080}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &319215713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3728,18 +3723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 8973868133043815996, guid: a25d5561dc2fb5d46911898850a18e19, type: 3}
-    - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: shootPos
-      value: 
-      objectReference: {fileID: 300578638}
-    - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: bulletSpeed
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_RootOrder
       value: 6
