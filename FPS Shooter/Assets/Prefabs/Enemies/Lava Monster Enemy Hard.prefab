@@ -645,7 +645,7 @@ MonoBehaviour:
   shootPos: {fileID: 5991925834088525330}
   model: {fileID: 2100000, guid: 7941ab01d68fb8843b74b58995cecd0f, type: 2}
   animator: {fileID: 9049669666051043680}
-  HP: 4
+  HP: 25
   sightAngle: 90
   playerFaceSpeed: 5
   roamPauseTime: 1
