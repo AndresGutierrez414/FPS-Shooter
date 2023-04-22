@@ -196,6 +196,7 @@ public class playerController : MonoBehaviour, IDamage
         if (bulletScript != null)
         {
             bulletScript.damage = shootDamage;
+            bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
         }
 
         yield return new WaitForSeconds(fireRate);

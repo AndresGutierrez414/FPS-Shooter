@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingDamage: 1
   shootingRate: 0.5
-  shootingDist: 40
+  shootingDist: 25
   gunModel: {fileID: 5242247484002530937, guid: e19f2b74d7d9a6f40a279d9ee78da879, type: 3}
   gunBlastAudio: {fileID: 0}

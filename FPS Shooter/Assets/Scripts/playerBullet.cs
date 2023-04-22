@@ -6,12 +6,24 @@ public class playerBullet : MonoBehaviour
 {
     // variables //
     [SerializeField] public int damage;
-    [SerializeField] public int timer;
+    [SerializeField] public int maxTravelDistance;
+    private Vector3 startPos;
+    //[SerializeField] public int timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, timer);
+        startPos = transform.position;
+    }
+
+    private void Update()
+    {
+        float travelDistance = Vector3.Distance(startPos, transform.position);
+
+        if (travelDistance > maxTravelDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
