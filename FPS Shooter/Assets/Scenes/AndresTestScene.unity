@@ -1184,10 +1184,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 357997175, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1195,10 +1191,6 @@ PrefabInstance:
     - target: {fileID: 8294089178165686796, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Easy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8294089178165686796, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8669805888058058934, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_RootOrder
@@ -3553,10 +3545,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 259968723, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 320419000953439151, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3564,10 +3552,6 @@ PrefabInstance:
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
-      objectReference: {fileID: 0}
-    - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6693224713112557927, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_RootOrder
@@ -3723,10 +3707,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: bulletSpeed
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3784,17 +3764,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 854893821047358592, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5509868145652819866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_RootOrder
@@ -3849,17 +3821,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 509766438, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 2323046952433103264, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Hard
-      objectReference: {fileID: 0}
-    - target: {fileID: 2323046952433103264, guid: c651c0aa7b565544b86f866f70670508, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3131917406879116058, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_RootOrder

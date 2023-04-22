@@ -168,7 +168,7 @@ MonoBehaviour:
   fireRate: 0.5
   shootDist: 40
   bullet: {fileID: 8973868133043815996, guid: a25d5561dc2fb5d46911898850a18e19, type: 3}
-  bulletSpeed: 30
+  bulletSpeed: 50
   shootPos: {fileID: 7650606408465015120}
   gunMaterial: {fileID: 1008969835800277502}
   gunModel: {fileID: 3169293380503038317}

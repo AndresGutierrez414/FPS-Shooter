@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 259968724}
   - component: {fileID: 259968726}
   - component: {fileID: 259968725}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Sphere Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
