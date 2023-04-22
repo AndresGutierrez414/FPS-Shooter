@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4867235488028142787}
   - component: {fileID: 4392144180247598881}
+  - component: {fileID: 1432192571}
   - component: {fileID: 8368883784541053798}
   - component: {fileID: 6035043677108721580}
   - component: {fileID: 4552884849178179996}
-  - component: {fileID: 1432192571}
   m_Layer: 0
   m_Name: SMG-Pickup
   m_TagString: Untagged
@@ -51,6 +51,21 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 5bb94e9821427084b9b4a478ca6dd292, type: 2}
   model: {fileID: 8368883784541053798}
   mat: {fileID: 6035043677108721580}
+--- !u!114 &1432192571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242247484002530937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4020dd20248e439291a110e94f8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  verticalSpeed: 1
+  height: 0.1
 --- !u!33 &8368883784541053798
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,18 +129,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.4998612
   m_Center: {x: 0, y: 0.46802473, z: 0.21000004}
---- !u!114 &1432192571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5242247484002530937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d4020dd20248e439291a110e94f8f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  verticalSpeed: 1
-  height: 0.1

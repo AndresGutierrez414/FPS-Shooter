@@ -529,6 +529,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun-Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 2025667460921119294, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025667460921119294, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
+      propertyPath: height
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025667460921119294, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
+      propertyPath: verticalSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134879078123913432, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1377,6 +1389,18 @@ PrefabInstance:
     - target: {fileID: 5377213580535282800, guid: 3c35e23ae3cb3974d8bae9251609f017, type: 3}
       propertyPath: m_Name
       value: Rifle-Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053196763147552446, guid: 3c35e23ae3cb3974d8bae9251609f017, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053196763147552446, guid: 3c35e23ae3cb3974d8bae9251609f017, type: 3}
+      propertyPath: height
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053196763147552446, guid: 3c35e23ae3cb3974d8bae9251609f017, type: 3}
+      propertyPath: verticalSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c35e23ae3cb3974d8bae9251609f017, type: 3}

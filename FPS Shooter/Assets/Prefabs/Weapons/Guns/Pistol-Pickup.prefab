@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3016068150097054718}
   - component: {fileID: 4147840391442886803}
+  - component: {fileID: 1325945314}
   - component: {fileID: 2194626952645084251}
   - component: {fileID: 4147840391442886801}
   - component: {fileID: 4147840391442886800}
-  - component: {fileID: 1325945314}
   m_Layer: 0
   m_Name: Pistol-Pickup
   m_TagString: Untagged
@@ -51,6 +51,21 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 1a6cccd91ce1d054dad90f3feed9da67, type: 2}
   model: {fileID: 2194626952645084251}
   mat: {fileID: 4147840391442886801}
+--- !u!114 &1325945314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490748619101557060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4020dd20248e439291a110e94f8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  verticalSpeed: 1
+  height: 0.1
 --- !u!33 &2194626952645084251
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,18 +129,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.8349871
   m_Center: {x: 0, y: 0.050266325, z: -0.10166764}
---- !u!114 &1325945314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2490748619101557060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d4020dd20248e439291a110e94f8f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  verticalSpeed: 1
-  height: 0.1

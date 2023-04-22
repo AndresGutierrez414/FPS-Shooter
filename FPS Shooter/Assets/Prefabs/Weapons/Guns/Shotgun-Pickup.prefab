@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2134879078123913432}
   - component: {fileID: 3030718730070019967}
+  - component: {fileID: 2025667460921119294}
   - component: {fileID: 3030718730070019965}
   - component: {fileID: 1003090957612268471}
   - component: {fileID: 3030718730070019966}
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651499009955404386}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.94, z: -9.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,6 +51,21 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: e30c1a11534be6d4d9a4b4ab12b7d079, type: 2}
   model: {fileID: 3030718730070019965}
   mat: {fileID: 1003090957612268471}
+--- !u!114 &2025667460921119294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651499009955404386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d4020dd20248e439291a110e94f8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  verticalSpeed: 0
+  height: 0
 --- !u!33 &3030718730070019965
 MeshFilter:
   m_ObjectHideFlags: 0
