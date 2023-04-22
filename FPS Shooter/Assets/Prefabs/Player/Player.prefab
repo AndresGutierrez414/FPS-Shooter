@@ -158,7 +158,7 @@ MonoBehaviour:
   HP: 10
   playerSpeed: 8
   playerSprint: 10
-  sprintAcceleration: 4
+  sprintAcceleration: 1.5
   sprintDrainRate: 0.5
   sprintRechargeRate: 0.5
   gravityValue: 25
