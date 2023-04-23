@@ -8,6 +8,7 @@ TagManager:
   - Large Lava Ball
   - Floor
   - Decor
+  - MovingFloorCheck
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player Bullet
   - Enemy Capsule
   - Enemy Sphere
-  - 
+  - MovingFloorCheck
   - 
   - 
   - 

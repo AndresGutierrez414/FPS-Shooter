@@ -271,6 +271,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
+--- !u!1 &94778547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4303810387877515686, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+  m_PrefabInstance: {fileID: 1147422495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &94778553 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+  m_PrefabInstance: {fileID: 1147422495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &106217809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +407,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
+--- !u!1 &207854198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207854199}
+  - component: {fileID: 207854200}
+  m_Layer: 12
+  m_Name: MovingFloorCheck
+  m_TagString: MovingFloorCheck
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207854199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207854198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.0000398, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 94778553}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &207854200
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207854198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.36734846
+  m_Center: {x: -0.052616924, y: 0.36, z: 0}
 --- !u!1001 &449161666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1102,6 +1157,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4303810387877515676, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303810387877515676, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515686, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1478,6 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7085680ffd4d2b04d82c776462eb8785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 94778547}
   leftDistance: 3.5
   rightDistance: 4
   speed: 2
@@ -1499,6 +1563,7 @@ GameObject:
   - component: {fileID: 1508533346}
   - component: {fileID: 1508533345}
   - component: {fileID: 1508533348}
+  - component: {fileID: 1508533349}
   m_Layer: 0
   m_Name: playerCubeFloor (3)
   m_TagString: Untagged
@@ -1530,7 +1595,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508533343}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1597,9 +1662,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7085680ffd4d2b04d82c776462eb8785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 94778547}
   leftDistance: 7
   rightDistance: 5
   speed: 2
+--- !u!65 &1508533349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508533343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.47929144, z: 1}
+  m_Center: {x: 0, y: 0.7397411, z: -0.00000023841858}
 --- !u!1001 &1576832208
 PrefabInstance:
   m_ObjectHideFlags: 0

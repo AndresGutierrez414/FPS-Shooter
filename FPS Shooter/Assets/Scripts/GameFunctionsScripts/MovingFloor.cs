@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MovingFloor : MonoBehaviour
 {
+
+    public GameObject player;
+
     public float leftDistance = 5f; // Distance to move left
     public float rightDistance = 5f; // Distance to move right
     public float speed = 5f; // Speed of the platform
@@ -12,6 +15,10 @@ public class MovingFloor : MonoBehaviour
     private bool moveLeft = true; // Flag to determine movement direction
 
     void Update()
+    {
+        MoveFloor();   
+    }
+    void MoveFloor()
     {
         // Move the platform horizontally
         if (moveLeft)
@@ -33,6 +40,21 @@ public class MovingFloor : MonoBehaviour
 
             // Pause at the end of each movement
             StartCoroutine(Pause());
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            player.transform.parent = transform; // Making the player a child of the object
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            player.transform.parent = null; // Removing the player as a child 
         }
     }
 
