@@ -93,7 +93,7 @@ public class chickenMovement : MonoBehaviour
     {
         if (other.CompareTag("Floor"))
         {
-            chickenFireChildObject.SetActive(false); // Set Chicken Fire to inactive when the collider is no longer interacting with the Floor tag
+            chickenFireChildObject.SetActive(false); 
         }
     }
 }

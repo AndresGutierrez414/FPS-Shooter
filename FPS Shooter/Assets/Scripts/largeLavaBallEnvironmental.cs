@@ -43,7 +43,7 @@ public class largeLavaBallEnvironmental : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Floor"))
+        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Decor"))
         {
             createExplosion();
             playExplosionSound();
