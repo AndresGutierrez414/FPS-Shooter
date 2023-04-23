@@ -6,13 +6,14 @@ using UnityEngine.AI;
 public class chickenMovement : MonoBehaviour
 {
     // variables //
-
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] float animTransSpeed;
+
+    [SerializeField] GameObject chickenFireChildObject;
 
     float stoppingDistanceOrig;
     bool destinationChosen;
@@ -28,6 +29,8 @@ public class chickenMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         agent.updateRotation = false;
+
+        chickenFireChildObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,7 +50,6 @@ public class chickenMovement : MonoBehaviour
 
             StartCoroutine(roam());
         }
-
     }
 
     IEnumerator roam()
@@ -76,6 +78,22 @@ public class chickenMovement : MonoBehaviour
         else
         {
             animator.SetBool("Run", true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            chickenFireChildObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            chickenFireChildObject.SetActive(false); // Set Chicken Fire to inactive when the collider is no longer interacting with the Floor tag
         }
     }
 }
