@@ -10973,7 +10973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521118267}
   m_LocalRotation: {x: -0, y: 0.43350387, z: -0, w: 0.9011517}
-  m_LocalPosition: {x: 17.948227, y: 7.4989405, z: 59.386204}
+  m_LocalPosition: {x: 17.948227, y: 2.4997883, z: 59.386204}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11581,6 +11581,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b7e95eb81d7e0894580b48733f6126b3, type: 3}
   m_PrefabInstance: {fileID: 652104734}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1623103562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5859042031172001111, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
+  m_PrefabInstance: {fileID: 1374012995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623103568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623103562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d28cb150ad86f4a8100312a4aea7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uvAnimationRate: {x: 0, y: -0.01}
+  textureName: _MainTex
 --- !u!4 &1625827863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 230074287782782903, guid: 5836cbcc37f787646a78c0232fbb254b, type: 3}
