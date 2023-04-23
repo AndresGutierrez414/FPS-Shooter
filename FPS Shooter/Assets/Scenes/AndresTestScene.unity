@@ -4326,6 +4326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pedestal (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1734547811495020114, guid: 627cc11a2a7d3dc46a52c576e188b880, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 627cc11a2a7d3dc46a52c576e188b880, type: 3}
 --- !u!1 &533409078
@@ -4495,6 +4499,14 @@ PrefabInstance:
     - target: {fileID: 1811904670060289857, guid: f680d9631cd9e0b478de7d40fa917be0, type: 3}
       propertyPath: m_Name
       value: Fence 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811904670060289857, guid: f680d9631cd9e0b478de7d40fa917be0, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811904670060289857, guid: f680d9631cd9e0b478de7d40fa917be0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3422300767582055762, guid: f680d9631cd9e0b478de7d40fa917be0, type: 3}
       propertyPath: m_RootOrder
@@ -14519,11 +14531,61 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1682125421048621038, guid: 006fb49c547b45043b6037559e90beb9, type: 3}
+--- !u!1 &1311291270563554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5602590383529857142, guid: 056d09bf1bfbfb84385982544320cf0a, type: 3}
+  m_PrefabInstance: {fileID: 5603831271687984788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4303843086910444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5605719895412921720, guid: 056d09bf1bfbfb84385982544320cf0a, type: 3}
   m_PrefabInstance: {fileID: 5603831271687984788}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &95943283108380126 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5516932846787390282, guid: 056d09bf1bfbfb84385982544320cf0a, type: 3}
+  m_PrefabInstance: {fileID: 5603831271687984788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &95943283108380127
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311291270563554}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &95943283108380128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311291270563554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c921ea48a551c4bb80429a368b0f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roamPauseTime: 1
+  roamDist: 20
+  agent: {fileID: 95943283108380127}
+  animator: {fileID: 95943283108380126}
+  playerFaceSpeed: 5
+  animTransSpeed: 3
 --- !u!1001 &230074289743763774
 PrefabInstance:
   m_ObjectHideFlags: 0
