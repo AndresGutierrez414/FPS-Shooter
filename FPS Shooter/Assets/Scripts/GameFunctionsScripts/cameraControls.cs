@@ -99,14 +99,40 @@ public class cameraControls : MonoBehaviour
 
     IEnumerator moveAndLookAt(Vector3 targetPosition, Vector3 lookAtPosition)
     {
-        while (Vector3.Distance(transform.position, targetPosition) > distanceFromFocusPoint)
-        {
-            // move camera //
-            transform.position = Vector3.Lerp(transform.position, targetPosition, introMoveSpeed * Time.deltaTime);
+        // Add a small offset to the target position to avoid zero vector issues
+        targetPosition += new Vector3(0.0001f, 0.0001f, 0.0001f);
 
-            // rotate camera to look at target //
+        // Move camera to the starting position of the half-circle movement
+        Vector3 startCirclePosition = targetPosition + (transform.position - targetPosition).normalized * distanceFromFocusPoint;
+        while (Vector3.Distance(transform.position, startCirclePosition) > 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, startCirclePosition, introMoveSpeed * Time.deltaTime);
+
             Quaternion targetRotation = Quaternion.LookRotation(lookAtPosition - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, introRotationSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        // Calculate the center of the circle and the radius
+        Vector3 circleCenter = targetPosition;
+        float radius = distanceFromFocusPoint;
+
+        // Rotate camera around the focus point in a half-circle
+        float angle = 0;
+        float targetAngle = 180f;
+
+        while (angle < targetAngle)
+        {
+            float step = introMoveSpeed * Time.deltaTime;
+            angle += step;
+
+            float xPos = circleCenter.x + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
+            float yPos = circleCenter.y; // Assuming the movement is on a horizontal plane, otherwise, adjust accordingly
+            float zPos = circleCenter.z + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
+
+            transform.position = new Vector3(xPos, yPos, zPos);
+            transform.rotation = Quaternion.LookRotation(lookAtPosition - transform.position);
 
             yield return null;
         }
