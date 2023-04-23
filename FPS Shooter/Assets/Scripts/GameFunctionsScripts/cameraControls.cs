@@ -18,8 +18,8 @@ public class cameraControls : MonoBehaviour
     [SerializeField] Transform endPosition;
     [SerializeField] Transform[] focusPoints;
     [SerializeField] Transform playerStartPosition;
-
     [SerializeField] float introMoveSpeed;
+    [SerializeField] float halfCircleMoveSpeed;
     [SerializeField] float introRotationSpeed;
     [SerializeField] float waitTimeAtFocusPoints;
     [SerializeField] float distanceFromFocusPoint;
@@ -124,7 +124,7 @@ public class cameraControls : MonoBehaviour
 
         while (angle < targetAngle)
         {
-            float step = introMoveSpeed * Time.deltaTime;
+            float step = halfCircleMoveSpeed * Time.deltaTime;
             angle += step;
 
             float xPos = circleCenter.x + radius * Mathf.Sin(Mathf.Deg2Rad * angle);

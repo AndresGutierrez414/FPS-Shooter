@@ -1534,11 +1534,15 @@ PrefabInstance:
       objectReference: {fileID: 1184203258201028619}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: introMoveSpeed
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: enableIntroSequence
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: halfCircleMoveSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: playerStartPosition
@@ -2033,6 +2037,10 @@ PrefabInstance:
     - target: {fileID: 9146088848422124109, guid: 4e971782d5a9fa849971cba7b87d61fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146420182258160722, guid: 4e971782d5a9fa849971cba7b87d61fa, type: 3}
+      propertyPath: m_TagString
+      value: Decor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e971782d5a9fa849971cba7b87d61fa, type: 3}
