@@ -61,11 +61,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   playerStartPosition: {fileID: 0}
-  introMoveSpeed: 1
-  halfCircleMoveSpeed: 20
+  introMoveSpeed: 100
+  halfCircleMoveSpeed: 200
   introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
   distanceFromFocusPoint: 20
+  player: {fileID: 0}
 --- !u!20 &4303810387769731549
 Camera:
   m_ObjectHideFlags: 0
@@ -190,6 +191,8 @@ MonoBehaviour:
   pillowShootDist: 4
   cube: {fileID: 12482004233389737, guid: 93c224a9490a4b543938c00d31cd6da1, type: 3}
   rotationAxis: 0
+  canMove: 0
+  shootingDirectionBlend: 0.5
 --- !u!33 &4303810387877515673
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -298,7 +301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5707246170065821668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.63, y: -0.74, z: 1.4}
+  m_LocalPosition: {x: 0.35, y: -0.568, z: 1.013}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7091500489759743083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53, y: -0.36, z: 2.075}
+  m_LocalPosition: {x: 0.056, y: -0.075, z: 1.361}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
