@@ -51,6 +51,8 @@ public class playerController : MonoBehaviour, IDamage
     bool isSprinting;
     public float rotationAxis;
 
+    public bool canMove = false;
+
     private void Start()
     {
         maxHP = HP;
@@ -60,20 +62,22 @@ public class playerController : MonoBehaviour, IDamage
 
     void Update()
     {
-        if (gameManager.instance.activeMenu == null)
+        if (canMove)
         {
-            selectGun();
-            Movement();
+            if (gameManager.instance.activeMenu == null)
+            {
+                selectGun();
+                Movement();
 
-            if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
-                StartCoroutine(shootBullet());
-            //StartCoroutine(shoot());
+                if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
+                    StartCoroutine(shootBullet());
+                //StartCoroutine(shoot());
 
-            if (!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
-                StartCoroutine(placePillow());
+                if (!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
+                    StartCoroutine(placePillow());
 
+            }
         }
-
     }
 
     //Player movement handler
@@ -197,7 +201,7 @@ public class playerController : MonoBehaviour, IDamage
             float spreadAngle = gunList[selectedGun].spreadAngle;
             Quaternion randomRotation = Quaternion.Euler(
                 Random.Range(-spreadAngle, spreadAngle),
-                Random.Range(-spreadAngle, spreadAngle), 
+                Random.Range(-spreadAngle, spreadAngle),
                 0);
 
             // Calculate the direction vector from the shootPos to the target point

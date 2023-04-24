@@ -29,8 +29,12 @@ public class cameraControls : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
+    public playerController player;
+
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+
         // turn cursor off and lock to screen //
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -99,6 +103,7 @@ public class cameraControls : MonoBehaviour
 
         // intro done //
         introFinsished = true;
+        player.canMove = true;
     }
 
     IEnumerator moveAndLookAt(Vector3 targetPosition, Vector3 lookAtPosition)

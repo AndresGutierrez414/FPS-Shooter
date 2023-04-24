@@ -1214,7 +1214,7 @@ MonoBehaviour:
   audioVolume: 1
   audioDistance: 500
   riseFromGround: 1
-  riseDelay: 30
+  riseDelay: 120
   riseTime: 5
   yOffset: 25
   sphereColliderChild: {fileID: 224241456}
