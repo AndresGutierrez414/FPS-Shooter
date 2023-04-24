@@ -52,6 +52,7 @@ public class cameraControls : MonoBehaviour
         else
         {
             introFinsished = true;
+            player.canMove = true;
         }
     }
 

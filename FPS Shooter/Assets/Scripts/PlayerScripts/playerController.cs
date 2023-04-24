@@ -53,6 +53,8 @@ public class playerController : MonoBehaviour, IDamage
 
     public bool canMove = false;
 
+    [Range(0f, 1f)][SerializeField] float shootingDirectionBlend = 0.5f; // test
+
     private void Start()
     {
         maxHP = HP;
@@ -177,6 +179,7 @@ public class playerController : MonoBehaviour, IDamage
         isShooting = true;
 
         int bulletCount = gunList[selectedGun].bulletCount;
+
         // for each bullet //
         for (int i = 0; i < bulletCount; i++)
         {
