@@ -12,11 +12,11 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 10)][SerializeField] int HP;
     int maxHP;
 
-    [Range(3, 8)][SerializeField] float playerSpeed;            //Player movement speed and current velocity
-    [Range(4, 10)][SerializeField] float playerSprint;          // Used for player sprint
-    [Range(0, 5)][SerializeField] float sprintAcceleration;    // Player sprint acceleration
-    [Range(0, 10)][SerializeField] float sprintDrainRate;      // Player sprint drain rate
-    [Range(0, 10)][SerializeField] float sprintRechargeRate;   // Player sprint recharge rate;
+    [Range(3, 8)][SerializeField] public float playerSpeed;     //Player movement speed and current velocity
+    [Range(4, 10)][SerializeField] public float playerSprint;          // Used for player sprint
+    [Range(0, 5)][SerializeField] public float sprintAcceleration;     // Player sprint acceleration
+    [Range(0, 10)][SerializeField] float sprintDrainRate;       // Player sprint drain rate
+    [Range(0, 10)][SerializeField] float sprintRechargeRate;    // Player sprint recharge rate;
     Vector3 playerVelocity;
     Vector3 movementVec;
 

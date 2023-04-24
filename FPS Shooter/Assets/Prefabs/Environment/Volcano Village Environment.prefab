@@ -12542,11 +12542,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6119128001445444288, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6119128001445444288, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662440930375163830, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662440930375163830, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
+      propertyPath: damageTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662440930375163830, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
+      propertyPath: speedReduction
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662440930375163830, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
+      propertyPath: speedRecoveryTimer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8170492679666855254, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
       propertyPath: m_RootOrder
