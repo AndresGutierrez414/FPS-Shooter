@@ -54,7 +54,7 @@ MonoBehaviour:
   lockVerMin: -90
   lockVerMax: 90
   invertY: 0
-  enableIntroSequence: 0
+  enableIntroSequence: 1
   endPosition: {fileID: 0}
   focusPoints:
   - {fileID: 0}

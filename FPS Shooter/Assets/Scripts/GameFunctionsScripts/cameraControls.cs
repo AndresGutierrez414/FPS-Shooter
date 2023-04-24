@@ -146,7 +146,7 @@ public class cameraControls : MonoBehaviour
 
             // Calculate the position on the half-circle path using trigonometry //
             float xPos = circleCenter.x + radius * Mathf.Sin(Mathf.Deg2Rad * angle);
-            float yPos = circleCenter.y + 5; // adjust height of half circle rotation
+            float yPos = circleCenter.y + 10; // adjust height of half circle rotation
             float zPos = circleCenter.z + radius * Mathf.Cos(Mathf.Deg2Rad * angle);
 
             // update camera pos and rotation //
