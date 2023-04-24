@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b56a1d1f5eb4ca479e1538e493ca64c, type: 3}
   m_Name: Pistol Stats
   m_EditorClassIdentifier: 
-  shootingDamage: 2
+  shootingDamage: 4
   shootingRate: 1
   shootingDist: 20
   bulletCount: 1

@@ -7087,6 +7087,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9146088848422124109}
     m_Modifications:
+    - target: {fileID: 4725601068119765836, guid: 4eead59d2ca69554e9356d924e52cd51, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 5830364114653721055, guid: 4eead59d2ca69554e9356d924e52cd51, type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.3714776
@@ -12133,6 +12137,14 @@ PrefabInstance:
     - target: {fileID: 2861922163582182427, guid: a8abf0e5202774e48a51491da557a333, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 25.219
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370797897132729689, guid: a8abf0e5202774e48a51491da557a333, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370797897132729689, guid: a8abf0e5202774e48a51491da557a333, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8abf0e5202774e48a51491da557a333, type: 3}

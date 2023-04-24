@@ -60,12 +60,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   playerStartPosition: {fileID: 0}
   introMoveSpeed: 1
-  introRotationSpeed: 5
+  halfCircleMoveSpeed: 20
+  introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
-  distanceFromFocusPoint: 0.1
+  distanceFromFocusPoint: 20
 --- !u!20 &4303810387769731549
 Camera:
   m_ObjectHideFlags: 0

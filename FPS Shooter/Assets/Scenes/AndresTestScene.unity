@@ -672,11 +672,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
---- !u!4 &334582042 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1176833040323947125, guid: 72fbd0610924ad2478c1e3e15bbd1d39, type: 3}
-  m_PrefabInstance: {fileID: 781819689}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &397741386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,10 +1275,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1176833040130061141, guid: 72fbd0610924ad2478c1e3e15bbd1d39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176833040323947124, guid: 72fbd0610924ad2478c1e3e15bbd1d39, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2860,50 +2851,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1783089751, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1783089751, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1783089751, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: endPosition
       value: 
       objectReference: {fileID: 1184203258201028619}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: introMoveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: introRotationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: enableIntroSequence
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: halfCircleMoveSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: playerStartPosition
       value: 
       objectReference: {fileID: 1084533127}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: distanceFromFocusPoint
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: focusPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: focusPoints.Array.data[0]
       value: 
@@ -2916,10 +2871,6 @@ PrefabInstance:
       propertyPath: focusPoints.Array.data[2]
       value: 
       objectReference: {fileID: 949430867}
-    - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
-      propertyPath: focusPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 334582042}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2977,10 +2928,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16399241}
     m_Modifications:
-    - target: {fileID: 854893821047358592, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Boss

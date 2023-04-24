@@ -57,7 +57,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &298531762059815595
 GameObject:
@@ -1194,8 +1194,8 @@ MonoBehaviour:
   shootPos: {fileID: 3758163075569623698}
   model: {fileID: 2100000, guid: 7941ab01d68fb8843b74b58995cecd0f, type: 2}
   animator: {fileID: 1915955319656005088}
-  HP: 40
-  sightAngle: 90
+  HP: 50
+  sightAngle: 180
   playerFaceSpeed: 5
   roamPauseTime: 1
   roamDist: 20
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   audioVolume: 1
   audioDistance: 500
   riseFromGround: 1
-  riseDelay: 5
+  riseDelay: 30
   riseTime: 5
   yOffset: 25
   sphereColliderChild: {fileID: 224241456}
