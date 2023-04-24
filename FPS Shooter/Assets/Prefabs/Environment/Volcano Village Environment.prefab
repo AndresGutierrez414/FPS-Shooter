@@ -10916,6 +10916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_Skull_05
       objectReference: {fileID: 0}
+    - target: {fileID: 1112617273081936, guid: 0194038e908575a42895d9b24c1fb149, type: 3}
+      propertyPath: m_TagString
+      value: Decor
+      objectReference: {fileID: 0}
     - target: {fileID: 1120072531179844, guid: 0194038e908575a42895d9b24c1fb149, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
