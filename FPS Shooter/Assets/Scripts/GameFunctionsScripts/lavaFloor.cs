@@ -62,6 +62,9 @@ public class lavaFloor : MonoBehaviour
             yield return new WaitForSeconds(damageTimer);
         }
 
+        // Wait for the speedRecoveryTime duration before restoring the player's speed
+        yield return new WaitForSeconds(speedRecoveryTimer);
+
         // return player speed to normal //
         _player.playerSpeed += speedReduction;
         _player.playerSprint += sprintReduction;

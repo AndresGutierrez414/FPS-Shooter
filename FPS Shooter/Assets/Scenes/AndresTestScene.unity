@@ -3364,7 +3364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2492973168750467771, guid: 4e971782d5a9fa849971cba7b87d61fa, type: 3}
       propertyPath: speedRecoveryTimer
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2492973168750467771, guid: 4e971782d5a9fa849971cba7b87d61fa, type: 3}
       propertyPath: accelerationReduction
