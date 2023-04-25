@@ -236,7 +236,6 @@ public class playerController : MonoBehaviour, IDamage
 
             // allign pillow up vector with surface //
             //pillow.transform.forward = hit.normal;     // <- maybe
-
         }
 
         yield return new WaitForSeconds(pillowShootRate);
@@ -286,7 +285,5 @@ public class playerController : MonoBehaviour, IDamage
 
         gunModel.mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunMaterial.material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-
     }
-
 }

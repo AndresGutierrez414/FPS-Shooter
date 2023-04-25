@@ -29,4 +29,10 @@ public class buttonFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void respawnPlayer()
+    {
+        gameManager.instance.unpauseState();
+        gameManager.instance.playerScript.respawnPlayer();
+    }
 }
