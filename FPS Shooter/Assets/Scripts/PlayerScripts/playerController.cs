@@ -249,9 +249,12 @@ public class playerController : MonoBehaviour, IDamage
         isPlacingP = false;
     }
 
-    public void reFillHealth()
+    public void reFillHealth(int amount)
     {
-        maxHP = HP;
+        HP += amount;
+
+        HP = Mathf.Clamp(HP, 0, maxHP);
+
         playerUIUpdate();
     }
     //Function that will respawn the player
