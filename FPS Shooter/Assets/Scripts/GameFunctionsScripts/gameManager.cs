@@ -33,6 +33,8 @@ public class gameManager : MonoBehaviour
     public float weaponsTextDelayTimer;
     [SerializeField] public TextMeshProUGUI lavaText;
     public float lavaTextDelayTimer;
+    [SerializeField] public TextMeshProUGUI bossArrivalText;
+
 
     [Header("----------Enemy Stuff----------")]
     public TextMeshProUGUI enemiesRemainingText;
@@ -58,14 +60,16 @@ public class gameManager : MonoBehaviour
         playBackgroundMusic();
 
         // intro text display //
-        endGoalText.gameObject.SetActive(false); // end goal
-        StartCoroutine(endGoalTextFunction());
-        enemiesText.gameObject.SetActive(false); // enemies
-        StartCoroutine(enemiesTextFunction());
-        weaponsText.gameObject.SetActive(false); // weapons 
-        StartCoroutine(weaponsTextFunction());
-        lavaText.gameObject.SetActive(false);    // lava
+        endGoalText.gameObject.SetActive(false);     // end goal
+        StartCoroutine(endGoalTextFunction());       
+        enemiesText.gameObject.SetActive(false);     // enemies
+        StartCoroutine(enemiesTextFunction());       
+        weaponsText.gameObject.SetActive(false);     // weapons 
+        StartCoroutine(weaponsTextFunction());       
+        lavaText.gameObject.SetActive(false);        // lava
         StartCoroutine(lavaTextFunction());
+        bossArrivalText.gameObject.SetActive(false); // enemy boss
+        StartCoroutine(bossArrivalTextFunction());
     }
 
     // Update is called once per frame
@@ -153,5 +157,13 @@ public class gameManager : MonoBehaviour
         lavaText.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
         lavaText.gameObject.SetActive(false);
+    }
+
+    IEnumerator bossArrivalTextFunction()
+    {
+        yield return new WaitForSeconds(120);
+        bossArrivalText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4);
+        bossArrivalText.gameObject.SetActive(false);
     }
 }
