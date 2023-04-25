@@ -46,6 +46,8 @@ public class gameManager : MonoBehaviour
 
     [Header("----------Audio Stuff----------")]
     [SerializeField] public AudioSource backgroundMusic;
+    [SerializeField] public AudioSource bossBattleMusic; // test
+
 
     float timeScaleOriginal;
 
@@ -90,6 +92,17 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the boss is activated and switch music
+        if (bossEnemy.activeInHierarchy && !bossBattleMusic.isPlaying)
+        {
+            SwitchToBossBattleMusic();
+        }
+
+        // Check if the boss is destroyed and switch music
+        if (bossEnemyScript.isBossDestroyed && !backgroundMusic.isPlaying) // Assuming 'isDead' is a boolean variable in the enemyAI script that is set to true when the boss is destroyed
+        {
+            SwitchToBackgroundMusic();
+        }
 
         if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
         {
@@ -149,6 +162,24 @@ public class gameManager : MonoBehaviour
         endGoalText.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
         endGoalText.gameObject.SetActive(false);
+    }
+
+    public void SwitchToBossBattleMusic() // test
+    {
+        stopBackgroundMusic();
+        if (bossBattleMusic != null)
+        {
+            bossBattleMusic.Play();
+        }
+    }
+
+    public void SwitchToBackgroundMusic() // test
+    {
+        if (bossBattleMusic != null && bossBattleMusic.isPlaying)
+        {
+            bossBattleMusic.Stop();
+        }
+        playBackgroundMusic();
     }
 
     IEnumerator enemiesTextFunction()

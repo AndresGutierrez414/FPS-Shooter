@@ -23,6 +23,8 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int roamPauseTime;
     [SerializeField] int roamDist;
     [SerializeField] float animTransSpeed;
+    [SerializeField] private bool isBoss;
+    public bool isBossDestroyed { get; private set; }
 
 
     // health bar canvas //
@@ -209,26 +211,6 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.stoppingDistance = 0;
     }
 
-
-    //Check for player when something enters its collider
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerInRange = true;
-    //    }
-    //}
-
-    ////Check for player when something exits its collider
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerInRange = false;
-    //        agent.stoppingDistance = 0;
-    //    }
-    //}
-
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -255,7 +237,11 @@ public class enemyAI : MonoBehaviour, IDamage
 
             animator.enabled = false;
             StartCoroutine(deathAnimation(deathAnimationTime));
-            
+
+            if (isBoss)
+            {
+                isBossDestroyed = true;
+            }
         }
         // if not dead //
         else
