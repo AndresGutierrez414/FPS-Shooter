@@ -5,6 +5,7 @@ using UnityEngine;
 public class lavaFloor : MonoBehaviour
 {
     // variables //
+    [Header("---------- Stat Reduction ----------")]
     [SerializeField] int damage;
     [SerializeField] float damageTimer;
     [SerializeField] int speedReduction;
@@ -12,8 +13,20 @@ public class lavaFloor : MonoBehaviour
     [SerializeField] float accelerationReduction;
     [SerializeField] float speedRecoveryTimer;
 
+    // orig stats storage 
+    private float speedOrig;
+    private float sprintOrig;
+    private float accelerationOrig;
+
     // HashSet to store colliders of player in contact with the lava floor //
     public HashSet<Collider> playerInLava = new HashSet<Collider>();
+
+    private void Awake()
+    {
+        speedOrig = gameManager.instance.playerScript.playerSpeed;
+        sprintOrig = gameManager.instance.playerScript.playerSprint;
+        accelerationOrig = gameManager.instance.playerScript.sprintAcceleration;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -69,5 +82,12 @@ public class lavaFloor : MonoBehaviour
         _player.playerSpeed += speedReduction;
         _player.playerSprint += sprintReduction;
         _player.sprintAcceleration += accelerationReduction;
+    }
+
+    public void resetStats(playerController _player)
+    {
+        _player.playerSpeed = speedOrig;
+        _player.playerSprint = sprintOrig;
+        _player.sprintAcceleration = accelerationOrig;
     }
 }

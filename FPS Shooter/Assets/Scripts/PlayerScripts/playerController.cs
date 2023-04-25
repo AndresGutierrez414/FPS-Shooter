@@ -43,7 +43,7 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 4)][SerializeField] int pillowShootDist;
     [SerializeField] GameObject cube;                              //Pillow object
 
-
+    [Header("----- Lava Floor -----")]                           
     [SerializeField] public GameObject lavaFloor;
     [SerializeField] public lavaFloor lavaFloorScript;
 
@@ -258,7 +258,9 @@ public class playerController : MonoBehaviour, IDamage
         transform.position = gameManager.instance.playerSpawnLocation.transform.position;
         controller.enabled = true;
 
+        // clear player collider from hashset list in lavaFloor script //
         lavaFloorScript.playerInLava.Clear();
+        lavaFloorScript.resetStats(this);
     }
     public void gunPick(GunLists gunStat)
     {
