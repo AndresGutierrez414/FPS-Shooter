@@ -23,6 +23,9 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject loseMenu;
     [SerializeField] public GameObject checkPoint;
     [SerializeField] public bool isPaused;
+    [Header("---------- Time Delayed Text ----------")]                        //UI menus and HUD elements
+    [SerializeField] public TextMeshProUGUI endGoalText;
+    public float endGoalTextDelayTimer;
 
     [Header("----------Enemy Stuff----------")]
     public TextMeshProUGUI enemiesRemainingText;
@@ -46,6 +49,8 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         playBackgroundMusic();
+        endGoalText.gameObject.SetActive(false);
+        StartCoroutine(endGoalTextFunction());
     }
 
     // Update is called once per frame
@@ -101,5 +106,13 @@ public class gameManager : MonoBehaviour
     {
         if (backgroundMusic != null && backgroundMusic.isPlaying)
             backgroundMusic.Stop();
+    }
+
+    IEnumerator endGoalTextFunction()
+    {
+        yield return new WaitForSeconds(endGoalTextDelayTimer);
+        endGoalText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4);
+        endGoalText.gameObject.SetActive(false);
     }
 }
