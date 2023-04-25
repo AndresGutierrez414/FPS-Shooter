@@ -13,7 +13,7 @@ public class HeathAid : MonoBehaviour
             playerController player = other.GetComponent<playerController>();
             if(player != null)
             {
-                player.reFillHealth();
+                player.reFillHealth(healthAid);
             }
             Destroy(gameObject);
         }
