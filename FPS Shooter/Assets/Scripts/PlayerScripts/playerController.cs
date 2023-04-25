@@ -249,6 +249,11 @@ public class playerController : MonoBehaviour, IDamage
         isPlacingP = false;
     }
 
+    public void reFillHealth()
+    {
+        maxHP = HP;
+        playerUIUpdate();
+    }
     //Function that will respawn the player
     public void respawnPlayer()
     {
