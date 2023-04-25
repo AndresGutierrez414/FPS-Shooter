@@ -13,7 +13,7 @@ public class lavaFloor : MonoBehaviour
     [SerializeField] float speedRecoveryTimer;
 
     // HashSet to store colliders of player in contact with the lava floor //
-    private HashSet<Collider> playerInLava = new HashSet<Collider>();
+    public HashSet<Collider> playerInLava = new HashSet<Collider>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,7 +31,7 @@ public class lavaFloor : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {

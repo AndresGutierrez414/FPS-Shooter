@@ -44,6 +44,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] GameObject cube;                              //Pillow object
 
 
+    [SerializeField] public GameObject lavaFloor;
+    [SerializeField] public lavaFloor lavaFloorScript;
+
     private float currentSpeed;
     private float targetSpeed;
     bool isShooting;
@@ -53,7 +56,11 @@ public class playerController : MonoBehaviour, IDamage
 
     public bool canMove = false;
 
-    [Range(0f, 1f)][SerializeField] float shootingDirectionBlend = 0.5f; // test
+    private void Awake()
+    {
+        lavaFloor = GameObject.FindGameObjectWithTag("Floor");
+        lavaFloorScript = lavaFloor.GetComponent<lavaFloor>();
+    }
 
     private void Start()
     {
@@ -250,6 +257,8 @@ public class playerController : MonoBehaviour, IDamage
         controller.enabled = false;
         transform.position = gameManager.instance.playerSpawnLocation.transform.position;
         controller.enabled = true;
+
+        lavaFloorScript.playerInLava.Clear();
     }
     public void gunPick(GunLists gunStat)
     {
