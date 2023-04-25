@@ -1292,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 1088082721}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: enableIntroSequence
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387769731550, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: playerStartPosition
@@ -1316,7 +1316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515674, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: playerSprint
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_RootOrder

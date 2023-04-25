@@ -12,6 +12,8 @@ public class gameManager : MonoBehaviour
     [Header("---------- Player Stuff ----------")]                    //Player game object and controller
     [SerializeField] public GameObject player;
     [SerializeField] public playerController playerScript;
+    [SerializeField] public GameObject camera;
+    [SerializeField] public cameraControls cameraScript;
     [SerializeField] public GameObject playerSpawnLocation;
     [SerializeField] public Image HPBar;
     [SerializeField] public Image SprintBar;
@@ -51,30 +53,40 @@ public class gameManager : MonoBehaviour
         instance = this;
         timeScaleOriginal = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
         playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
         playerScript = player.GetComponent<playerController>();
+        cameraScript = camera.GetComponent<cameraControls>();
     }
 
     private void Start()
     {
         playBackgroundMusic();
 
-        // intro text display //
-        endGoalText.gameObject.SetActive(false);     // end goal
-        StartCoroutine(endGoalTextFunction());       
-        enemiesText.gameObject.SetActive(false);     // enemies
-        StartCoroutine(enemiesTextFunction());       
-        weaponsText.gameObject.SetActive(false);     // weapons 
-        StartCoroutine(weaponsTextFunction());       
-        lavaText.gameObject.SetActive(false);        // lava
-        StartCoroutine(lavaTextFunction());
-        bossArrivalText.gameObject.SetActive(false); // enemy boss
-        StartCoroutine(bossArrivalTextFunction());
+        // intro text display // 
+        if (!cameraScript.enableIntroSequence)
+        {
+            StopAllCoroutines();
+        }
+        else
+        {
+            endGoalText.gameObject.SetActive(false);     // end goal
+            StartCoroutine(endGoalTextFunction());
+            enemiesText.gameObject.SetActive(false);     // enemies
+            StartCoroutine(enemiesTextFunction());
+            weaponsText.gameObject.SetActive(false);     // weapons 
+            StartCoroutine(weaponsTextFunction());
+            lavaText.gameObject.SetActive(false);        // lava
+            StartCoroutine(lavaTextFunction());
+            bossArrivalText.gameObject.SetActive(false); // enemy boss
+            StartCoroutine(bossArrivalTextFunction());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
         {
             isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
@@ -100,10 +112,10 @@ public class gameManager : MonoBehaviour
     public void unpauseState()
     {
         Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
-        Cursor.visible= false;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
-        activeMenu= null;
+        activeMenu = null;
     }
 
     public void playerDead()
@@ -161,7 +173,7 @@ public class gameManager : MonoBehaviour
 
     IEnumerator bossArrivalTextFunction()
     {
-        yield return new WaitForSeconds(120);
+        yield return new WaitForSeconds(150);
         bossArrivalText.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
         bossArrivalText.gameObject.SetActive(false);

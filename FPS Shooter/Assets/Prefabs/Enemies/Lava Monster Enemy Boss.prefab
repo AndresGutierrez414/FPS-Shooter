@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 3758163076177316254}
   m_Layer: 6
   m_Name: Lava Monster Enemy Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   audioVolume: 1
   audioDistance: 500
   riseFromGround: 1
-  riseDelay: 120
+  riseDelay: 150
   riseTime: 5
   yOffset: 25
   sphereColliderChild: {fileID: 224241456}

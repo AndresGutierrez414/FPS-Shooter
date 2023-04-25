@@ -14,7 +14,7 @@ public class cameraControls : MonoBehaviour
     float xRotation;
 
     [Header("----------Intro Sequence----------")]
-    [SerializeField] bool enableIntroSequence;
+    [SerializeField] public bool enableIntroSequence;
     [SerializeField] Transform endPosition;
     [SerializeField] Transform[] focusPoints;
     [SerializeField] Transform playerStartPosition;
