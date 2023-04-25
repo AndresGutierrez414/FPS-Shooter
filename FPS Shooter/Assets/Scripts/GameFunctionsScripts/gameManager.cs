@@ -23,9 +23,16 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject loseMenu;
     [SerializeField] public GameObject checkPoint;
     [SerializeField] public bool isPaused;
+
     [Header("---------- Time Delayed Text ----------")]                        //UI menus and HUD elements
     [SerializeField] public TextMeshProUGUI endGoalText;
     public float endGoalTextDelayTimer;
+    [SerializeField] public TextMeshProUGUI enemiesText;
+    public float enemiesTextDelayTimer;
+    [SerializeField] public TextMeshProUGUI weaponsText;
+    public float weaponsTextDelayTimer;
+    [SerializeField] public TextMeshProUGUI lavaText;
+    public float lavaTextDelayTimer;
 
     [Header("----------Enemy Stuff----------")]
     public TextMeshProUGUI enemiesRemainingText;
@@ -49,8 +56,16 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         playBackgroundMusic();
-        endGoalText.gameObject.SetActive(false);
+
+        // intro text display //
+        endGoalText.gameObject.SetActive(false); // end goal
         StartCoroutine(endGoalTextFunction());
+        enemiesText.gameObject.SetActive(false); // enemies
+        StartCoroutine(enemiesTextFunction());
+        weaponsText.gameObject.SetActive(false); // weapons 
+        StartCoroutine(weaponsTextFunction());
+        lavaText.gameObject.SetActive(false);    // lava
+        StartCoroutine(lavaTextFunction());
     }
 
     // Update is called once per frame
@@ -114,5 +129,29 @@ public class gameManager : MonoBehaviour
         endGoalText.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
         endGoalText.gameObject.SetActive(false);
+    }
+
+    IEnumerator enemiesTextFunction()
+    {
+        yield return new WaitForSeconds(enemiesTextDelayTimer);
+        enemiesText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4);
+        enemiesText.gameObject.SetActive(false);
+    }
+
+    IEnumerator weaponsTextFunction()
+    {
+        yield return new WaitForSeconds(weaponsTextDelayTimer);
+        weaponsText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4);
+        weaponsText.gameObject.SetActive(false);
+    }
+
+    IEnumerator lavaTextFunction()
+    {
+        yield return new WaitForSeconds(lavaTextDelayTimer);
+        lavaText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4);
+        lavaText.gameObject.SetActive(false);
     }
 }
