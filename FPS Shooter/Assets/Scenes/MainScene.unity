@@ -857,6 +857,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3730085014264234776, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+      propertyPath: bossEnemy
+      value: 
+      objectReference: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+    - target: {fileID: 3730085014264234776, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
       propertyPath: bossArrivalText
       value: 
       objectReference: {fileID: 184555742}

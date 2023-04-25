@@ -12,7 +12,7 @@ public class gameManager : MonoBehaviour
     [Header("---------- Player Stuff ----------")]                    //Player game object and controller
     [SerializeField] public GameObject player;
     [SerializeField] public playerController playerScript;
-    [SerializeField] public GameObject camera;
+    [SerializeField] public GameObject cameraObject;
     [SerializeField] public cameraControls cameraScript;
     [SerializeField] public GameObject playerSpawnLocation;
     [SerializeField] public Image HPBar;
@@ -41,6 +41,8 @@ public class gameManager : MonoBehaviour
     [Header("----------Enemy Stuff----------")]
     public TextMeshProUGUI enemiesRemainingText;
     public int enemiesRemaining;
+    [SerializeField] public enemyAI bossEnemyScript;
+    [SerializeField] public GameObject bossEnemy;
 
     [Header("----------Audio Stuff----------")]
     [SerializeField] public AudioSource backgroundMusic;
@@ -53,10 +55,12 @@ public class gameManager : MonoBehaviour
         instance = this;
         timeScaleOriginal = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
-        camera = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
+        bossEnemy = GameObject.FindGameObjectWithTag("Boss");
         playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
         playerScript = player.GetComponent<playerController>();
-        cameraScript = camera.GetComponent<cameraControls>();
+        cameraScript = cameraObject.GetComponent<cameraControls>();
+        bossEnemyScript = bossEnemy.GetComponent<enemyAI>();
     }
 
     private void Start()
@@ -173,7 +177,7 @@ public class gameManager : MonoBehaviour
 
     IEnumerator bossArrivalTextFunction()
     {
-        yield return new WaitForSeconds(150);
+        yield return new WaitForSeconds(bossEnemyScript.riseDelay);
         bossArrivalText.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
         bossArrivalText.gameObject.SetActive(false);
