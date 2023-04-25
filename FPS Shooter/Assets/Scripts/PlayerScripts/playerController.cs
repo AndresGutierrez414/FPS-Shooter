@@ -268,7 +268,7 @@ public class playerController : MonoBehaviour, IDamage
 
         // clear player collider from hashset list in lavaFloor script //
         lavaFloorScript.playerInLava.Clear();
-        lavaFloorScript.resetStats(this);
+        //lavaFloorScript.resetStats(this);
     }
     public void gunPick(GunLists gunStat)
     {

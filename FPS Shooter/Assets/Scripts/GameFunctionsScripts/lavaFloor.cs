@@ -21,7 +21,7 @@ public class lavaFloor : MonoBehaviour
     // HashSet to store colliders of player in contact with the lava floor //
     public HashSet<Collider> playerInLava = new HashSet<Collider>();
 
-    private void Awake()
+    private void Start()
     {
         speedOrig = gameManager.instance.playerScript.playerSpeed;
         sprintOrig = gameManager.instance.playerScript.playerSprint;
