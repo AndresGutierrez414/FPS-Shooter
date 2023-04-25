@@ -169,8 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4303810387877515687}
   HP: 10
-  playerSpeed: 8
-  playerSprint: 10
+  playerSpeed: 6
+  playerSprint: 7
   sprintAcceleration: 1.5
   sprintDrainRate: 0.5
   sprintRechargeRate: 0.5
