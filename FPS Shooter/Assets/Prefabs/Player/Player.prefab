@@ -54,18 +54,18 @@ MonoBehaviour:
   lockVerMin: -90
   lockVerMax: 90
   invertY: 0
-  enableIntroSequence: 0
+  enableIntroSequence: 1
   endPosition: {fileID: 0}
   focusPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   playerStartPosition: {fileID: 0}
-  introMoveSpeed: 100
-  halfCircleMoveSpeed: 200
+  introMoveSpeed: 1.5
+  halfCircleMoveSpeed: 20
   introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
-  distanceFromFocusPoint: 20
+  distanceFromFocusPoint: 25
   player: {fileID: 0}
 --- !u!20 &4303810387769731549
 Camera:
