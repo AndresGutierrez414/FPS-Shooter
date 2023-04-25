@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HeathAid : MonoBehaviour
 {
-    private playerController player;
 
     private void OnTriggerEnter(Collider other)
     {
