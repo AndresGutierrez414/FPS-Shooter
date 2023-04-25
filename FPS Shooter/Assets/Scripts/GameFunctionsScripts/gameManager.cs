@@ -46,7 +46,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----------Audio Stuff----------")]
     [SerializeField] public AudioSource backgroundMusic;
-    [SerializeField] public AudioSource bossBattleMusic; // test
+    [SerializeField] public AudioSource bossBattleMusic;
 
 
     float timeScaleOriginal;
@@ -68,7 +68,7 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         playBackgroundMusic();
-
+        playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay);
         // intro text display // 
         if (!cameraScript.enableIntroSequence)
         {
@@ -92,16 +92,17 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the boss is activated and switch music
-        if (bossEnemy.activeInHierarchy && !bossBattleMusic.isPlaying)
-        {
-            SwitchToBossBattleMusic();
-        }
+        //// Check if the boss is activated and switch music
+        //if (bossEnemy.activeInHierarchy && !bossBattleMusic.isPlaying)
+        //{
+        //    SwitchToBossBattleMusic();
+        //}
 
         // Check if the boss is destroyed and switch music
-        if (bossEnemyScript.isBossDestroyed && !backgroundMusic.isPlaying) // Assuming 'isDead' is a boolean variable in the enemyAI script that is set to true when the boss is destroyed
+        if (bossEnemyScript.isBossDestroyed) // Assuming 'isDead' is a boolean variable in the enemyAI script that is set to true when the boss is destroyed
         {
-            SwitchToBackgroundMusic();
+            stopBossBattleMusic();
+            playBackgroundMusic();
         }
 
         if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
@@ -145,15 +146,50 @@ public class gameManager : MonoBehaviour
     public void playBackgroundMusic()
     {
         if (backgroundMusic != null)
-        {
             backgroundMusic.Play();
-        }
     }
 
     public void stopBackgroundMusic()
     {
         if (backgroundMusic != null && backgroundMusic.isPlaying)
             backgroundMusic.Stop();
+    }
+
+    public void playBossBattleMusic()
+    {
+        if (bossBattleMusic != null)
+            bossBattleMusic.Play();
+    }
+
+    public void stopBossBattleMusic()
+    {
+        if (bossBattleMusic != null && bossBattleMusic.isPlaying)
+            bossBattleMusic.Stop();
+    }
+
+    //public void SwitchToBossBattleMusic() // test
+    //{
+    //    stopBackgroundMusic();
+    //    if (bossBattleMusic != null)
+    //    {
+    //        bossBattleMusic.Play();
+    //    }
+    //}
+
+    //public void SwitchToBackgroundMusic() // test
+    //{
+    //    if (bossBattleMusic != null && bossBattleMusic.isPlaying)
+    //    {
+    //        bossBattleMusic.Stop();
+    //    }
+    //    playBackgroundMusic();
+    //}
+
+    IEnumerator playBossBattleMusicAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playBossBattleMusic();
+        stopBackgroundMusic();
     }
 
     IEnumerator endGoalTextFunction()
@@ -163,25 +199,6 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(4);
         endGoalText.gameObject.SetActive(false);
     }
-
-    public void SwitchToBossBattleMusic() // test
-    {
-        stopBackgroundMusic();
-        if (bossBattleMusic != null)
-        {
-            bossBattleMusic.Play();
-        }
-    }
-
-    public void SwitchToBackgroundMusic() // test
-    {
-        if (bossBattleMusic != null && bossBattleMusic.isPlaying)
-        {
-            bossBattleMusic.Stop();
-        }
-        playBackgroundMusic();
-    }
-
     IEnumerator enemiesTextFunction()
     {
         yield return new WaitForSeconds(enemiesTextDelayTimer);
