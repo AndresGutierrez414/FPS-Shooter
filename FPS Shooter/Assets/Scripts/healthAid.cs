@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeathAid : MonoBehaviour
+public class healthAid : MonoBehaviour
 {
-    [SerializeField] int healthAid;
+    [SerializeField] int aid;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             playerController player = other.GetComponent<playerController>();
-            if(player != null)
+            if (player != null)
             {
-                player.reFillHealth(healthAid);
+                player.reFillHealth(aid);
             }
             Destroy(gameObject);
         }
