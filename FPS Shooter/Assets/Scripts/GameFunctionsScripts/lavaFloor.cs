@@ -21,6 +21,11 @@ public class lavaFloor : MonoBehaviour
     // HashSet to store colliders of player in contact with the lava floor //
     public HashSet<Collider> playerInLava = new HashSet<Collider>();
 
+    private Coroutine recoveryCoroutine;
+
+
+    private bool statsReduced;
+
     private void Start()
     {
         speedOrig = gameManager.instance.playerScript.playerSpeed;
@@ -38,8 +43,15 @@ public class lavaFloor : MonoBehaviour
             {
                 // add the player collider to HashSet //
                 playerInLava.Add(other);
+
+               
+
+
                 // damage and slow player //
                 StartCoroutine(damageAndSlowPlayer(player));
+
+
+                statsReduced = true;
             }
         }
     }
@@ -54,22 +66,21 @@ public class lavaFloor : MonoBehaviour
             {
                 // remove player collider frim HashSet //
                 playerInLava.Remove(other);
+
+                statsReduced = false;
             }
         }
     }
 
     IEnumerator damageAndSlowPlayer(playerController _player)
     {
-        // if player speed is not reduced, then reduce it //
-        if(_player.playerSpeed > speedReduction)
-        {
-            _player.playerSpeed -= speedReduction;
-            _player.playerSprint -= sprintReduction;
-            _player.sprintAcceleration -= accelerationReduction;
-        }
+        // set player stats to specific reduced values //
+        _player.playerSpeed = speedOrig - speedReduction;
+        _player.playerSprint = sprintOrig - sprintReduction;
+        _player.sprintAcceleration = accelerationOrig - accelerationReduction;
 
         // while player collider is in HashSet, take damage //
-        while (playerInLava.Contains(_player.GetComponent<Collider>())) 
+        while (playerInLava.Contains(_player.GetComponent<Collider>()))
         {
             _player.takeDamage(damage);
             yield return new WaitForSeconds(damageTimer);
@@ -78,13 +89,10 @@ public class lavaFloor : MonoBehaviour
         // Wait for the speedRecoveryTime duration before restoring the player's speed
         yield return new WaitForSeconds(speedRecoveryTimer);
 
-        // return player speed to normal //
-        _player.playerSpeed += speedReduction;
-        _player.playerSprint += sprintReduction;
-        _player.sprintAcceleration += accelerationReduction;
+        resetStats(_player);
     }
 
-    public void resetStats(playerController _player)
+    public void resetStats(playerController _player) // maybe
     {
         _player.playerSpeed = speedOrig;
         _player.playerSprint = sprintOrig;
