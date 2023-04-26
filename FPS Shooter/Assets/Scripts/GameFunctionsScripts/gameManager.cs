@@ -68,25 +68,18 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         playBackgroundMusic();
-        playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay);
-        // intro text display // 
-        if (!cameraScript.enableIntroSequence)
-        {
-            StopAllCoroutines();
-        }
-        else
-        {
-            endGoalText.gameObject.SetActive(false);     // end goal
-            StartCoroutine(endGoalTextFunction());
-            enemiesText.gameObject.SetActive(false);     // enemies
-            StartCoroutine(enemiesTextFunction());
-            weaponsText.gameObject.SetActive(false);     // weapons 
-            StartCoroutine(weaponsTextFunction());
-            lavaText.gameObject.SetActive(false);        // lava
-            StartCoroutine(lavaTextFunction());
-            bossArrivalText.gameObject.SetActive(false); // enemy boss
-            StartCoroutine(bossArrivalTextFunction());
-        }
+        StartCoroutine(playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
+
+        endGoalText.gameObject.SetActive(false);     // end goal
+        StartCoroutine(endGoalTextFunction());
+        enemiesText.gameObject.SetActive(false);     // enemies
+        StartCoroutine(enemiesTextFunction());
+        weaponsText.gameObject.SetActive(false);     // weapons 
+        StartCoroutine(weaponsTextFunction());
+        lavaText.gameObject.SetActive(false);        // lava
+        StartCoroutine(lavaTextFunction());
+        bossArrivalText.gameObject.SetActive(false); // enemy boss
+        StartCoroutine(bossArrivalTextFunction());
     }
 
     // Update is called once per frame
@@ -151,7 +144,7 @@ public class gameManager : MonoBehaviour
 
     public void stopBackgroundMusic()
     {
-        if (backgroundMusic != null && backgroundMusic.isPlaying)
+        if (backgroundMusic != null)
             backgroundMusic.Stop();
     }
 
@@ -163,7 +156,7 @@ public class gameManager : MonoBehaviour
 
     public void stopBossBattleMusic()
     {
-        if (bossBattleMusic != null && bossBattleMusic.isPlaying)
+        if (bossBattleMusic != null)
             bossBattleMusic.Stop();
     }
 
