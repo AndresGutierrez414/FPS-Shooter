@@ -70,17 +70,24 @@ public class gameManager : MonoBehaviour
         playBackgroundMusic();
         StartCoroutine(playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
 
-        // setup intro text coroutines //
-        endGoalText.gameObject.SetActive(false);     // end goal
-        StartCoroutine(endGoalTextFunction());
-        enemiesText.gameObject.SetActive(false);     // enemies
-        StartCoroutine(enemiesTextFunction());
-        weaponsText.gameObject.SetActive(false);     // weapons 
-        StartCoroutine(weaponsTextFunction());
-        lavaText.gameObject.SetActive(false);        // lava
-        StartCoroutine(lavaTextFunction());
-        bossArrivalText.gameObject.SetActive(false); // enemy boss
-        StartCoroutine(bossArrivalTextFunction());
+        // intro text display // 
+        if (!cameraScript.enableIntroSequence)
+        {
+            StopAllCoroutines();
+        }
+        else
+        {
+            endGoalText.gameObject.SetActive(false);     // end goal
+            StartCoroutine(endGoalTextFunction());
+            enemiesText.gameObject.SetActive(false);     // enemies
+            StartCoroutine(enemiesTextFunction());
+            weaponsText.gameObject.SetActive(false);     // weapons 
+            StartCoroutine(weaponsTextFunction());
+            lavaText.gameObject.SetActive(false);        // lava
+            StartCoroutine(lavaTextFunction());
+            bossArrivalText.gameObject.SetActive(false); // enemy boss
+            StartCoroutine(bossArrivalTextFunction());
+        }
     }
 
     // Update is called once per frame
