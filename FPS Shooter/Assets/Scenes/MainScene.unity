@@ -1015,6 +1015,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3991452640330104077, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
+      propertyPath: HP
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991452640330104077, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
+      propertyPath: riseDelay
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 4179048341015667840, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

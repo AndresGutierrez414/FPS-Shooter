@@ -51,7 +51,6 @@ public class gameManager : MonoBehaviour
 
     float timeScaleOriginal;
 
-    //Awake() is called before Start(). Used to prevent accidental null reference
     void Awake()
     {
         instance = this;
@@ -67,9 +66,11 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
+        // play music //
         playBackgroundMusic();
         StartCoroutine(playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
 
+        // setup intro text coroutines //
         endGoalText.gameObject.SetActive(false);     // end goal
         StartCoroutine(endGoalTextFunction());
         enemiesText.gameObject.SetActive(false);     // enemies
@@ -85,14 +86,8 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //// Check if the boss is activated and switch music
-        //if (bossEnemy.activeInHierarchy && !bossBattleMusic.isPlaying)
-        //{
-        //    SwitchToBossBattleMusic();
-        //}
-
         // Check if the boss is destroyed and switch music
-        if (bossEnemyScript.isBossDestroyed) // Assuming 'isDead' is a boolean variable in the enemyAI script that is set to true when the boss is destroyed
+        if (bossEnemyScript.isBossDestroyed && !backgroundMusic.isPlaying) // Assuming 'isDead' is a boolean variable in the enemyAI script that is set to true when the boss is destroyed
         {
             stopBossBattleMusic();
             playBackgroundMusic();
@@ -160,29 +155,14 @@ public class gameManager : MonoBehaviour
             bossBattleMusic.Stop();
     }
 
-    //public void SwitchToBossBattleMusic() // test
-    //{
-    //    stopBackgroundMusic();
-    //    if (bossBattleMusic != null)
-    //    {
-    //        bossBattleMusic.Play();
-    //    }
-    //}
-
-    //public void SwitchToBackgroundMusic() // test
-    //{
-    //    if (bossBattleMusic != null && bossBattleMusic.isPlaying)
-    //    {
-    //        bossBattleMusic.Stop();
-    //    }
-    //    playBackgroundMusic();
-    //}
-
     IEnumerator playBossBattleMusicAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        playBossBattleMusic();
-        stopBackgroundMusic();
+        if (bossEnemy.activeInHierarchy)
+        {
+            playBossBattleMusic();
+            stopBackgroundMusic();
+        }
     }
 
     IEnumerator endGoalTextFunction()
