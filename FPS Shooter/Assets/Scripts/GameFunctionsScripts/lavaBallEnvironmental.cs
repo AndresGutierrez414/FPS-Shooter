@@ -41,4 +41,12 @@ public class lavaBallEnvironmental : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.AddForce(Vector3.up * launchForce, ForceMode.Impulse);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Decor"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
