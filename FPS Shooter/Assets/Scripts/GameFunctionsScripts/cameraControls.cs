@@ -84,6 +84,7 @@ public class cameraControls : MonoBehaviour
     IEnumerator cameraIntroSequence()
     {
         // move to end pos and look at it //
+        yield return new WaitForSeconds(1);
         yield return moveAndLookAt(endPosition.position, endPosition.position);
 
         // iterate through focus points in array //
@@ -99,7 +100,7 @@ public class cameraControls : MonoBehaviour
         yield return moveAndLookAt(transform.parent.position, playerStartPosition.position);
 
         // reset camera pos and rotation to original //
-        transform.position = originalPosition;
+        transform.position = new Vector3(originalPosition.x, originalPosition.y + 0.5f, originalPosition.z);
         transform.rotation = originalRotation;
 
         // intro done //

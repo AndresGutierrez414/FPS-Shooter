@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Components -----")]
     [SerializeField] private CharacterController controller;
     [SerializeField] Animator animator; // human character
+    [SerializeField] AudioSource audio;
 
 
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
@@ -48,6 +49,16 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Lava Floor -----")]                           
     [SerializeField] public GameObject lavaFloor;
     [SerializeField] public lavaFloor lavaFloorScript;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip[] audioSteps;
+    [SerializeField][Range(0, 1)] float audioStepsVolume;
+    [SerializeField] AudioClip[] audioJump;
+    [SerializeField][Range(0, 1)] float audioJumpVolume;
+    [SerializeField] AudioClip[] audioDamage;
+    [SerializeField][Range(0, 1)] float audioDamageVolume;
+
+    bool isPlayingSteps;
 
     private float currentSpeed;
     private float targetSpeed;
@@ -94,12 +105,25 @@ public class playerController : MonoBehaviour, IDamage
     //Player movement handler
     void Movement()
     {
-        isPlayerGrounded = controller.isGrounded;               //Reset player.y velocity and times jumped if the player is grounded
-        if (isPlayerGrounded && playerVelocity.y < 0)
+        isPlayerGrounded = controller.isGrounded;       //Reset player.y velocity and times jumped if the player is grounded
+        if (isPlayerGrounded)
         {
-            playerVelocity.y = 0f;
-            timesJumped = 0;
+            if (!isPlayingSteps && movementVec.normalized.magnitude > 0.5)
+            {
+                StartCoroutine(playSteps());
+            }
+            if (playerVelocity.y < 0)
+            {
+                playerVelocity.y = 0f;
+                timesJumped = 0;
+            }
         }
+        
+        //if (isPlayerGrounded && playerVelocity.y < 0)
+        //{
+        //    playerVelocity.y = 0f;
+        //    timesJumped = 0;
+        //}
 
         float targetSpeed = isSprinting ? playerSprint : playerSpeed;   // Determine the target speed based on whether the player is sprinting or not
 
@@ -142,6 +166,7 @@ public class playerController : MonoBehaviour, IDamage
         if (Input.GetButtonDown("Jump") && timesJumped < maxJumps)  //Check for space bar press. Handles max amounts of jumps
         {
             animator.SetTrigger("Jump");
+            audio.PlayOneShot(audioJump[Random.Range(0, audioJump.Length)], audioJumpVolume);
             timesJumped++;
             playerVelocity.y = jumpHeight;
         }
@@ -150,9 +175,25 @@ public class playerController : MonoBehaviour, IDamage
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    IEnumerator playSteps()
+    {
+        isPlayingSteps = true;
+
+        audio.PlayOneShot(audioSteps[Random.Range(0, audioSteps.Length)], audioStepsVolume);
+
+        if (!isSprinting)
+            yield return new WaitForSeconds(0.5f);
+        else
+            yield return new WaitForSeconds(0.3f);
+
+        isPlayingSteps = false;
+    }
+
     //Called whenever the player takes damage
     public void takeDamage(int amount)
     {
+        audio.PlayOneShot(audioDamage[Random.Range(0, audioJump.Length)], audioDamageVolume);
+
         HP -= amount;                                           //Updates the player's hit points and the respective UI element
         playerUIUpdate();
 
