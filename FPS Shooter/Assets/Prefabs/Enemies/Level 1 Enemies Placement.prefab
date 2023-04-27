@@ -66,6 +66,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Boss
@@ -76,15 +80,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509868145652819866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 5509868145652819866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5509868145652819866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.5
+      value: 12.75
       objectReference: {fileID: 0}
     - target: {fileID: 5509868145652819866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -132,6 +136,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium
@@ -194,6 +202,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -260,6 +272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -330,6 +346,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (7)
@@ -392,6 +412,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -458,6 +482,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -528,6 +556,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (2)
@@ -638,6 +670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -656,6 +692,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -770,6 +810,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -836,6 +880,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -902,6 +950,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -920,6 +972,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -990,6 +1046,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (3)
@@ -1100,6 +1160,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1122,6 +1186,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (4)
@@ -1184,6 +1252,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4435110160863516982}
     m_Modifications:
+    - target: {fileID: 148750912451595470, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 3237882909593182102, guid: cdd43c787a5071b4e887ead12ba81886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1298,6 +1370,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1320,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (6)
@@ -1386,6 +1466,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (5)
@@ -1496,6 +1580,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1518,6 +1606,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783843345234640159, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 6316523630448657373, guid: 49f65af1f03b1b448a9fe0850cbe50ea, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Medium (1)
@@ -1628,6 +1720,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5852393520364474210, guid: c651c0aa7b565544b86f866f70670508, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
     - target: {fileID: 7844431408326002688, guid: c651c0aa7b565544b86f866f70670508, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

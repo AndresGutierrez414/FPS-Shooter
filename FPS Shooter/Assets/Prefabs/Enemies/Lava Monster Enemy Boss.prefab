@@ -1209,7 +1209,7 @@ MonoBehaviour:
   bullet: {fileID: 6802078874061164554, guid: bec0a656142955241ab713f142eb1e26, type: 3}
   bulletSpeed: 10
   deathAnimationTime: 1
-  drop: {fileID: 7269106189603644637, guid: 81413dc63a2e93e42938160cd3414d59, type: 3}
+  drop: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
   deathExplosionPrefab: {fileID: 7171217717881880578, guid: 9dfb4322f04ca9b44a8ff357b8b5308e, type: 3}
   explosionSound: {fileID: 8300000, guid: fd706038486fee041947a774223dc22e, type: 3}
   audioVolume: 1
