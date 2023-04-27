@@ -141,6 +141,7 @@ public class playerController : MonoBehaviour, IDamage
 
         if (Input.GetButtonDown("Jump") && timesJumped < maxJumps)  //Check for space bar press. Handles max amounts of jumps
         {
+            animator.SetTrigger("Jump");
             timesJumped++;
             playerVelocity.y = jumpHeight;
         }

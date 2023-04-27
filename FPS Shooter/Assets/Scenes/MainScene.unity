@@ -1470,7 +1470,7 @@ MonoBehaviour:
   lockVerMin: -90
   lockVerMax: 90
   invertY: 0
-  enableIntroSequence: 1
+  enableIntroSequence: 0
   endPosition: {fileID: 1088082721}
   focusPoints:
   - {fileID: 2047149348}
