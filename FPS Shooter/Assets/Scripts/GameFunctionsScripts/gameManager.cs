@@ -20,6 +20,8 @@ public class gameManager : MonoBehaviour
 
     [Header("---------- UI Stuff ----------")]                        //UI menus and HUD elements
     [SerializeField] public GameObject activeMenu;
+    [SerializeField] public GameObject mainMenu;
+    [SerializeField] public GameObject HTPMenu;
     [SerializeField] public GameObject pauseMenu;
     [SerializeField] public GameObject winMenu;
     [SerializeField] public GameObject loseMenu;

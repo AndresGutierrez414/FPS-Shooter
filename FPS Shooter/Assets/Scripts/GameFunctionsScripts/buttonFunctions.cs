@@ -7,7 +7,22 @@ public class buttonFunctions : MonoBehaviour
 {
     // variables //
     //gameManager manager;
+    public void gameStart()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
 
+    public void howToPlay()
+    {
+        gameManager.instance.mainMenu.SetActive(false);
+        gameManager.instance.HTPMenu.SetActive(true);
+    }
+
+    public void back()
+    {
+        gameManager.instance.mainMenu.SetActive(true);
+        gameManager.instance.HTPMenu.SetActive(false);
+    }
 
     public void resume()
     {
