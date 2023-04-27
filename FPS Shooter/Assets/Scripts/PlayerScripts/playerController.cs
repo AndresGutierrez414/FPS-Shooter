@@ -233,6 +233,8 @@ public class playerController : MonoBehaviour, IDamage
     {
         isShooting = true;
 
+        audio.PlayOneShot(gunList[selectedGun].gunBlastAudio, gunList[selectedGun].gunShotAudioVolume);
+
         int bulletCount = gunList[selectedGun].bulletCount;
 
         // for each bullet //

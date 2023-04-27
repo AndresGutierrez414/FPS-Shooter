@@ -13,4 +13,6 @@ public class GunLists : ScriptableObject
 
     public GameObject gunModel;
     public AudioClip gunBlastAudio;
+
+    [Range(0, 1)] public float gunShotAudioVolume;
 }

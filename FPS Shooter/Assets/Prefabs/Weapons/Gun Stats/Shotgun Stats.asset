@@ -18,4 +18,5 @@ MonoBehaviour:
   bulletCount: 6
   spreadAngle: 10
   gunModel: {fileID: 1651499009955404386, guid: 449102d97143c5341aef3f13b4c1e81d, type: 3}
-  gunBlastAudio: {fileID: 0}
+  gunBlastAudio: {fileID: 8300000, guid: 1df1429981f76644097c7fd47fc5f239, type: 3}
+  gunShotAudioVolume: 0.5
