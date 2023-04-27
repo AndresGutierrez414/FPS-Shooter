@@ -1010,6 +1010,10 @@ PrefabInstance:
       propertyPath: focusPoints.Array.data[2]
       value: 
       objectReference: {fileID: 219972649}
+    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: audioStepsVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8843479644873926220, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_RootOrder
       value: 2

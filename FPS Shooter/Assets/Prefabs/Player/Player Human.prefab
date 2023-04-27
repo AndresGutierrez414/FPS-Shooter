@@ -3580,7 +3580,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 89d7e6489b4812e4cac4b334c086b001, type: 3}
   - {fileID: 8300000, guid: 050d64986b7878547a10e43e9c652de3, type: 3}
   - {fileID: 8300000, guid: f6ca3e20400e1b44ab3995cf5abe8d98, type: 3}
-  audioStepsVolume: 0.5
+  audioStepsVolume: 0.2
   audioJump:
   - {fileID: 8300000, guid: 66cb9d6515011e041838e70779ce9673, type: 3}
   - {fileID: 8300000, guid: c280d52a2b98862478708364891465e1, type: 3}
