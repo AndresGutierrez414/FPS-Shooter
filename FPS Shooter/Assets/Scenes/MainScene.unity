@@ -1470,7 +1470,7 @@ MonoBehaviour:
   lockVerMin: -90
   lockVerMax: 90
   invertY: 0
-  enableIntroSequence: 0
+  enableIntroSequence: 1
   endPosition: {fileID: 1088082721}
   focusPoints:
   - {fileID: 2047149348}
@@ -1510,7 +1510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591567276800486686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: -0.000000029802322, y: 1.5, z: 0.25000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1811,7 +1811,7 @@ Animator:
   m_GameObject: {fileID: 3378126451458508491}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2255221d850daf642981c1a4eedf85a1, type: 3}
-  m_Controller: {fileID: 9100000, guid: ef6403663453e6a4cb106814a81e72b4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5b10c2806fa8bea47947ce2dc5156dd4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1849,8 +1849,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378126451458508489}
-  - component: {fileID: 3378126451458508488}
   - component: {fileID: 3378126451458508494}
+  - component: {fileID: 3378126451458508488}
   - component: {fileID: 3378126451458508493}
   - component: {fileID: 3378126451458508492}
   m_Layer: 3
@@ -1905,6 +1905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3378126451458508493}
+  animator: {fileID: 3378126451458508488}
   HP: 10
   playerSpeed: 6
   playerSprint: 7
@@ -1920,7 +1921,7 @@ MonoBehaviour:
   shootDist: 40
   bullet: {fileID: 8973868133043815996, guid: a25d5561dc2fb5d46911898850a18e19, type: 3}
   bulletSpeed: 50
-  shootPos: {fileID: 0}
+  shootPos: {fileID: 5152187524978894228}
   gunMaterial: {fileID: 2570642825016718650}
   gunModel: {fileID: 457046326812863913}
   selectedGun: 0
