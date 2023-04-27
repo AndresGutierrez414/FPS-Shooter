@@ -577,8 +577,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   playerStartPosition: {fileID: 8843479644590297942}
-  introMoveSpeed: 200
-  halfCircleMoveSpeed: 200
+  introMoveSpeed: 1.5
+  halfCircleMoveSpeed: 20
   introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
   distanceFromFocusPoint: 25
