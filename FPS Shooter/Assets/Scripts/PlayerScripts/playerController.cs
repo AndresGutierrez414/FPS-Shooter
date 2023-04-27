@@ -7,6 +7,8 @@ public class playerController : MonoBehaviour, IDamage
     //Componets and variables//
     [Header("----- Components -----")]
     [SerializeField] private CharacterController controller;
+    [SerializeField] Animator animator; // human character
+
 
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
     [Range(1, 10)][SerializeField] int HP;
@@ -133,8 +135,13 @@ public class playerController : MonoBehaviour, IDamage
 
         controller.Move(movementVec); //Applies user input to the controller
 
+        // Calculate and set the speed parameter for the Animator
+        float animationSpeed = movementVec.magnitude / Time.deltaTime; // human test
+        animator.SetFloat("Speed", animationSpeed); // human test
+
         if (Input.GetButtonDown("Jump") && timesJumped < maxJumps)  //Check for space bar press. Handles max amounts of jumps
         {
+            animator.SetTrigger("Jump");
             timesJumped++;
             playerVelocity.y = jumpHeight;
         }
