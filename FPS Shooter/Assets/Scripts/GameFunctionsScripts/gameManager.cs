@@ -177,39 +177,55 @@ public class gameManager : MonoBehaviour
     IEnumerator endGoalTextFunction()
     {
         yield return new WaitForSeconds(endGoalTextDelayTimer);
-        endGoalText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
-        endGoalText.gameObject.SetActive(false);
+        if (!cameraScript.isSkippingIntro)
+        {
+            endGoalText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4);
+            endGoalText.gameObject.SetActive(false);
+        }
     }
+
     IEnumerator enemiesTextFunction()
     {
         yield return new WaitForSeconds(enemiesTextDelayTimer);
-        enemiesText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
-        enemiesText.gameObject.SetActive(false);
+        if (!cameraScript.isSkippingIntro)
+        {
+            enemiesText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4);
+            enemiesText.gameObject.SetActive(false);
+        }
     }
 
     IEnumerator weaponsTextFunction()
     {
         yield return new WaitForSeconds(weaponsTextDelayTimer);
-        weaponsText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
-        weaponsText.gameObject.SetActive(false);
+        if (!cameraScript.isSkippingIntro)
+        {
+            weaponsText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4);
+            weaponsText.gameObject.SetActive(false);
+        }
     }
 
     IEnumerator lavaTextFunction()
     {
         yield return new WaitForSeconds(lavaTextDelayTimer);
-        lavaText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
-        lavaText.gameObject.SetActive(false);
+        if (!cameraScript.isSkippingIntro)
+        {
+            lavaText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4);
+            lavaText.gameObject.SetActive(false);
+        }
     }
 
     IEnumerator bossArrivalTextFunction()
     {
         yield return new WaitForSeconds(bossEnemyScript.riseDelay);
-        bossArrivalText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
-        bossArrivalText.gameObject.SetActive(false);
+        if (!cameraScript.isSkippingIntro)
+        {
+            bossArrivalText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4);
+            bossArrivalText.gameObject.SetActive(false);
+        }
     }
 }

@@ -24,7 +24,7 @@ public class cameraControls : MonoBehaviour
     [SerializeField] float waitTimeAtFocusPoints;
     [SerializeField] float distanceFromFocusPoint;
     bool introFinsished = false;
-    bool isSkippingIntro = false;
+    public bool isSkippingIntro = false;
 
     // camera original start pos //
     private Vector3 originalPosition;
