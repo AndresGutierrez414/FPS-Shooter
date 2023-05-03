@@ -24,6 +24,7 @@ public class cameraControls : MonoBehaviour
     [SerializeField] float waitTimeAtFocusPoints;
     [SerializeField] float distanceFromFocusPoint;
     bool introFinsished = false;
+    bool isSkippingIntro = false;
 
     // camera original start pos //
     private Vector3 originalPosition;
@@ -58,7 +59,11 @@ public class cameraControls : MonoBehaviour
 
     void Update()
     {
-        if (!introFinsished) return;
+        if (!introFinsished)
+        {
+            CheckForSkipIntro();
+            return;
+        }
 
 
         // get input //
@@ -85,23 +90,35 @@ public class cameraControls : MonoBehaviour
     {
         // move to end pos and look at it //
         yield return new WaitForSeconds(1);
-        yield return moveAndLookAt(endPosition.position, endPosition.position);
+        if (!isSkippingIntro) yield return StartCoroutine(moveAndLookAt(endPosition.position, endPosition.position));
 
         // iterate through focus points in array //
-        foreach (Transform focusPoint in focusPoints)
+        int focusPointIndex = 0;
+        while (focusPointIndex < focusPoints.Length && !isSkippingIntro)
         {
+            Transform focusPoint = focusPoints[focusPointIndex];
+
             // move to next focus point and look at it //
-            yield return moveAndLookAt(focusPoint.position, focusPoint.position);
-            // wait until time before going to next point //
+            if (!isSkippingIntro) yield return StartCoroutine(moveAndLookAt(focusPoint.position, focusPoint.position));
+
+            // if skip intro is pressed, break the loop //
+            if (isSkippingIntro) break;
+
+            // wait before going to the next point //
             yield return new WaitForSeconds(waitTimeAtFocusPoints);
+
+            focusPointIndex++;
         }
 
         // move to player start pos and look at it //
-        yield return moveAndLookAt(transform.parent.position, playerStartPosition.position);
+        if (!isSkippingIntro) yield return StartCoroutine(moveAndLookAt(transform.parent.position, playerStartPosition.position));
 
         // reset camera pos and rotation to original //
-        transform.position = new Vector3(originalPosition.x, originalPosition.y + 0.5f, originalPosition.z);
-        transform.rotation = originalRotation;
+        if (!isSkippingIntro)
+        {
+            transform.position = new Vector3(originalPosition.x, originalPosition.y + 0.5f, originalPosition.z);
+            transform.rotation = originalRotation;
+        }
 
         // intro done //
         introFinsished = true;
@@ -117,7 +134,7 @@ public class cameraControls : MonoBehaviour
         Vector3 startCirclePosition = targetPosition + (transform.position - targetPosition).normalized * distanceFromFocusPoint;
 
         // Move camera to the starting position of the half-circle movement //
-        while (Vector3.Distance(transform.position, startCirclePosition) > 0.1f)
+        while (Vector3.Distance(transform.position, startCirclePosition) > 0.1f && !isSkippingIntro)
         {
             // move camera to start position //
             transform.position = Vector3.Lerp(transform.position, startCirclePosition, introMoveSpeed * Time.deltaTime);
@@ -139,7 +156,7 @@ public class cameraControls : MonoBehaviour
         float targetAngle = 180f;
 
         // perform half circle movement //
-        while (angle < targetAngle)
+        while (angle < targetAngle && !isSkippingIntro)
         {
             // Calculate the angle increment based on the half-circle move speed //
             float step = halfCircleMoveSpeed * Time.deltaTime;
@@ -155,6 +172,32 @@ public class cameraControls : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(lookAtPosition - transform.position);
 
             // wait for next frame //
+            yield return null;
+        }
+
+    }
+
+    void CheckForSkipIntro()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && !isSkippingIntro)
+        {
+            isSkippingIntro = true;
+            StopCoroutine(cameraIntroSequence());
+
+            // Set the camera to the final position and rotation
+            transform.position = new Vector3(originalPosition.x, originalPosition.y + 0.5f, originalPosition.z);
+            transform.rotation = originalRotation;
+
+            // intro done
+            introFinsished = true;
+            player.canMove = true;
+        }
+    }
+
+    IEnumerator WaitForSkipIntro()
+    {
+        while (!isSkippingIntro)
+        {
             yield return null;
         }
     }
