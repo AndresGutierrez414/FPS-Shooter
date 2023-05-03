@@ -28,6 +28,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject checkPoint;
     [SerializeField] public bool isPaused;
 
+
     [Header("---------- Time Delayed Text ----------")]                        //UI menus and HUD elements
     [SerializeField] public TextMeshProUGUI endGoalText;
     public float endGoalTextDelayTimer;
