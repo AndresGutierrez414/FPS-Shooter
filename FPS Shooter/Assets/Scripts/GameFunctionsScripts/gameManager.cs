@@ -38,6 +38,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI lavaText;
     public float lavaTextDelayTimer;
     [SerializeField] public TextMeshProUGUI bossArrivalText;
+    [SerializeField] public TextMeshProUGUI introSkipText;
+    public float introSkipTextDelayTimer;
 
 
     [Header("----------Enemy Stuff----------")]
@@ -89,6 +91,8 @@ public class gameManager : MonoBehaviour
             StartCoroutine(lavaTextFunction());
             bossArrivalText.gameObject.SetActive(false); // enemy boss
             StartCoroutine(bossArrivalTextFunction());
+            introSkipText.gameObject.SetActive(false);   // intro skip 
+            StartCoroutine(introSkipTextFunction());
         }
     }
 
@@ -226,6 +230,23 @@ public class gameManager : MonoBehaviour
             bossArrivalText.gameObject.SetActive(true);
             yield return new WaitForSeconds(4);
             bossArrivalText.gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator introSkipTextFunction()
+    {
+        yield return new WaitForSeconds(introSkipTextDelayTimer);
+        if (!cameraScript.isSkippingIntro)
+        {
+            introSkipText.gameObject.SetActive(true);
+
+            // Wait until intro is done or skipped, then disable intro skip text //
+            while (!cameraScript.introFinsished && !cameraScript.isSkippingIntro)
+            {
+                yield return null;
+            }
+
+            introSkipText.gameObject.SetActive(false);
         }
     }
 }

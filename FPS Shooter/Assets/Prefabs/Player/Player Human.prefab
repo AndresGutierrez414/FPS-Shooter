@@ -582,6 +582,7 @@ MonoBehaviour:
   introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
   distanceFromFocusPoint: 25
+  isSkippingIntro: 0
   player: {fileID: 0}
 --- !u!20 &4777685871636155804
 Camera:
