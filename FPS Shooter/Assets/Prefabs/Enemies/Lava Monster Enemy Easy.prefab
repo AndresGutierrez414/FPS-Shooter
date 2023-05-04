@@ -1931,7 +1931,7 @@ MonoBehaviour:
   fireRate: 1
   shootDist: 1
   bullet: {fileID: 57802747959512216, guid: 540bfdabdf5bdbf4285127eb4f1464e3, type: 3}
-  bulletSpeed: 15
+  bulletSpeed: 20
   deathAnimationTime: 0.5
   drop: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
   deathExplosionPrefab: {fileID: 1311446642108171206, guid: be97477665d7d984da22e8b53f9650c2, type: 3}
@@ -1942,7 +1942,11 @@ MonoBehaviour:
   riseDelay: 3
   riseTime: 3
   yOffset: 5
+  onBossRising:
+    m_PersistentCalls:
+      m_Calls: []
   sphereColliderChild: {fileID: 357997175}
+  isIntroEnemy: 0
 --- !u!95 &3364604888158286540
 Animator:
   serializedVersion: 5

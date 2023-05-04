@@ -70,6 +70,18 @@ PrefabInstance:
       propertyPath: drop
       value: 
       objectReference: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: onBossRising.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playBossBattleMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: onBossRising.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: gameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906825729414480866, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
+      propertyPath: onBossRising.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5133306765727776032, guid: ea3b9d41d6123f845b358d6082703ea5, type: 3}
       propertyPath: m_Name
       value: Lava Monster Enemy Boss
