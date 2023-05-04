@@ -664,6 +664,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3730085014264234776, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1797053840}
+    - target: {fileID: 3730085014264234776, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 7333b96d6a5227f40b3b8f3146022480, type: 3}
+    - target: {fileID: 3730085014264234776, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+      propertyPath: bossBattleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 69a6e368ebcb1f74cb0d84072eb684e6, type: 3}
     - target: {fileID: 3730085014866538731, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
       propertyPath: m_Name
       value: UI
@@ -770,6 +782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+--- !u!82 &1797053840 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1067834356, guid: 7da0bdc3340eded4b9e0c912b7e457f1, type: 3}
+  m_PrefabInstance: {fileID: 1797053839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1897359947
 PrefabInstance:
   m_ObjectHideFlags: 0
