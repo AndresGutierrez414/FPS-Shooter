@@ -74,7 +74,7 @@ public class gameManager : MonoBehaviour
     {
         // play music //
         playBackgroundMusic();
-        
+
 
         // intro text display // 
         if (!cameraScript.enableIntroSequence)
@@ -122,8 +122,16 @@ public class gameManager : MonoBehaviour
                 unpauseState();
         }
 
+        if (!cameraScript.introFinsished || !cameraScript.isSkippingIntro)
+        {
+            if (bossBattleMusic.isPlaying)
+            {
+                bossBattleMusic.Stop();
+            }
+        }
+
         // start timer for boss spawning after intro is finished or skipped //
-        if (cameraScript.introFinsished || cameraScript.isSkippingIntro) 
+        if (cameraScript.introFinsished || cameraScript.isSkippingIntro)
         {
             spawnBoss();
         }
