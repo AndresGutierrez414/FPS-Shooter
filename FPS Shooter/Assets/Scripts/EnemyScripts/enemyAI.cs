@@ -48,6 +48,14 @@ public class enemyAI : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] private float audioVolume;
     [SerializeField] private float audioDistance;
 
+    [Header("----- Death Explosion Settings -----")]
+    [SerializeField] private float explosionRadius;
+    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private float launchDuration; // Adjust the value to control the duration of the launch effect
+    [SerializeField] private float elapsedTime;
+    [SerializeField] private float launchHeight; // Adjust the value to control the launch height
+    [SerializeField] private float launchDistance; // Adjust the value to control the launch distance
+
     [Header("----- Rising Settings -----")]
     [SerializeField] private bool riseFromGround;
     [SerializeField] public float riseDelay;
@@ -92,15 +100,6 @@ public class enemyAI : MonoBehaviour, IDamage
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
         }
-
-
-
-        //if (riseFromGround)
-        //{
-        //    agent.enabled = false;
-        //    GetComponent<CapsuleCollider>().enabled = false;
-        //    StartCoroutine(RiseFromGround(riseDelay, riseTime));
-        //}
 
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -293,6 +292,8 @@ public class enemyAI : MonoBehaviour, IDamage
         GameObject exlosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.Euler(-90, transform.eulerAngles.y, transform.eulerAngles.z));
         playExplosionSound();
 
+        applyExplosionDamage(transform.position, explosionRadius, shootDamage);
+
         // Destroy the GameObject after the set time
         Destroy(gameObject, time);
     }
@@ -362,6 +363,42 @@ public class enemyAI : MonoBehaviour, IDamage
         }
     }
 
+    private void applyExplosionDamage(Vector3 explosionPosition, float explosionRadius, int damage)
+    {
+        // Get all colliders inside the explosion radius
+        Collider[] hitColliders = Physics.OverlapSphere(explosionPosition, explosionRadius, playerLayer);
+
+        // Iterate through all the colliders and apply damage to the player
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Player"))
+            {
+                IDamage playerDamage = hitCollider.GetComponent<IDamage>();
+                if (playerDamage != null)
+                {
+                    playerDamage.takeDamage(damage);
+                }
+
+                // Launch the player upwards and away from the explosion using a coroutine
+                StartCoroutine(launchPlayer(hitCollider.transform, explosionPosition));
+            }
+        }
+    }
+
+    private IEnumerator launchPlayer(Transform playerTransform, Vector3 explosionPosition)
+    {
+        Vector3 initialPosition = playerTransform.position;
+        Vector3 targetPosition = initialPosition + (playerTransform.position - explosionPosition).normalized * launchDistance;
+        targetPosition.y += launchHeight;
+
+        while (elapsedTime < launchDuration)
+        {
+            playerTransform.position = Vector3.Lerp(initialPosition, targetPosition, (elapsedTime / launchDuration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
     public void startBossRising()
     {
          if(!agent.enabled && !GetComponent<CapsuleCollider>().enabled)
@@ -370,6 +407,4 @@ public class enemyAI : MonoBehaviour, IDamage
             onBossRising?.Invoke();
         }
     }
-
-
 }

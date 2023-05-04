@@ -1938,6 +1938,14 @@ MonoBehaviour:
   explosionSound: {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
   audioVolume: 1
   audioDistance: 500
+  explosionRadius: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  launchDuration: 0.5
+  elapsedTime: 0
+  launchHeight: 5
+  launchDistance: 10
   riseFromGround: 1
   riseDelay: 3
   riseTime: 3
