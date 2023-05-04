@@ -59,6 +59,9 @@ MonoBehaviour:
   explosionSound: {fileID: 8300000, guid: 8524588a69a4f3e40bb597b6221138f1, type: 3}
   audioVolume: 1
   audioDistance: 200
+  explosionRadius: 40
+  cameraShakeDuration: 1.5
+  cameraShakeMagnitude: 0.4
 --- !u!33 &7786552435349272023
 MeshFilter:
   m_ObjectHideFlags: 0
