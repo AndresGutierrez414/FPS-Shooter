@@ -45,9 +45,8 @@ public class buttonFunctions : MonoBehaviour
         Application.Quit();
     }
 
-    public void respawnPlayer()
+    public void MenuScene()
     {
-        gameManager.instance.unpauseState();
-        gameManager.instance.playerScript.respawnPlayer();
+        SceneManager.LoadScene("MenuScene");
     }
 }
