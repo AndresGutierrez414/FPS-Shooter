@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
@@ -54,9 +55,13 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] private float yOffset;
     private Vector3 initialPosition;
     private Vector3 offsetPosition;
+    [SerializeField] public UnityEvent onBossRising;
 
     [Header("----- Collider Child Objects -----")]
     [SerializeField] private GameObject sphereColliderChild;
+
+    [Header("----- Intro Enemy Settings -----")]
+    [SerializeField] public bool isIntroEnemy = false;
 
     // other variables //
     Vector3 playerDir;
@@ -75,12 +80,27 @@ public class enemyAI : MonoBehaviour, IDamage
         offsetPosition = new Vector3(initialPosition.x, initialPosition.y - yOffset, initialPosition.z);
         transform.position = offsetPosition;
 
-        if (riseFromGround)
+
+        if (!isIntroEnemy && riseFromGround)
         {
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             StartCoroutine(RiseFromGround(riseDelay, riseTime));
         }
+        else if (isIntroEnemy)
+        {
+            agent.enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+
+
+        //if (riseFromGround)
+        //{
+        //    agent.enabled = false;
+        //    GetComponent<CapsuleCollider>().enabled = false;
+        //    StartCoroutine(RiseFromGround(riseDelay, riseTime));
+        //}
 
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -184,6 +204,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
+        if (riseFromGround && !agent.enabled)
+            yield break;
+
         isShooting = true;
         animator.SetTrigger("Shoot");
 
@@ -336,6 +359,15 @@ public class enemyAI : MonoBehaviour, IDamage
 
             // destroy audio source after done playing sound //
             Destroy(audioObject, explosionSound.length);
+        }
+    }
+
+    public void startBossRising()
+    {
+         if(!agent.enabled && !GetComponent<CapsuleCollider>().enabled)
+        {
+            StartCoroutine(RiseFromGround(riseDelay, riseTime));
+            onBossRising?.Invoke();
         }
     }
 }

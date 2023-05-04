@@ -48,6 +48,7 @@ public class gameManager : MonoBehaviour
     public int enemiesRemaining;
     [SerializeField] public enemyAI bossEnemyScript;
     [SerializeField] public GameObject bossEnemy;
+    private bool bossSpawned = false;
 
     [Header("----------Audio Stuff----------")]
     [SerializeField] public AudioSource backgroundMusic;
@@ -73,7 +74,7 @@ public class gameManager : MonoBehaviour
     {
         // play music //
         playBackgroundMusic();
-        StartCoroutine(playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
+        
 
         // intro text display // 
         if (!cameraScript.enableIntroSequence)
@@ -91,7 +92,7 @@ public class gameManager : MonoBehaviour
             lavaText.gameObject.SetActive(false);        // lava
             StartCoroutine(lavaTextFunction());
             bossArrivalText.gameObject.SetActive(false); // enemy boss
-            StartCoroutine(bossArrivalTextFunction());
+            //StartCoroutine(bossArrivalTextFunction());
             introSkipText.gameObject.SetActive(false);   // intro skip 
             StartCoroutine(introSkipTextFunction());
         }
@@ -120,6 +121,12 @@ public class gameManager : MonoBehaviour
             else
                 unpauseState();
         }
+
+        // start timer for boss spawning after intro is finished or skipped //
+        if (cameraScript.introFinsished || cameraScript.isSkippingIntro) 
+        {
+            spawnBoss();
+        }
     }
 
     public void pauseState()
@@ -143,6 +150,16 @@ public class gameManager : MonoBehaviour
         pauseState();                                       //Set lose menu to active menu and pause the game
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+
+    private void spawnBoss()
+    {
+        if (bossSpawned) return;
+
+        bossEnemyScript.startBossRising();
+        StartCoroutine(playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
+        StartCoroutine(bossArrivalTextFunction());
+        bossSpawned = true;
     }
 
     public void playBackgroundMusic()
@@ -172,7 +189,7 @@ public class gameManager : MonoBehaviour
     IEnumerator playBossBattleMusicAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (bossEnemy.activeInHierarchy)
+        if (bossEnemy.activeInHierarchy && bossSpawned)
         {
             playBossBattleMusic();
             stopBackgroundMusic();

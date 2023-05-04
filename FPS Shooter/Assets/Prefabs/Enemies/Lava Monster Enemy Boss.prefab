@@ -1313,10 +1313,26 @@ MonoBehaviour:
   audioVolume: 1
   audioDistance: 500
   riseFromGround: 1
-  riseDelay: 150
+  riseDelay: 25
   riseTime: 5
   yOffset: 25
+  onBossRising:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   sphereColliderChild: {fileID: 224241456}
+  isIntroEnemy: 1
 --- !u!95 &1915955319656005088
 Animator:
   serializedVersion: 5
