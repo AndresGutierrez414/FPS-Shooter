@@ -24,6 +24,10 @@ public class largeLavaBallEnvironmental : MonoBehaviour
     [Range(0, 1)][SerializeField] private float audioVolume;
     [SerializeField] private float audioDistance;
 
+    [Header("----------Explosion Effects to player----------")]
+    [SerializeField] private float explosionRadius;
+    [SerializeField] private float cameraShakeDuration;
+    [SerializeField] private float cameraShakeMagnitude;
 
     private void Awake()
     {
@@ -48,6 +52,18 @@ public class largeLavaBallEnvironmental : MonoBehaviour
             createExplosion();
             playExplosionSound();
             trailRenderer.enabled = false;
+
+            // check if player is within explosion radius //
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            // if player is in explosion radius -> shake camera //
+            if (distanceToPlayer <= explosionRadius)
+            {
+                cameraShake cameraShook = Camera.main.GetComponent<cameraShake>();
+                cameraShook.shake(cameraShakeDuration, cameraShakeMagnitude);
+            }
+
             gameObject.SetActive(false);
         }
     }

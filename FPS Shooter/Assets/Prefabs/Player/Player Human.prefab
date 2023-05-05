@@ -526,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4777685871636155802}
   - component: {fileID: 4777685871636155807}
+  - component: {fileID: 5520969386318071832}
   - component: {fileID: 4777685871636155804}
   - component: {fileID: 4777685871636155805}
   m_Layer: 0
@@ -582,8 +583,21 @@ MonoBehaviour:
   introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
   distanceFromFocusPoint: 25
+  introFinsished: 0
   isSkippingIntro: 0
   player: {fileID: 0}
+--- !u!114 &5520969386318071832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4777685871636155803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85db1cda115960040bf90e3c85383959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &4777685871636155804
 Camera:
   m_ObjectHideFlags: 0

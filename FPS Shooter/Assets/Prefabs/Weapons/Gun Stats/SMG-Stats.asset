@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingDamage: 2
   shootingRate: 0.2
-  shootingDist: 25
+  shootingDist: 30
   bulletCount: 1
   spreadAngle: 0
   gunModel: {fileID: 5242247484002530937, guid: e19f2b74d7d9a6f40a279d9ee78da879, type: 3}

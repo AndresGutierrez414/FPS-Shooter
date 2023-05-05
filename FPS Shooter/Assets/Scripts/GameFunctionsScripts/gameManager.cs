@@ -51,8 +51,10 @@ public class gameManager : MonoBehaviour
     private bool bossSpawned = false;
 
     [Header("----------Audio Stuff----------")]
-    [SerializeField] public AudioSource backgroundMusic;
-    [SerializeField] public AudioSource bossBattleMusic;
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public AudioClip backgroundMusic;
+    [SerializeField] public AudioClip bossBattleMusic;
+
 
 
     float timeScaleOriginal;
@@ -73,8 +75,8 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         // play music //
-        playBackgroundMusic();
-        
+        PlayBackgroundMusic();
+
 
         // intro text display // 
         if (!cameraScript.enableIntroSequence)
@@ -102,10 +104,9 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         // Check if the boss is destroyed and switch music
-        if (bossEnemyScript.isBossDestroyed && !backgroundMusic.isPlaying) // Assuming 'isDead' is a boolean variable in the enemyAI script that is set to true when the boss is destroyed
+        if (bossEnemyScript.isBossDestroyed && audioSource.clip != backgroundMusic)
         {
-            stopBossBattleMusic();
-            playBackgroundMusic();
+            PlayBackgroundMusic();
         }
 
         if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
@@ -122,8 +123,16 @@ public class gameManager : MonoBehaviour
                 unpauseState();
         }
 
+        if (!cameraScript.introFinsished && !cameraScript.isSkippingIntro && bossSpawned)
+        {
+            if (audioSource.clip == bossBattleMusic && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+
         // start timer for boss spawning after intro is finished or skipped //
-        if (cameraScript.introFinsished || cameraScript.isSkippingIntro) 
+        if (cameraScript.introFinsished || cameraScript.isSkippingIntro)
         {
             spawnBoss();
         }
@@ -157,42 +166,39 @@ public class gameManager : MonoBehaviour
         if (bossSpawned) return;
 
         bossEnemyScript.startBossRising();
-        StartCoroutine(playBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
+        StartCoroutine(PlayBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
         StartCoroutine(bossArrivalTextFunction());
         bossSpawned = true;
     }
 
-    public void playBackgroundMusic()
+    private void PlayAudioClip(AudioClip clip)
     {
-        if (backgroundMusic != null)
-            backgroundMusic.Play();
+        if (clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
     }
 
-    public void stopBackgroundMusic()
+    public void PlayBackgroundMusic()
     {
-        if (backgroundMusic != null)
-            backgroundMusic.Stop();
+        audioSource.clip = backgroundMusic;
+        audioSource.Play();
     }
 
-    public void playBossBattleMusic()
+    public void PlayBossBattleMusic()
     {
-        if (bossBattleMusic != null)
-            bossBattleMusic.Play();
+        audioSource.clip = bossBattleMusic;
+        audioSource.Play();
     }
 
-    public void stopBossBattleMusic()
-    {
-        if (bossBattleMusic != null)
-            bossBattleMusic.Stop();
-    }
 
-    IEnumerator playBossBattleMusicAfterDelay(float delay)
+    IEnumerator PlayBossBattleMusicAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         if (bossEnemy.activeInHierarchy && bossSpawned)
         {
-            playBossBattleMusic();
-            stopBackgroundMusic();
+            PlayBossBattleMusic();
         }
     }
 
