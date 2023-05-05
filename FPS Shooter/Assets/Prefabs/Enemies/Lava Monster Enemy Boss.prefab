@@ -1321,7 +1321,7 @@ MonoBehaviour:
   launchHeight: 5
   launchDistance: 20
   riseFromGround: 1
-  riseDelay: 25
+  riseDelay: 45
   riseTime: 5
   yOffset: 25
   onBossRising:

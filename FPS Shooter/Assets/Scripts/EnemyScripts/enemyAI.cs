@@ -251,7 +251,7 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             StopAllCoroutines();
 
-            if (drop)
+            if (drop && Random.Range(0,2) == 0)
                 Instantiate(drop, transform.position, drop.transform.rotation);
 
             GetComponent<CapsuleCollider>().enabled = false;

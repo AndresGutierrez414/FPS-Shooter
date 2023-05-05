@@ -47,6 +47,6 @@ public class buttonFunctions : MonoBehaviour
 
     public void MenuScene()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("MenuScene");// goes to the Menu Scene
     }
 }
