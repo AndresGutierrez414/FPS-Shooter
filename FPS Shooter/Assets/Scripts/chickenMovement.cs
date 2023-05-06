@@ -65,7 +65,7 @@ public class chickenMovement : MonoBehaviour
             yield return new WaitForSeconds(roamPauseTime);
             destinationChosen = false;
 
-            // generate roandom pos to go to //
+            // generate roandom pos to go to. //
             Vector3 randPos = Random.insideUnitSphere * roamDist;
             // keep unit in roam area of start pos //
             randPos += startingPos;
@@ -77,7 +77,7 @@ public class chickenMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("Run", true);
+            animator.SetBool("Run", true); 
         }
     }
 
