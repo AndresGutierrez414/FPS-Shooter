@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour, IDamage
 
 
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
-    [Range(1, 10)][SerializeField] int HP;
+    [Range(1, 10)][SerializeField] public int HP;
     int maxHP;
 
     [Range(3, 8)][SerializeField] public float playerSpeed;     //Player movement speed and current velocity

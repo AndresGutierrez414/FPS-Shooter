@@ -370,6 +370,9 @@ MonoBehaviour:
   speed: 1
   verticalSpeed: 1
   height: 0.1
+  rotateX: 0
+  rotateY: 0
+  rotateZ: 0
 --- !u!33 &996338078779517851
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3792,6 +3795,7 @@ GameObject:
   - component: {fileID: 8843479644873926216}
   - component: {fileID: 8843479644873926217}
   - component: {fileID: 401570557}
+  - component: {fileID: 1898710489}
   m_Layer: 3
   m_Name: Player Human
   m_TagString: Player
@@ -4034,6 +4038,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1898710489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843479644873926222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7fa72ae70a2041a4e89c2852687eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experience: 0
 --- !u!1 &8843479644878812600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,7 +4138,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8843479644912024872}
-  m_LocalRotation: {x: 0.022658471, y: 0.034481525, z: -0.15302344, w: -0.98736084}
+  m_LocalRotation: {x: 0.022658473, y: 0.034481525, z: -0.15302345, w: -0.98736084}
   m_LocalPosition: {x: -0.14114596, y: 0.026662856, z: -0.0031975273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
