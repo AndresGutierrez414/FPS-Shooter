@@ -380,6 +380,8 @@ public class playerController : MonoBehaviour, IDamage
             gunModel.gameObject.transform.localRotation = Quaternion.identity;
         }
     }
+
+    //When the player hit the floor the player will be set on fire
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Floor"))
@@ -387,6 +389,7 @@ public class playerController : MonoBehaviour, IDamage
             fireDamage.SetActive(true);
         }
     }
+    //When the player leaves the floor the fire will be set off
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Floor"))
