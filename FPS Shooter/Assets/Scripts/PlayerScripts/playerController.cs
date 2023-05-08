@@ -58,6 +58,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] audioDamage;
     [SerializeField][Range(0, 1)] float audioDamageVolume;
 
+    [Header("----- Effects -----")]
+    [SerializeField] GameObject fireDamage;
+
     bool isPlayingSteps;
 
     private float currentSpeed;
@@ -375,6 +378,20 @@ public class playerController : MonoBehaviour, IDamage
         {
             gunModel.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             gunModel.gameObject.transform.localRotation = Quaternion.identity;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            fireDamage.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            fireDamage.SetActive(false);
         }
     }
 }
