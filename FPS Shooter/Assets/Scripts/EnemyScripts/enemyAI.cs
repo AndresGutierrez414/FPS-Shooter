@@ -79,7 +79,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool destinationChosen;
     Vector3 startingPos;
     float speed;
-
+    public int experienceOnKill = 5;
 
     void Start()
     {
@@ -249,9 +249,12 @@ public class enemyAI : MonoBehaviour, IDamage
         // if dead //
         if (HP <= 0)
         {
+
             StopAllCoroutines();
 
-            if (drop && Random.Range(0,2) == 0)
+            Exp();
+
+            if (drop && Random.Range(0, 2) == 0)
                 Instantiate(drop, transform.position, drop.transform.rotation);
 
             GetComponent<CapsuleCollider>().enabled = false;
@@ -262,7 +265,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
             if (isBoss)
             {
+                PlayerStats Stats = FindObjectOfType<PlayerStats>();
                 isBossDestroyed = true;
+                Stats.BossKilled();
             }
         }
         // if not dead //
@@ -273,8 +278,20 @@ public class enemyAI : MonoBehaviour, IDamage
             agent.stoppingDistance = 0;
         }
     }
+        public void Exp()
+        {
+            // Add experience to the player
+            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
 
-    IEnumerator deathAnimation(float time)
+            if (playerStats != null)
+            {
+            Debug.Log("lets good!!!");
+                playerStats.IncreaseExperience(experienceOnKill);
+            }
+        }
+
+
+            IEnumerator deathAnimation(float time)
     {
         float elapsedTime = 0f;
         Quaternion initialRotation = transform.rotation;
