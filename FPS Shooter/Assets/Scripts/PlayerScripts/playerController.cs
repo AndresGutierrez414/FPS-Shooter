@@ -40,6 +40,7 @@ public class playerController : MonoBehaviour, IDamage
     public MeshRenderer gunMaterial;
     public MeshFilter gunModel;
     public int selectedGun;
+    public Transform gunPos;
 
     [Header("----- Pillow Stats -----")]                           //Weapon statistics 
     [Range(0.8f, 2f)][SerializeField] float pillowShootRate;
@@ -69,8 +70,12 @@ public class playerController : MonoBehaviour, IDamage
     bool isPlacingP;
     bool isSprinting;
     public float rotationAxis;
-
+    private bool isSwitching = false;
+    private bool changing = false;
+    private bool isSelecting = false;
+    private float weaponSwitchDelay = 0.1f;
     public bool canMove = false;
+    GameObject bulletPrefab;
 
     private void Awake()
     {
@@ -232,58 +237,7 @@ public class playerController : MonoBehaviour, IDamage
         isShooting = false;
     }
 
-    IEnumerator shootBullet()
-    {
-        isShooting = true;
-
-        audio.PlayOneShot(gunList[selectedGun].gunBlastAudio, gunList[selectedGun].gunShotAudioVolume);
-
-        int bulletCount = gunList[selectedGun].bulletCount;
-
-        // for each bullet //
-        for (int i = 0; i < bulletCount; i++)
-        {
-            RaycastHit hit;
-            Vector3 targetPoint;
-            float maxRaycastDistance = 1000f;
-
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-            {
-                // If the raycast hits an object, use the hit point as the target //
-                targetPoint = hit.point;
-            }
-            else
-            {
-                // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
-                targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
-            }
-
-            // apply rand angle offset if shotgun //
-            float spreadAngle = gunList[selectedGun].spreadAngle;
-            Quaternion randomRotation = Quaternion.Euler(
-                Random.Range(-spreadAngle, spreadAngle),
-                Random.Range(-spreadAngle, spreadAngle),
-                0);
-
-            // Calculate the direction vector from the shootPos to the target point
-            Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
-            shootDirection = randomRotation * shootDirection;
-
-            // Instantiate the bullet with the correct rotation
-            GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
-            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
-
-            playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.damage = shootDamage;
-                bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
-            }
-        }
-
-        yield return new WaitForSeconds(fireRate);
-        isShooting = false;
-    }
+    
 
     //This coroutine handles throwing pillows
     IEnumerator placePillow()
@@ -324,61 +278,277 @@ public class playerController : MonoBehaviour, IDamage
         lavaFloorScript.playerInLava.Clear();
         //lavaFloorScript.resetStats(this);
     }
-    public void gunPick(GunLists gunStat)
+
+    IEnumerator shootBullet()
     {
-        ApplyGunTransform(gunStat);
+        isShooting = true;
 
-        gunList.Add(gunStat);
+        audio.PlayOneShot(gunList[selectedGun].gunBlastAudio, gunList[selectedGun].gunShotAudioVolume);
 
-        shootDamage = gunStat.shootingDamage;
-        shootDist = gunStat.shootingDist;
-        fireRate = gunStat.shootingRate;
+        int bulletCount = gunList[selectedGun].bulletCount;
 
-        gunModel.mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
-        MeshRenderer gunRenderer = gunStat.gunModel.GetComponent<MeshRenderer>();
-        Material[] gunMaterials = gunRenderer.sharedMaterials;
-        gunMaterial.materials = gunMaterials;
+        // for each bullet //
+        for (int i = 0; i < bulletCount; i++)
+        {
+            RaycastHit hit;
+            Vector3 targetPoint;
+            float maxRaycastDistance = 1000f;
 
-        selectedGun = gunList.Count - 1;
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            {
+                // If the raycast hits an object, use the hit point as the target //
+                targetPoint = hit.point;
+            }
+            else
+            {
+                // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
+                targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
+            }
+
+            // apply rand angle offset if shotgun //
+            float spreadAngle = gunList[selectedGun].spreadAngle;
+            Quaternion randomRotation = Quaternion.Euler(
+                Random.Range(-spreadAngle, spreadAngle),
+                Random.Range(-spreadAngle, spreadAngle),
+                0);
+
+            // Calculate the direction vector from the shootPos to the target point
+            Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
+            shootDirection = randomRotation * shootDirection;
+
+            // Instantiate the bullet with the correct rotation
+
+            // Differentiate the bullet type based on the weapon name
+            //bulletPrefab = bullets[0]; // Default bullet
+            //if (gunList[selectedGun].name == "FlameStaff")
+            //{
+            //    bulletPrefab = bullets[0];
+            //}
+            //if (gunList[selectedGun].name == "GravityStaff")
+            //{
+            //    bulletPrefab = bullets[1];
+            //}
+
+            //if (gunList[selectedGun].name == "IceStaff")
+            //{
+            //    bulletPrefab = bullets[2];
+            //}
+
+            //if (gunList[selectedGun].name == "RapidFireStaff")
+            //{
+            //    bulletPrefab = bullets[3];
+            //}
+
+
+            GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
+            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+
+            playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.damage = shootDamage;
+                bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+            }
+        }
+
+        yield return new WaitForSeconds(fireRate);
+        isShooting = false;
     }
+    public void gunPick(GunLists gunStat)
+{
+    ApplyGunTransform(gunStat);
+
+    gunList.Add(gunStat);
+
+    // Set the initial selected gun to the first one in the list.
+    selectedGun = 0;
+    UpdateGunStats(gunStat);
+    SetGunModel(gunStat);
+        
+    }
+
     void selectGun()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        // If there are no weapons in the gunList or switching is in progress, return
+        if (gunList.Count == 0 || changing || isSelecting)
         {
-            selectedGun++;
-            changeGun();
+            return;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+
+        int newSelectedGun = selectedGun;
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            selectedGun--;
-            changeGun();
+            newSelectedGun += 1;
+            if (newSelectedGun >= gunList.Count)
+            {
+                newSelectedGun = 0;
+            }
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            newSelectedGun -= 1;
+            if (newSelectedGun < 0)
+            {
+                newSelectedGun = gunList.Count - 1;
+            }
+        }
+        else
+        {
+            // Return early if there's no change in the scroll wheel input
+            return;
+        }
+
+        if (newSelectedGun != selectedGun)
+        {
+            StartCoroutine(SwitchWeaponWithDelay(newSelectedGun - selectedGun));
         }
     }
+    IEnumerator SwitchWeaponWithDelay(int direction)
+    {
+        isSelecting = true;
+
+        int prevSelectedGun = selectedGun;
+
+        selectedGun += direction;
+        if (selectedGun >= gunList.Count)
+        {
+            selectedGun = 0;
+        }
+        else if (selectedGun < 0)
+        {
+            selectedGun = gunList.Count - 1;
+        }
+
+        if (prevSelectedGun != selectedGun && changing == false)
+        {
+            changing = true;
+            changeGun();
+        }
+
+        yield return new WaitForSeconds(weaponSwitchDelay);
+
+        isSelecting = false;
+    }
+    IEnumerator AnimateWeaponChange(Transform target, Vector3 startPos, Quaternion startRot, Vector3 endPos, Quaternion endRot, float duration, GunLists gunStat)
+    {
+        
+        float elapsedTime = 0;
+        float halfDuration = duration * 0.5f;
+
+        // First half: move the current weapon out of view
+        while (elapsedTime < halfDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / halfDuration;
+
+            target.localPosition = Vector3.Lerp(startPos, startPos + Vector3.down, t);
+            target.localRotation = Quaternion.Slerp(startRot, Quaternion.Euler(startRot.eulerAngles + new Vector3(45, 0, 0)), t);
+
+            yield return null;
+        }
+
+        // Update the gun model at the halfway point
+        target.localPosition = startPos + Vector3.down;
+        target.localRotation = Quaternion.Euler(startRot.eulerAngles + new Vector3(45, 0, 0));
+        SetGunModel(gunStat);
+        ApplyGunTransform(gunList[selectedGun]);
+
+        elapsedTime = 0;
+
+        // Second half: move the new weapon into view
+        while (elapsedTime < halfDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / halfDuration;
+
+            target.localPosition = Vector3.Lerp(startPos + Vector3.down, endPos, t);
+            target.localRotation = Quaternion.Slerp(Quaternion.Euler(startRot.eulerAngles + new Vector3(45, 0, 0)), endRot, t);
+
+            yield return null;
+        }
+
+        target.localPosition = endPos;
+        target.localRotation = endRot;
+        changing = false;
+       
+    }
+
     void changeGun()
     {
-        shootDamage = gunList[selectedGun].shootingDamage;
-        shootDist = gunList[selectedGun].shootingDist;
-        fireRate = gunList[selectedGun].shootingRate;
+        GunLists gunStat = gunList[selectedGun];
+        UpdateGunStats(gunStat);
+        
 
-        gunModel.mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunMaterial.material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-        ApplyGunTransform(gunList[selectedGun]);
+        Vector3 startPos = gunModel.transform.localPosition;
+        Quaternion startRot = gunModel.transform.localRotation;
+
+        Vector3 endPos;
+        Quaternion endRot;
+        GetGunTransform(gunStat, out endPos, out endRot);
+        
+            StartCoroutine(AnimateWeaponChange(gunModel.transform, startPos, startRot, endPos, endRot, 1f, gunStat));
+        
+
     }
+    private void GetGunTransform(GunLists gunStat, out Vector3 endPos, out Quaternion endRot)
+    {
+        if (gunStat.name == "FlameStaff" || gunStat.name == "GravityStaff" || gunStat.name == "IceStaff" || gunStat.name == "RapidFireStaff")
+        {
+            endPos = new Vector3(0.35f, -0.61f, 0.337f);
+            endRot = Quaternion.Euler(new Vector3(-45, 0, 0));
+        }
+        else
+        {
+            endPos = Vector3.zero;
+            endRot = Quaternion.identity;
+        }
+    }
+    private void UpdateGunStats(GunLists gunStat)
+{
+        bullet = gunStat.gunBullet;
+        shootDamage = gunStat.shootingDamage;
+    shootDist = gunStat.shootingDist;
+    fireRate = gunStat.shootingRate;
+}
+
+private void SetGunModel(GunLists gunStat)
+{
+    gunModel.mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
+
+    MeshRenderer gunRenderer = gunStat.gunModel.GetComponent<MeshRenderer>();
+    Material[] gunMaterials;
+    if (gunStat.name == "FlameStaff" || gunStat.name == "GravityStaff" || gunStat.name == "IceStaff" || gunStat.name == "RapidFireStaff")
+    {
+        gunMaterials = gunRenderer.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().sharedMaterials;
+    }
+    else
+    {
+        gunMaterials = gunRenderer.sharedMaterials;
+    }
+    gunMaterial.materials = gunMaterials;
+}
 
     private void ApplyGunTransform(GunLists gunStat)
     {
-        if (gunStat.name == "StaffStats")
+        Vector3 endPos;
+        Quaternion endRot;
+        GetGunTransform(gunStat, out endPos, out endRot);
+
+        gunModel.gameObject.transform.localPosition = endPos;
+        gunModel.gameObject.transform.localRotation = endRot;
+
+        if (gunStat.name == "FlameStaff" || gunStat.name == "GravityStaff" || gunStat.name == "IceStaff" || gunStat.name == "RapidFireStaff")
         {
             gunModel.gameObject.transform.localScale = new Vector3(40, 40, 40);
-            gunModel.gameObject.transform.localPosition = new Vector3(0.35f, -0.61f, 0.337f);
-            gunModel.gameObject.transform.localRotation = Quaternion.Euler(new Vector3(-45, 0, 0));
             shootPos.transform.localPosition = new Vector3(0.366f, -0.075f, 1.361f);
         }
         else
         {
             gunModel.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-            gunModel.gameObject.transform.localRotation = Quaternion.identity;
         }
+
+        
     }
 
     //When the player hit the floor the player will be set on fire
