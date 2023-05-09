@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 10)][SerializeField] public int HP;
     [Range(1, 10)] [SerializeField] public int critHP;
     [SerializeField] public int critHPPulseSpeed;
+    [SerializeField] public float dmgIndicatorDuration;
     int maxHP;
 
     [Range(3, 8)][SerializeField] public float playerSpeed;     //Player movement speed and current velocity
@@ -206,6 +207,7 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         audio.PlayOneShot(audioDamage[Random.Range(0, audioJump.Length)], audioDamageVolume);
+        StartCoroutine(showDamageIndicator());
 
         HP -= amount;                                           //Updates the player's hit points and the respective UI element
         playerUIUpdate();
@@ -256,6 +258,15 @@ public class playerController : MonoBehaviour, IDamage
         gameManager.instance.critHeathImg.color = FXColor;
 
         yield return new WaitForSeconds(critHPPulseSpeed * Time.deltaTime);
+    }
+
+    IEnumerator showDamageIndicator()
+    {
+        gameManager.instance.dmgIndicator.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(dmgIndicatorDuration * Time.deltaTime);
+
+        gameManager.instance.dmgIndicator.gameObject.SetActive(false);
     }
 
     //This coroutine handles throwing pillows
