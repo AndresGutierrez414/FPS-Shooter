@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject playerSpawnLocation;
     [SerializeField] public Image HPBar;
     [SerializeField] public Image SprintBar;
+    [SerializeField] public Image critHeathImg;
 
     [Header("---------- UI Stuff ----------")]                        //UI menus and HUD elements
     [SerializeField] public GameObject activeMenu;

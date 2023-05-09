@@ -13,6 +13,8 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
     [Range(1, 10)][SerializeField] public int HP;
+    [Range(1, 10)] [SerializeField] public int critHP;
+    [SerializeField] public int critHPPulseSpeed;
     int maxHP;
 
     [Range(3, 8)][SerializeField] public float playerSpeed;     //Player movement speed and current velocity
@@ -69,6 +71,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isShooting;
     bool isPlacingP;
     bool isSprinting;
+    public bool isCritHP = false;
     public float rotationAxis;
     private bool isSwitching = false;
     private bool changing = false;
@@ -106,6 +109,8 @@ public class playerController : MonoBehaviour, IDamage
                 if (!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
                     StartCoroutine(placePillow());
 
+                if (isCritHP)
+                    StartCoroutine(critHealthEffect());
             }
         }
     }
@@ -205,6 +210,9 @@ public class playerController : MonoBehaviour, IDamage
         HP -= amount;                                           //Updates the player's hit points and the respective UI element
         playerUIUpdate();
 
+        if (HP <= critHP)
+            isCritHP = true;
+
         if (HP <= 0)                                            //Triggers a losing state if the player has no more hit points
         {
             gameManager.instance.playerDead();
@@ -237,7 +245,18 @@ public class playerController : MonoBehaviour, IDamage
         isShooting = false;
     }
 
-    
+    //Creates the flashing low health UI effect - Chance
+    IEnumerator critHealthEffect()
+    {
+        gameManager.instance.critHeathImg.gameObject.SetActive(true);
+        Color FXColor = gameManager.instance.critHeathImg.color;
+
+        //Changing the alpha of the crit health image
+        FXColor.a = Mathf.Sin(Time.time * critHPPulseSpeed);
+        gameManager.instance.critHeathImg.color = FXColor;
+
+        yield return new WaitForSeconds(critHPPulseSpeed * Time.deltaTime);
+    }
 
     //This coroutine handles throwing pillows
     IEnumerator placePillow()
@@ -262,6 +281,16 @@ public class playerController : MonoBehaviour, IDamage
         HP += amount;
 
         HP = Mathf.Clamp(HP, 0, maxHP);
+
+        if (HP > critHP)
+        {
+            isCritHP = false;
+            gameManager.instance.critHeathImg.gameObject.SetActive(false);
+            
+            Color FXColor = gameManager.instance.critHeathImg.color;
+            FXColor.a = 0;
+            gameManager.instance.critHeathImg.color = FXColor;
+        }
 
         playerUIUpdate();
     }
