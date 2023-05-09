@@ -154,6 +154,14 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(false);
         activeMenu = null;
     }
+    public void unpauseStateWithCursor()
+    {
+        Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        activeMenu.SetActive(false);
+        activeMenu = null;
+    }
 
     public void playerDead()
     {
