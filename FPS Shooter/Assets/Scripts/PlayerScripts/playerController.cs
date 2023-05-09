@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour, IDamage
 
 
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
-    [Range(1, 10)][SerializeField] int HP;
+    [Range(1, 10)][SerializeField] public int HP;
     int maxHP;
 
     [Range(3, 8)][SerializeField] public float playerSpeed;     //Player movement speed and current velocity
@@ -57,6 +57,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField][Range(0, 1)] float audioJumpVolume;
     [SerializeField] AudioClip[] audioDamage;
     [SerializeField][Range(0, 1)] float audioDamageVolume;
+
+    [Header("----- Effects -----")]
+    [SerializeField] GameObject fireDamage;
 
     bool isPlayingSteps;
 
@@ -240,8 +243,6 @@ public class playerController : MonoBehaviour, IDamage
         // for each bullet //
         for (int i = 0; i < bulletCount; i++)
         {
-            GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-
             RaycastHit hit;
             Vector3 targetPoint;
             float maxRaycastDistance = 1000f;
@@ -267,6 +268,9 @@ public class playerController : MonoBehaviour, IDamage
             // Calculate the direction vector from the shootPos to the target point
             Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
             shootDirection = randomRotation * shootDirection;
+
+            // Instantiate the bullet with the correct rotation
+            GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
             bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
 
             playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
@@ -322,6 +326,8 @@ public class playerController : MonoBehaviour, IDamage
     }
     public void gunPick(GunLists gunStat)
     {
+        ApplyGunTransform(gunStat);
+
         gunList.Add(gunStat);
 
         shootDamage = gunStat.shootingDamage;
@@ -329,7 +335,9 @@ public class playerController : MonoBehaviour, IDamage
         fireRate = gunStat.shootingRate;
 
         gunModel.mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunMaterial.material = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        MeshRenderer gunRenderer = gunStat.gunModel.GetComponent<MeshRenderer>();
+        Material[] gunMaterials = gunRenderer.sharedMaterials;
+        gunMaterial.materials = gunMaterials;
 
         selectedGun = gunList.Count - 1;
     }
@@ -354,5 +362,36 @@ public class playerController : MonoBehaviour, IDamage
 
         gunModel.mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunMaterial.material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        ApplyGunTransform(gunList[selectedGun]);
+    }
+
+    private void ApplyGunTransform(GunLists gunStat)
+    {
+        if (gunStat.name == "StaffStats")
+        {
+            gunModel.gameObject.transform.localScale = new Vector3(40, 40, 40);
+            gunModel.gameObject.transform.localPosition = new Vector3(0.35f, -0.61f, 0.337f);
+            gunModel.gameObject.transform.localRotation = Quaternion.Euler(new Vector3(-45, 0, 0));
+            shootPos.transform.localPosition = new Vector3(0.366f, -0.075f, 1.361f);
+        }
+        else
+        {
+            gunModel.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            gunModel.gameObject.transform.localRotation = Quaternion.identity;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            fireDamage.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            fireDamage.SetActive(false);
+        }
     }
 }

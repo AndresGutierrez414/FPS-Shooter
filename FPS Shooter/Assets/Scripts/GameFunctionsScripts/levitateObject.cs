@@ -8,7 +8,9 @@ public class levitateObject : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float verticalSpeed;
     [SerializeField] float height;
-
+    [SerializeField] float rotateX;
+    [SerializeField] float rotateY;
+    [SerializeField] float rotateZ;
     private Vector3 initialPosition;
 
     // Start is called before the first frame update
@@ -21,7 +23,7 @@ public class levitateObject : MonoBehaviour
     void Update()
     {
         // rotation //
-        transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
+        transform.Rotate(new Vector3(rotateX, rotateY, rotateZ) * Time.deltaTime);
 
         // up and down movement //
         // Mathf.Sin -> creates sin wave that moves between -1 and 1
