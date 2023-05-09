@@ -21,8 +21,6 @@ public class PlayerStats : MonoBehaviour
             skillPoints++;
             experience -= experiencePerSkillPoint;
         }
-        else
-            return;
     }
     public void BossKilled()
     {

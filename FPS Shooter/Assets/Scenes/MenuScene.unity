@@ -1195,7 +1195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -1736
       objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5152,17 +5152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  activeMenu: {fileID: 0}
-  mainMenu: {fileID: 0}
-  HTPMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  winMenu: {fileID: 0}
-  loseMenu: {fileID: 0}
-  checkPoint: {fileID: 0}
-  isPaused: 0
   audioSource: {fileID: 0}
   backgroundMusic: {fileID: 0}
-  bossBattleMusic: {fileID: 0}
 --- !u!4 &3976261918051991124
 Transform:
   m_ObjectHideFlags: 0
