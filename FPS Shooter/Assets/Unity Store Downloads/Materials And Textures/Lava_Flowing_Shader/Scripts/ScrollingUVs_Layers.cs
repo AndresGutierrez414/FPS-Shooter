@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections;
 
 public class ScrollingUVs_Layers : MonoBehaviour 
 {
@@ -11,10 +12,13 @@ public class ScrollingUVs_Layers : MonoBehaviour
 	
 	void LateUpdate() 
 	{
+		
 		uvOffset += ( uvAnimationRate * Time.deltaTime );
 		if( GetComponent<Renderer>().enabled )
 		{
 			GetComponent<Renderer>().sharedMaterial.SetTextureOffset( textureName, uvOffset );
 		}
 	}
+
+	
 }
