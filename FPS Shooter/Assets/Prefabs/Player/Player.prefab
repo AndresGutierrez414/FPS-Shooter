@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4303810387769731547
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4303810387769731546}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1206ca8cb1b61a42966cd9abbb750ee, type: 3}
   m_Name: 
@@ -66,6 +66,8 @@ MonoBehaviour:
   introRotationSpeed: 2
   waitTimeAtFocusPoints: 0.5
   distanceFromFocusPoint: 25
+  introFinsished: 0
+  isSkippingIntro: 0
   player: {fileID: 0}
 --- !u!20 &4303810387769731549
 Camera:
@@ -74,7 +76,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4303810387769731546}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -127,11 +129,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4303810387877515675}
-  - component: {fileID: 4303810387877515674}
   - component: {fileID: 4303810387877515673}
   - component: {fileID: 4303810387877515672}
   - component: {fileID: 4303810387877515687}
-  - component: {fileID: 4303810387877515676}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -155,45 +155,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4303810387877515674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4303810387877515686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4080949b93c0844b8d955019ebfc31d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 4303810387877515687}
-  HP: 10
-  playerSpeed: 6
-  playerSprint: 7
-  sprintAcceleration: 1.5
-  sprintDrainRate: 0.5
-  sprintRechargeRate: 0.5
-  gravityValue: 25
-  jumpHeight: 8
-  maxJumps: 2
-  gunList: []
-  shootDamage: 1
-  fireRate: 0.5
-  shootDist: 40
-  bullet: {fileID: 8973868133043815996, guid: a25d5561dc2fb5d46911898850a18e19, type: 3}
-  bulletSpeed: 50
-  shootPos: {fileID: 7650606408465015120}
-  gunMaterial: {fileID: 1008969835800277502}
-  gunModel: {fileID: 3169293380503038317}
-  selectedGun: 0
-  pillowShootRate: 2
-  pillowShootDist: 4
-  cube: {fileID: 12482004233389737, guid: 93c224a9490a4b543938c00d31cd6da1, type: 3}
-  lavaFloor: {fileID: 5859042031172001111, guid: ceb644f45c1f71f4a98d29a6fbebd869, type: 3}
-  lavaFloorScript: {fileID: 0}
-  rotationAxis: 0
-  canMove: 0
 --- !u!33 &4303810387877515673
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -261,20 +222,6 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &4303810387877515676
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4303810387877515686}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5707246170065821668
 GameObject:

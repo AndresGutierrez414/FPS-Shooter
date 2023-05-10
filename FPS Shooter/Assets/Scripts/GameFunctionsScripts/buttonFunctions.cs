@@ -50,6 +50,7 @@ public class buttonFunctions : MonoBehaviour
 
         // reload the scene we are in //
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     public void quit()
@@ -60,6 +61,7 @@ public class buttonFunctions : MonoBehaviour
     public void MenuScene()
     {
         SceneManager.LoadScene("MenuScene"); // goes to the Menu Scene
+        gameManager.instance.unpauseStateWithCursor();
         audio.Play();
 
     }
@@ -75,6 +77,6 @@ public class buttonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene("CreditsScene"); // goes to Options Menu
         audio.Play();
-
     }
+
 }

@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     private int skillPoints = 0;
     private int experiencePerKill = 17;
     private int experiencePerSkillPoint = 100;
-    
+
 
     // Increase the player's experience and check if they've earned a skill point
     public void IncreaseExperience(int amount)

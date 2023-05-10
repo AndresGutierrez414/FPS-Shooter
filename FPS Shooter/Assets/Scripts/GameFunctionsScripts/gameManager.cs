@@ -17,6 +17,10 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject playerSpawnLocation;
     [SerializeField] public Image HPBar;
     [SerializeField] public Image SprintBar;
+    [SerializeField] public Image critHeathImg;
+    [SerializeField] public Image dmgIndicator;
+    [SerializeField] public PlayerStats playerStats;
+
 
     [Header("---------- UI Stuff ----------")]                        //UI menus and HUD elements
     [SerializeField] public GameObject activeMenu;
@@ -58,14 +62,17 @@ public class gameManager : MonoBehaviour
 
 
     float timeScaleOriginal;
-
+    [Header("BulletUpgrades")]
+    public bool rapidUpgrade = false;
+    public bool gravityUpgrade = false;
+    public bool iceUpgrade = false;
     void Awake()
     {
         instance = this;
         timeScaleOriginal = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
         cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
-        bossEnemy = GameObject.FindGameObjectWithTag("Boss");
+        //bossEnemy = GameObject.FindGameObjectWithTag("Boss");
         playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
         playerScript = player.GetComponent<playerController>();
         cameraScript = cameraObject.GetComponent<cameraControls>();
@@ -150,6 +157,14 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        activeMenu.SetActive(false);
+        activeMenu = null;
+    }
+    public void unpauseStateWithCursor()
+    {
+        Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         activeMenu.SetActive(false);
         activeMenu = null;
     }
