@@ -285,7 +285,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
             if (drop && Random.Range(0, 2) == 0)
                 Instantiate(drop, transform.position, drop.transform.rotation);
-
+            GetComponent<Rigidbody>().isKinematic =  true;
             GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
 
