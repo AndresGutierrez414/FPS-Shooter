@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public Image SprintBar;
     [SerializeField] public Image critHeathImg;
     [SerializeField] public Image dmgIndicator;
+    [SerializeField] public PlayerStats playerStats;
 
 
     [Header("---------- UI Stuff ----------")]                        //UI menus and HUD elements
