@@ -99,7 +99,14 @@ public class playerController : MonoBehaviour, IDamage
     }
     void ApplyRecoil()
     {
-        gunModel.transform.localPosition -= gunModel.transform.forward * recoilAmount;
+        // Calculate the local direction of the recoil
+        Vector3 localRecoilDirection = Vector3.forward;
+
+        // Convert the local direction to world space
+        Vector3 worldRecoilDirection = gunModel.transform.TransformDirection(localRecoilDirection);
+
+        // Apply the recoil in world space
+        gunModel.transform.position -= worldRecoilDirection * recoilAmount;
         StartCoroutine(MoveGunToPosition(gunModel.transform, originalPosition, recoilSpeed));
     }
 
@@ -440,16 +447,18 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
     public void gunPick(GunLists gunStat)
-{
-    ApplyGunTransform(gunStat);
+    {
+        ApplyGunTransform(gunStat);
 
-    gunList.Add(gunStat);
+        gunList.Add(gunStat);
 
-    // Set the initial selected gun to the first one in the list.
-    selectedGun = 0;
-    UpdateGunStats(gunStat);
-    SetGunModel(gunStat);
-        
+        // Set the initial selected gun to the first one in the list.
+        selectedGun = 0;
+        UpdateGunStats(gunStat);
+        SetGunModel(gunStat);
+
+        // Store the original position
+        originalPosition = gunModel.transform.localPosition;
     }
 
     void selectGun()
@@ -624,6 +633,9 @@ private void SetGunModel(GunLists gunStat)
         gunModel.gameObject.transform.localPosition = endPos;
         gunModel.gameObject.transform.localRotation = endRot;
 
+        // Update the original position
+        originalPosition = endPos;
+
         if (gunStat.name == "FlameStaff" || gunStat.name == "GravityStaff" || gunStat.name == "IceStaff" || gunStat.name == "RapidFireStaff")
         {
             gunModel.gameObject.transform.localScale = new Vector3(40, 40, 40);
@@ -633,10 +645,7 @@ private void SetGunModel(GunLists gunStat)
         {
             gunModel.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         }
-
-        
     }
-
     //When the player hit the floor the player will be set on fire
     private void OnTriggerEnter(Collider other)
     {

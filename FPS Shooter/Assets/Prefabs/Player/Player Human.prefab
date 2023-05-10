@@ -13522,7 +13522,7 @@ MonoBehaviour:
   fireRate: 0.5
   shootDist: 40
   recoilAmount: 0.3
-  recoilSpeed: 3
+  recoilSpeed: 1
   bullet: {fileID: 8973868133043815996, guid: a25d5561dc2fb5d46911898850a18e19, type: 3}
   bulletSpeed: 50
   shootPos: {fileID: 1430986605715408145}
