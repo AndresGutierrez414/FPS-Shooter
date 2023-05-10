@@ -285,11 +285,29 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(critHPPulseSpeed * Time.deltaTime);
     }
 
-    IEnumerator showDamageIndicator()
+    public IEnumerator showDamageIndicator()
     {
+        // Store original color
+        Color originalColor = gameManager.instance.dmgIndicator.color;
+
+        // Set the color alpha to 1
+        gameManager.instance.dmgIndicator.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
+
         gameManager.instance.dmgIndicator.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(dmgIndicatorDuration * Time.deltaTime);
+        float fadeDuration = 0.2f;
+        float startTime = Time.time;
+
+        while (Time.time < startTime + fadeDuration)
+        {
+            float t = (Time.time - startTime) / fadeDuration;
+
+            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, Mathf.Lerp(1, 0, t));
+
+            gameManager.instance.dmgIndicator.color = newColor;
+
+            yield return null;
+        }
 
         gameManager.instance.dmgIndicator.gameObject.SetActive(false);
     }
