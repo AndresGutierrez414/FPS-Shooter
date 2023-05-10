@@ -8,6 +8,7 @@ public class GunsPickUp : MonoBehaviour
     [SerializeField] MeshFilter model;
     [SerializeField] MeshRenderer mat;
     [SerializeField] AudioClip pickupGunSound;
+    //public AudioSource audio;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class GunsPickUp : MonoBehaviour
             gameManager.instance.playerScript.gunPick(gun);
 
             AudioSource.PlayClipAtPoint(pickupGunSound, other.transform.position);
+            //audio.Play();
 
             Destroy(gameObject);
         }
