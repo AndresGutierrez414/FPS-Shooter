@@ -714,7 +714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 797471312228275203, guid: d2a8806a3d5344f49a505112515e59f6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 797471312228275203, guid: d2a8806a3d5344f49a505112515e59f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1459,7 +1459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834269879910907107, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3834269879910907107, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2539,7 +2539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435110160863516982, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4435110160863516982, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2629,7 +2629,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2298840886247952026, guid: a81f53f7c6f5fa243983c35aa2c7cab6, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2298840886247952026, guid: a81f53f7c6f5fa243983c35aa2c7cab6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2847,7 +2847,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &919132147639096320
 GameObject:
@@ -3679,7 +3679,7 @@ RectTransform:
   - {fileID: 1446517812}
   - {fileID: 783886321}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6372,7 +6372,7 @@ PrefabInstance:
       objectReference: {fileID: 219972649}
     - target: {fileID: 8843479644873926220, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8843479644873926220, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_LocalPosition.x
