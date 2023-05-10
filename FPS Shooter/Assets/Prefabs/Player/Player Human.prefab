@@ -13535,7 +13535,7 @@ GameObject:
   - component: {fileID: 8843479644873926216}
   - component: {fileID: 8843479644873926217}
   - component: {fileID: 401570557}
-  - component: {fileID: 1898710489}
+  - component: {fileID: 1846362492887201563}
   m_Layer: 3
   m_Name: Player Human
   m_TagString: Player
@@ -13597,6 +13597,8 @@ MonoBehaviour:
   shootDamage: 1
   fireRate: 0.5
   shootDist: 40
+  recoilAmount: 0.3
+  recoilSpeed: 1
   bullet: {fileID: 8973868133043815996, guid: a25d5561dc2fb5d46911898850a18e19, type: 3}
   bulletSpeed: 50
   shootPos: {fileID: 1430986605715408145}
@@ -13633,6 +13635,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b887636eb6399904cb4b6c1ea22e00c6, type: 3}
   - {fileID: 8300000, guid: 42514579da9d39143ae06c5fbe74d5b5, type: 3}
   audioDamageVolume: 0.5
+  giveHp: {fileID: 8300000, guid: a53575f0051635c42a9f9794d317ac59, type: 3}
   fireDamage: {fileID: 6362942024595549984}
   isCritHP: 0
   rotationAxis: 0
@@ -13785,7 +13788,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1898710489
+--- !u!114 &1846362492887201563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

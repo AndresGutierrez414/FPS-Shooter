@@ -221,9 +221,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8973868133043815987}
-  - component: {fileID: 6815235928336654940}
   - component: {fileID: 4589335534609046644}
   - component: {fileID: 947546989184770459}
+  - component: {fileID: 2040505273830178846}
   m_Layer: 9
   m_Name: Player Bullet Gravity
   m_TagString: Untagged
@@ -247,20 +247,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6815235928336654940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973868133043815996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223af6849af3cb6429edaf47d65f7df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  maxTravelDistance: 0
 --- !u!135 &4589335534609046644
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -290,3 +276,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2040505273830178846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973868133043815996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c00f78fb9622942955d48c7d3c7ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  maxTravelDistance: 30
+  knockbackForce: 30
+  enemyTag: Enemy

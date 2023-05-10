@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public Image SprintBar;
     [SerializeField] public Image critHeathImg;
     [SerializeField] public Image dmgIndicator;
+    [SerializeField] public PlayerStats playerStats;
 
 
     [Header("---------- UI Stuff ----------")]                        //UI menus and HUD elements
@@ -61,14 +62,17 @@ public class gameManager : MonoBehaviour
 
 
     float timeScaleOriginal;
-
+    [Header("BulletUpgrades")]
+    public bool rapidUpgrade = false;
+    public bool gravityUpgrade = false;
+    public bool iceUpgrade = false;
     void Awake()
     {
         instance = this;
         timeScaleOriginal = Time.timeScale;
         player = GameObject.FindGameObjectWithTag("Player");
         cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
-        bossEnemy = GameObject.FindGameObjectWithTag("Boss");
+        //bossEnemy = GameObject.FindGameObjectWithTag("Boss");
         playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
         playerScript = player.GetComponent<playerController>();
         cameraScript = cameraObject.GetComponent<cameraControls>();

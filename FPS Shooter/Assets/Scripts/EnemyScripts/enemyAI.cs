@@ -9,7 +9,7 @@ public class enemyAI : MonoBehaviour, IDamage
 {
     //Componets and variables//
     [Header("----- Components -----")]
-    [SerializeField] NavMeshAgent agent;
+    [SerializeField] public NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Transform shootPos;
     [SerializeField] Material model;
@@ -80,7 +80,7 @@ public class enemyAI : MonoBehaviour, IDamage
     Vector3 startingPos;
     float speed;
     public int experienceOnKill = 5;
-
+    public bool frozen = false;
     void Start()
     {
         // Store the initial position
@@ -116,6 +116,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void Update()
     {
+        
         if (agent.isActiveAndEnabled)
         {
             speed = Mathf.Lerp(speed, agent.velocity.normalized.magnitude, Time.deltaTime * animTransSpeed);
@@ -160,7 +161,11 @@ public class enemyAI : MonoBehaviour, IDamage
             // check pos then move to pos //
             NavMeshHit hit;
             NavMesh.SamplePosition(randPos, out hit, roamDist, 1);
-            agent.SetDestination(hit.position);
+            if (agent.enabled == true)
+            {
+                agent.SetDestination(hit.position);
+            }
+          
         }
     }
 
@@ -233,6 +238,26 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.stoppingDistance = 0;
     }
 
+   public void Freeze(int freezeTime)
+    {
+        if (frozen == false)
+        {
+            frozen = true;
+            this.GetComponent<Rigidbody>().isKinematic = true;
+            agent.enabled = false;
+                StartCoroutine(EnableTime(freezeTime));
+        }
+        
+    }
+
+    IEnumerator  EnableTime(int freezeTime)
+    {
+        yield return new WaitForSeconds(freezeTime);
+        agent.enabled = true;
+        this.GetComponent<Rigidbody>().isKinematic = false;
+        frozen = false;
+    }
+
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -242,7 +267,11 @@ public class enemyAI : MonoBehaviour, IDamage
         healthSlider.value = HP;
         healthLeft.fillAmount = (float)HP / maxHP;
         // Set destination of enemy to player's position //
-        agent.SetDestination(gameManager.instance.player.transform.position);
+        if (agent.enabled == true)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
+       
         // Reset stopping distance for Agent //
         agent.stoppingDistance = 0;
 
@@ -256,7 +285,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
             if (drop && Random.Range(0, 2) == 0)
                 Instantiate(drop, transform.position, drop.transform.rotation);
-
+            GetComponent<Rigidbody>().isKinematic =  true;
             GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
 
@@ -274,7 +303,11 @@ public class enemyAI : MonoBehaviour, IDamage
         else
         {
             animator.SetTrigger("Damage");
-            agent.SetDestination(gameManager.instance.player.transform.position);
+            if (agent.enabled == true)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+            }
+           
             agent.stoppingDistance = 0;
         }
     }

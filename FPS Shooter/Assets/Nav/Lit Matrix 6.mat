@@ -176,12 +176,12 @@ Material:
     - __dirty: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0, g: 0.7327337, b: 1, a: 0}
-    - _Albedocolor: {r: 0.735849, g: 0.010412939, b: 0.010412939, a: 0}
+    - _Albedocolor: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0, g: 1.3446171, b: 1.7411011, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
-    - _Emission: {r: 0.8603976, g: 0.38289946, b: 0, a: 0}
+    - _Emission: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0}
     - _EmissionColor: {r: 11.313708, g: 11.313708, b: 11.313708, a: 1}
     - _MatrixColor: {r: 1.0980393, g: 4.611765, b: 5.992157, a: 0}
     - _RimColor: {r: 0, g: 0.7204795, b: 1, a: 0}

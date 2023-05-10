@@ -34,6 +34,7 @@ public class playerBullet : MonoBehaviour
             damagable.takeDamage(damage);
         }
 
+       
         Destroy(gameObject);
     }
 }
