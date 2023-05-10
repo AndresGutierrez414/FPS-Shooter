@@ -3097,6 +3097,8 @@ MonoBehaviour:
   playerSpawnLocation: {fileID: 0}
   HPBar: {fileID: 0}
   SprintBar: {fileID: 0}
+  critHeathImg: {fileID: 0}
+  dmgIndicator: {fileID: 0}
   activeMenu: {fileID: 0}
   mainMenu: {fileID: 1467944912}
   HTPMenu: {fileID: 1564347600}
@@ -3123,6 +3125,9 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   backgroundMusic: {fileID: 3962505967997486689}
   bossBattleMusic: {fileID: 0}
+  rapidUpgrade: 0
+  gravityUpgrade: 0
+  iceUpgrade: 0
 --- !u!114 &377821478328245902
 MonoBehaviour:
   m_ObjectHideFlags: 0
