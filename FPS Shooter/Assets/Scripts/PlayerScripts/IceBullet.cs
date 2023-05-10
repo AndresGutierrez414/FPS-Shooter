@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerBullet : MonoBehaviour
+public class IceBullet : MonoBehaviour
 {
     // variables //
     [SerializeField] public int damage;
     [SerializeField] public int maxTravelDistance;
+    [SerializeField] public int freezeTime;
     private Vector3 startPos;
     //[SerializeField] public int timer;
 
@@ -34,6 +35,17 @@ public class playerBullet : MonoBehaviour
             damagable.takeDamage(damage);
         }
 
+        if (gameManager.instance.iceUpgrade == true)
+        {
+            
+            if (other.GetComponent<enemyAI>() != null)
+            {
+                enemyAI enemy = other.GetComponent<enemyAI>();
+                enemy.Freeze(freezeTime);
+                
+            }
+           
+        }
        
         Destroy(gameObject);
     }

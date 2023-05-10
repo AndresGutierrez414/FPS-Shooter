@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015113503, g: 0.009046664, b: 0.014094996, a: 1}
+  m_IndirectSpecularColor: {r: 0.015113525, g: 0.009046665, b: 0.014095025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4979,6 +4979,9 @@ MonoBehaviour:
   audioSource: {fileID: 1421411963}
   backgroundMusic: {fileID: 8300000, guid: 7333b96d6a5227f40b3b8f3146022480, type: 3}
   bossBattleMusic: {fileID: 8300000, guid: 69a6e368ebcb1f74cb0d84072eb684e6, type: 3}
+  rapidUpgrade: 0
+  gravityUpgrade: 0
+  iceUpgrade: 0
 --- !u!224 &3730085014022153058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6775,18 +6778,6 @@ PrefabInstance:
       propertyPath: focusPoints.Array.data[2]
       value: 
       objectReference: {fileID: 219972649}
-    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
-      propertyPath: critHP
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
-      propertyPath: critHPPulseSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
-      propertyPath: dmgIndicatorDuration
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8843479644873926220, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_RootOrder
       value: 2

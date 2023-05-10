@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerBullet : MonoBehaviour
+public class RapidfireBullet : MonoBehaviour
 {
     // variables //
     [SerializeField] public int damage;
     [SerializeField] public int maxTravelDistance;
     private Vector3 startPos;
+    
     //[SerializeField] public int timer;
 
     // Start is called before the first frame update
@@ -34,7 +35,10 @@ public class playerBullet : MonoBehaviour
             damagable.takeDamage(damage);
         }
 
+       if (gameManager.instance.rapidUpgrade == false)
+        {
+            Destroy(gameObject);
+        }
        
-        Destroy(gameObject);
     }
 }

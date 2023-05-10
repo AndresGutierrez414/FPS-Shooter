@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  maxTravelDistance: 0
+  maxTravelDistance: 30
 --- !u!135 &4589335534609046644
 SphereCollider:
   m_ObjectHideFlags: 0

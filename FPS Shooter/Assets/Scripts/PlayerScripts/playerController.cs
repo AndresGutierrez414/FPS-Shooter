@@ -37,6 +37,9 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(0.1f, 5f)][SerializeField] float fireRate;
     [Range(1, 100)][SerializeField] int shootDist;
+    public float recoilAmount = 0.1f;  
+    public float recoilSpeed = 5.0f;  
+    private Vector3 originalPosition;  
     [SerializeField] GameObject bullet;
     [SerializeField] int bulletSpeed;
     [SerializeField] Transform shootPos;
@@ -89,11 +92,25 @@ public class playerController : MonoBehaviour, IDamage
 
     private void Start()
     {
+        originalPosition = gunModel.transform.localPosition;
         maxHP = HP;
         playerUIUpdate();
         respawnPlayer();
     }
+    void ApplyRecoil()
+    {
+        gunModel.transform.localPosition -= gunModel.transform.forward * recoilAmount;
+        StartCoroutine(MoveGunToPosition(gunModel.transform, originalPosition, recoilSpeed));
+    }
 
+    IEnumerator MoveGunToPosition(Transform target, Vector3 position, float speed)
+    {
+        while (target.localPosition != position)
+        {
+            target.localPosition = Vector3.MoveTowards(target.localPosition, position, Time.deltaTime * speed);
+            yield return null;
+        }
+    }
     void Update()
     {
         if (canMove)
@@ -360,39 +377,67 @@ public class playerController : MonoBehaviour, IDamage
 
             // Differentiate the bullet type based on the weapon name
             //bulletPrefab = bullets[0]; // Default bullet
-            //if (gunList[selectedGun].name == "FlameStaff")
-            //{
-            //    bulletPrefab = bullets[0];
-            //}
-            //if (gunList[selectedGun].name == "GravityStaff")
-            //{
-            //    bulletPrefab = bullets[1];
-            //}
 
-            //if (gunList[selectedGun].name == "IceStaff")
-            //{
-            //    bulletPrefab = bullets[2];
-            //}
 
-            //if (gunList[selectedGun].name == "RapidFireStaff")
-            //{
-            //    bulletPrefab = bullets[3];
-            //}
 
 
             GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
             bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
-
-            playerBullet bulletScript = bulletClone.GetComponent<playerBullet>();
-            if (bulletScript != null)
+            ApplyRecoil();
+            playerBullet bulletScript;
+            if (gunList[selectedGun].name == "FlameStaff")
             {
-                bulletScript.damage = shootDamage;
-                bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
-            }
-        }
+                bulletScript = bulletClone.GetComponent<playerBullet>();
+                if (bulletScript != null)
+                {
+                    bulletScript.damage = shootDamage;
+                    bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                }
 
-        yield return new WaitForSeconds(fireRate);
-        isShooting = false;
+
+                RapidfireBullet rapidFireBulletScript;
+                if (gunList[selectedGun].name == "RapidFireStaff")
+                {
+                    rapidFireBulletScript = bulletClone.GetComponent<RapidfireBullet>();
+                    if (rapidFireBulletScript != null)
+                    {
+                        rapidFireBulletScript.damage = shootDamage;
+                        rapidFireBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                    }
+
+                }
+                IceBullet iceBulletScript;
+                if (gunList[selectedGun].name == "IceStaff")
+                {
+                    iceBulletScript = bulletClone.GetComponent<IceBullet>();
+                    if (iceBulletScript != null)
+                    {
+                        iceBulletScript.damage = shootDamage;
+                        iceBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                    }
+
+                }
+
+                GravityBullet gravityBulletScript;
+
+                if (gunList[selectedGun].name == "GravityStaff")
+                {
+                    gravityBulletScript = bulletClone.GetComponent<GravityBullet>();
+                    if (gravityBulletScript != null)
+                    {
+                        gravityBulletScript.damage = shootDamage;
+                        gravityBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                    }
+
+                }
+
+
+
+            }
+
+            yield return new WaitForSeconds(fireRate);
+            isShooting = false;
+        }
     }
     public void gunPick(GunLists gunStat)
 {
@@ -547,6 +592,7 @@ public class playerController : MonoBehaviour, IDamage
     private void UpdateGunStats(GunLists gunStat)
 {
         bullet = gunStat.gunBullet;
+       
         shootDamage = gunStat.shootingDamage;
     shootDist = gunStat.shootingDist;
     fireRate = gunStat.shootingRate;

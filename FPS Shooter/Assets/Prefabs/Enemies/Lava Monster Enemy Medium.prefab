@@ -1477,6 +1477,7 @@ GameObject:
   - component: {fileID: 721473960453948189}
   - component: {fileID: 2644258322208339808}
   - component: {fileID: 2644258322208339811}
+  - component: {fileID: 5217458712390744525}
   m_Layer: 6
   m_Name: Lava Monster Enemy Medium
   m_TagString: Untagged
@@ -1557,6 +1558,7 @@ MonoBehaviour:
       m_Calls: []
   sphereColliderChild: {fileID: 259968723}
   isIntroEnemy: 0
+  experienceOnKill: 5
 --- !u!95 &721473960453948189
 Animator:
   serializedVersion: 5
@@ -1613,6 +1615,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &5217458712390744525
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316523630448657373}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &6326839699797351083
 GameObject:
   m_ObjectHideFlags: 0
