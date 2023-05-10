@@ -757,7 +757,7 @@ MonoBehaviour:
   fireRate: 1
   shootDist: 1
   bullet: {fileID: 6802078874061164554, guid: 5f92fe5649652494ab6d85c4c3c1d399, type: 3}
-  bulletSpeed: 30
+  bulletSpeed: 25
   deathAnimationTime: 1
   drop: {fileID: 7856045739944991485, guid: 658b89b3d612f034fb3008f15f431df4, type: 3}
   deathExplosionPrefab: {fileID: 1890081844504334576, guid: f9f0bf8dfb3a2b04cb430f761cf07364, type: 3}
@@ -782,6 +782,7 @@ MonoBehaviour:
   sphereColliderChild: {fileID: 509766438}
   isIntroEnemy: 0
   experienceOnKill: 5
+  frozen: 0
 --- !u!95 &9049669666051043680
 Animator:
   serializedVersion: 5

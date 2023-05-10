@@ -64,6 +64,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField][Range(0, 1)] float audioJumpVolume;
     [SerializeField] AudioClip[] audioDamage;
     [SerializeField][Range(0, 1)] float audioDamageVolume;
+    [SerializeField] AudioClip giveHp;
 
     [Header("----- Effects -----")]
     [SerializeField] GameObject fireDamage;
@@ -313,6 +314,8 @@ public class playerController : MonoBehaviour, IDamage
 
     public void reFillHealth(int amount)
     {
+        audio.clip = giveHp;
+        audio.Play();
         HP += amount;
 
         HP = Mathf.Clamp(HP, 0, maxHP);

@@ -7749,6 +7749,18 @@ PrefabInstance:
       propertyPath: focusPoints.Array.data[2]
       value: 
       objectReference: {fileID: 219972649}
+    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: giveHp
+      value: 
+      objectReference: {fileID: 8300000, guid: a53575f0051635c42a9f9794d317ac59, type: 3}
+    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: audioDamage.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: audioDamage.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 42514579da9d39143ae06c5fbe74d5b5, type: 3}
     - target: {fileID: 8843479644873926220, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_RootOrder
       value: 2
