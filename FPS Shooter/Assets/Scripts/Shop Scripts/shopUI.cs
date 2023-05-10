@@ -7,6 +7,7 @@
 //public class shopUI : MonoBehaviour
 //{
 
+
 //    [SerializeField] int skillPoints;
 
 //    public TMP_Text unlockBtnText, upgradeBtnText, levelText, upgradeNameText;
@@ -34,6 +35,7 @@
 //        speedText.text = "Speed:" + shopData.ShopItem[currentIndex].carLevelsData[currentLevel].speed;
 //        damageText.text = "Damage:" + shopData.ShopItem[currentIndex].carLevelsData[currentLevel].acceleration;
 //    }
+
 
 
 //}
