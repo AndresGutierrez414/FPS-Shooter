@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9097962182181765966}
   - component: {fileID: 6139017842510464409}
   - component: {fileID: 4689290820949829111}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MageStaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 24512760888673726}
   - component: {fileID: 7695212760175288245}
   - component: {fileID: 4574460352624060905}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gravity
   m_TagString: Untagged
   m_Icon: {fileID: 0}

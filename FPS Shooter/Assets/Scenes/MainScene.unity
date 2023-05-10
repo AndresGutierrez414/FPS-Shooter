@@ -6759,6 +6759,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3946205941348400037, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4777685871636155807, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: endPosition
       value: 
@@ -6775,18 +6779,6 @@ PrefabInstance:
       propertyPath: focusPoints.Array.data[2]
       value: 
       objectReference: {fileID: 219972649}
-    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
-      propertyPath: critHP
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
-      propertyPath: critHPPulseSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843479644873926219, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
-      propertyPath: dmgIndicatorDuration
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8843479644873926220, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_RootOrder
       value: 2
