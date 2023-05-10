@@ -1286,6 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
   fader: {fileID: 731634944}
+  delayTransition: 1
 --- !u!4 &578816170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8568151647765070232, guid: 5fe6f0ab2f8ce5544b07ca9f4294a36f, type: 3}
@@ -1537,6 +1538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 625409809}
   fader: {fileID: 731634944}
+  delayTransition: 1
 --- !u!1 &706873190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 963785467}
   fader: {fileID: 731634944}
+  delayTransition: 1
 --- !u!1 &1021198339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,6 +2615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 1208108072}
   fader: {fileID: 731634944}
+  delayTransition: 1
 --- !u!1 &1286715671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,8 +2762,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4286840823
+  m_fontColor: {r: 0.9686275, g: 1, b: 0.5137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2776,8 +2780,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2786,7 +2790,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3072,6 +3076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 1389904170}
   fader: {fileID: 731634944}
+  delayTransition: 1
 --- !u!1 &1467944912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,6 +3975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 2009111826}
   fader: {fileID: 731634944}
+  delayTransition: 1
 --- !u!1 &2015413165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,6 +4686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
   fader: {fileID: 0}
+  delayTransition: 1
 --- !u!1 &377821478328245903
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,8 +32,9 @@ public class buttonFunctions : MonoBehaviour
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
-            Invoke("MainSceneDelay", 0.5f);
             audio.Play();
+            Invoke("MainSceneDelay", 0.5f);
+            
         });
         
     }
@@ -89,9 +90,10 @@ public class buttonFunctions : MonoBehaviour
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
+            audio.Play();
             Invoke("MenuSceneDelay", 0.5f);
             gameManager.instance.unpauseStateWithCursor();
-            audio.Play();
+            
         });
         
 
@@ -100,12 +102,13 @@ public class buttonFunctions : MonoBehaviour
     public void OptionsScene()
     {
         fader.gameObject.SetActive(true);
-        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        //LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
-            Invoke("OptionsSceneDelay", 0.5f);
             audio.Play();
+            Invoke("OptionsSceneDelay", 0.5f);
+            
         });
         
 
@@ -114,12 +117,12 @@ public class buttonFunctions : MonoBehaviour
     public void CreditsScene()
     {
         fader.gameObject.SetActive(true);
-        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        //LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
-            Invoke("CreditsSceneDelay", 0.5f);
             audio.Play();
+            Invoke("CreditsSceneDelay", 0.5f);
         });
         
     }
