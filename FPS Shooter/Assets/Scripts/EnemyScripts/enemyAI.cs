@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
@@ -60,6 +61,8 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] private bool riseFromGround;
     [SerializeField] public float riseDelay;
     [SerializeField] private float riseTime;
+    private float countdownTime;
+    [SerializeField] private TextMeshProUGUI countdownDisplay;
     [SerializeField] private float yOffset;
     private Vector3 initialPosition;
     private Vector3 offsetPosition;
@@ -83,11 +86,17 @@ public class enemyAI : MonoBehaviour, IDamage
     public bool frozen = false;
     void Start()
     {
+        if (isBoss == true)
+        {
+            countdownTime = riseDelay;
+            StartCoroutine(CountdownToStart());
+        }
+       
         // Store the initial position
         initialPosition = transform.position;
         offsetPosition = new Vector3(initialPosition.x, initialPosition.y - yOffset, initialPosition.z);
         transform.position = offsetPosition;
-
+        
 
         if (!isIntroEnemy && riseFromGround)
         {
@@ -448,11 +457,28 @@ public class enemyAI : MonoBehaviour, IDamage
             yield return null;
         }
     }
+    IEnumerator CountdownToStart()
+    {
+        while (countdownTime > 0)
+        {
+            countdownDisplay.text = countdownTime.ToString();
 
+            yield return new WaitForSeconds(1f);
+
+            countdownTime--;
+        }
+
+        countdownDisplay.text = "0";
+
+        yield return new WaitForSeconds(1f);
+
+        countdownDisplay.gameObject.SetActive(false);
+    }
     public void startBossRising()
     {
          if(!agent.enabled && !GetComponent<CapsuleCollider>().enabled)
         {
+           
             StartCoroutine(RiseFromGround(riseDelay, riseTime));
             onBossRising?.Invoke();
         }
