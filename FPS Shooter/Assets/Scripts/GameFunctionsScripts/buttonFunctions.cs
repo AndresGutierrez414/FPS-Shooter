@@ -2,22 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class buttonFunctions : MonoBehaviour
 {
 
     public AudioSource audio;
+    [SerializeField] RectTransform fader;
+    [SerializeField] float delayTransition = 1f;
+
+    private void Start()
+    {
+        fader.gameObject.SetActive(true);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
+        {
+            fader.gameObject.SetActive(false);
+        });
+
+    }
 
     // variables //
     //gameManager manager;
     public void gameStart()
     {
-        SceneManager.LoadScene("MainScene");
-        audio.Play();
+        fader.gameObject.SetActive(true);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
+        {
+            audio.Play();
+            Invoke("MainSceneDelay", 0.5f);
+            
+        });
+        
     }
 
     public void howToPlay()
     {
+        
         gameManager.instance.mainMenu.SetActive(false);
         gameManager.instance.HTPMenu.SetActive(true);
         audio.Play();
@@ -55,28 +79,74 @@ public class buttonFunctions : MonoBehaviour
 
     public void quit()
     {
+        audio.Play();
         Application.Quit();
     }
 
     public void MenuScene()
     {
-        SceneManager.LoadScene("MenuScene"); // goes to the Menu Scene
-        gameManager.instance.unpauseStateWithCursor();
-        audio.Play();
+        fader.gameObject.SetActive(true);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
+        {
+            audio.Play();
+            Invoke("MenuSceneDelay", 0.5f);
+            gameManager.instance.unpauseStateWithCursor();
+            
+        });
+        
 
     }
 
     public void OptionsScene()
     {
-        SceneManager.LoadScene("OptionsMenu"); // goes to Options Menu
-        audio.Play();
+        fader.gameObject.SetActive(true);
+        //LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
+        {
+            audio.Play();
+            Invoke("OptionsSceneDelay", 0.5f);
+            
+        });
+        
 
     }
 
     public void CreditsScene()
     {
-        SceneManager.LoadScene("CreditsScene"); // goes to Options Menu
-        audio.Play();
+        fader.gameObject.SetActive(true);
+        //LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
+        {
+            audio.Play();
+            Invoke("CreditsSceneDelay", 0.5f);
+        });
+        
     }
+
+    private void MainSceneDelay()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    private void CreditsSceneDelay()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
+
+    private void OptionsSceneDelay()
+    {
+        SceneManager.LoadScene("OptionsMenu");
+    }
+
+    private void MenuSceneDelay()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
+
 
 }

@@ -1,42 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.UI;
+//using TMPro;
 
-public class shopUI : MonoBehaviour
-{
-
-    //[SerializeField] int skillPoints;
-
-    //public TMP_Text unlockBtnText, upgradeBtnText, levelText, upgradeNameText;
-    //public Text speedText, damageText, skillPointsText;
-    //public Button unlockBtn, upgradeBtn;
-
-    //private int currentIndex = 0;
-
-    //private void Start()
-    //{
-    //    skillPointsText.text = "" + skillPoints;
-
-    //    unlockBtn.onClick.AddListener(() => UnlockSelectButton());
-    //    upgradeBtn.onClick.AddListener(() => UpgradeButton());
-
-    //    UnlockButtonStatus();
-    //    UpgradeButtonStatus();
-    //}
-
-    //private void SetUpgradeInfo()
-    //{
-    //    upgradeNameText.text = shopData.shopItem[currentIndex].upgradeName;
-    //    int currentLevel = shopData.ShopItem[currentIndex].upgradeLevel;
-    //    levelText.text = "Level:" + (currentLevel + 1);
-    //    speedText.text = "Speed:" + shopData.ShopItem[currentIndex].carLevelsData[currentLevel].speed;
-    //    damageText.text = "Damage:" + shopData.ShopItem[currentIndex].carLevelsData[currentLevel].acceleration;
-    //}
+//public class shopUI : MonoBehaviour
+//{
 
 
-}
+//    [SerializeField] int skillPoints;
+
+//    public TMP_Text unlockBtnText, upgradeBtnText, levelText, upgradeNameText;
+//    public Text speedText, damageText, skillPointsText;
+//    public Button unlockBtn, upgradeBtn;
+
+//    private int currentIndex = 0;
+
+//    private void Start()
+//    {
+//        skillPointsText.text = "" + skillPoints;
+
+//        unlockBtn.onClick.AddListener(() => UnlockSelectButton());
+//        upgradeBtn.onClick.AddListener(() => UpgradeButton());
+
+//        UnlockButtonStatus();
+//        UpgradeButtonStatus();
+//    }
+
+//    private void SetUpgradeInfo()
+//    {
+//        upgradeNameText.text = shopData.shopItem[currentIndex].upgradeName;
+//        int currentLevel = shopData.ShopItem[currentIndex].upgradeLevel;
+//        levelText.text = "Level:" + (currentLevel + 1);
+//        speedText.text = "Speed:" + shopData.ShopItem[currentIndex].carLevelsData[currentLevel].speed;
+//        damageText.text = "Damage:" + shopData.ShopItem[currentIndex].carLevelsData[currentLevel].acceleration;
+//    }
+
+
+
+//}
 
 
 ///// <summary>
