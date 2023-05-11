@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8588910350290159770}
   - component: {fileID: 8588910350289193562}
   - component: {fileID: 24512760888673726}
+  - component: {fileID: 2498187904778640418}
   - component: {fileID: 7695212760175288245}
   - component: {fileID: 4574460352624060905}
   - component: {fileID: 6529512346564680797}
@@ -192,7 +193,20 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 9900c43facea91a4bb910c23497a89df, type: 2}
   model: {fileID: 8588910350290159770}
   mat: {fileID: 8588910350289193562}
-  pickupGunSound: {fileID: 8300000, guid: 406c929b7299afb469c82778f8d15d5b, type: 3}
+  audio: {fileID: 6529512346564680797}
+--- !u!114 &2498187904778640418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588910350287197338}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de6148495f9c5343b239a0ad4954f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: -847744519868714514, guid: 9a17f0387351b7c4ca7b73d91ff3811a, type: 2}
 --- !u!114 &7695212760175288245
 MonoBehaviour:
   m_ObjectHideFlags: 0

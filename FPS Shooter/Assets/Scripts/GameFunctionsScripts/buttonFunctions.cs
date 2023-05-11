@@ -73,7 +73,7 @@ public class buttonFunctions : MonoBehaviour
 
 
         // reload the scene we are in //
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("MainScene");
         
     }
 

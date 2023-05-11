@@ -13536,6 +13536,7 @@ GameObject:
   - component: {fileID: 8843479644873926217}
   - component: {fileID: 401570557}
   - component: {fileID: 1846362492887201563}
+  - component: {fileID: 4201522704321998049}
   m_Layer: 3
   m_Name: Player Human
   m_TagString: Player
@@ -13637,6 +13638,7 @@ MonoBehaviour:
   audioDamageVolume: 0.5
   giveHp: {fileID: 8300000, guid: a53575f0051635c42a9f9794d317ac59, type: 3}
   fireDamage: {fileID: 6362942024595549984}
+  hpDrainSpeed: 0
   isCritHP: 0
   rotationAxis: 0
   canMove: 0
@@ -13801,6 +13803,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experience: 0
+--- !u!114 &4201522704321998049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843479644873926222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de6148495f9c5343b239a0ad4954f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
 --- !u!1 &8843479644878812600
 GameObject:
   m_ObjectHideFlags: 0

@@ -1474,6 +1474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6693224713112557927}
   - component: {fileID: 2783843345234640159}
+  - component: {fileID: 571438089657036811}
   - component: {fileID: 721473960453948189}
   - component: {fileID: 2644258322208339808}
   - component: {fileID: 2644258322208339811}
@@ -1552,6 +1553,7 @@ MonoBehaviour:
   riseFromGround: 1
   riseDelay: 3
   riseTime: 3
+  countdownDisplay: {fileID: 0}
   yOffset: 5
   onBossRising:
     m_PersistentCalls:
@@ -1560,6 +1562,19 @@ MonoBehaviour:
   isIntroEnemy: 0
   experienceOnKill: 5
   frozen: 0
+--- !u!114 &571438089657036811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316523630448657373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de6148495f9c5343b239a0ad4954f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: -847744519868714514, guid: 9a17f0387351b7c4ca7b73d91ff3811a, type: 2}
 --- !u!95 &721473960453948189
 Animator:
   serializedVersion: 5

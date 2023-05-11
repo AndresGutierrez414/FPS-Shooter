@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015113525, g: 0.009046665, b: 0.014095025, a: 1}
+  m_IndirectSpecularColor: {r: 0.13014492, g: 0.09454236, b: 0.124829195, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -775,6 +775,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834269879910907107, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529512346222618688, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1822,6 +1826,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4201522704321998049, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: mixerGroup
+      value: 
+      objectReference: {fileID: -847744519868714514, guid: 9a17f0387351b7c4ca7b73d91ff3811a, type: 2}
     - target: {fileID: 4777685871636155807, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: endPosition
       value: 
@@ -1893,6 +1901,14 @@ PrefabInstance:
     - target: {fileID: 8843479644873926222, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
       propertyPath: m_Name
       value: Player Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843479644912024879, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.022658477
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843479644912024879, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.15302348
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68fbdb8d98a0e1c42a33a49e5cb12934, type: 3}
