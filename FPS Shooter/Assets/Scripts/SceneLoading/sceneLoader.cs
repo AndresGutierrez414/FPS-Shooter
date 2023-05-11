@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class sceneLoader : MonoBehaviour
 {
-
-    [SerializeField] private GameObject _loadingScreen;
-    [SerializeField] private Image _loadingBar;
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Image loadingBar;
 
     public void LoadScene(int sceneId)
     {
@@ -18,19 +17,24 @@ public class sceneLoader : MonoBehaviour
     private IEnumerator LoadSceneAsync(int sceneId)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
-        _loadingScreen.SetActive(true);
+        operation.allowSceneActivation = false; // Disable auto activation
+        loadingScreen.SetActive(true);
 
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
-            _loadingBar.fillAmount = progress;
+            loadingBar.fillAmount = progress;
+            // Check if scene is loaded
+            if (operation.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(2f); // Add delay if you want
+
+                operation.allowSceneActivation = true;
+            }
             yield return null;
         }
 
-        // Add a delay to show the loading screen for a minimum amount of time
-        yield return new WaitForSeconds(25f);
-
-        _loadingScreen.SetActive(false);
+        loadingScreen.SetActive(false);
 
         // Add error handling
         if (operation.isDone && operation.allowSceneActivation)
