@@ -59,7 +59,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public AudioClip backgroundMusic;
     [SerializeField] public AudioClip bossBattleMusic;
-
+    public GameObject  fader;
 
 
     float timeScaleOriginal;
@@ -130,7 +130,11 @@ public class gameManager : MonoBehaviour
             else
                 unpauseState();
         }
-
+        if (activeMenu == pauseMenu)
+        {
+            fader.SetActive(false);
+        }
+        
         if (!cameraScript.introFinsished && !cameraScript.isSkippingIntro && bossSpawned)
         {
             if (audioSource.clip == bossBattleMusic && audioSource.isPlaying)
@@ -148,9 +152,11 @@ public class gameManager : MonoBehaviour
 
     public void pauseState()
     {
+       
         Time.timeScale = 0;                                 //Za Waruldo! Toki wo tomare! Oh, and allows the cursor to move in the window
         Cursor.visible = true;                              /*The World! Time is stopped!*/
         Cursor.lockState = CursorLockMode.Confined;
+        
     }
 
     public void unpauseState()
