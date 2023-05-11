@@ -86,10 +86,11 @@ public class buttonFunctions : MonoBehaviour
     public void MenuScene()
     {
         fader.gameObject.SetActive(true);
-        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        //LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
+            Debug.Log("yes1");
             audio.Play();
             Invoke("MenuSceneDelay", 1f);
             gameManager.instance.unpauseStateWithCursor();
@@ -144,6 +145,7 @@ public class buttonFunctions : MonoBehaviour
 
     private void MenuSceneDelay()
     {
+        Debug.Log("yes");
         SceneManager.LoadScene("MenuScene");
     }
 
