@@ -49,32 +49,36 @@ public class MenuManager : MonoBehaviour
         {
             bfunctions.gameStart();
         }
-        else if (menuItems[index].name == "New Game")
+        if (menuItems[index].name == "Settings")
+        {
+            bfunctions.OptionsScene();
+        }
+        if (menuItems[index].name == "New Game")
         {
             bfunctions.gameStart();
         }
-        else if (menuItems[index].name == "Settings")
+        if (menuItems[index].name == "Settings")
         {
             //bfunctions.
         }
-        else if (menuItems[index].name == "Quit")
+        if (menuItems[index].name == "Quit")
         {
             bfunctions.quit();
         }
-        else if (menuItems[index].name == "Credits")
+       if (menuItems[index].name == "Credits")
         {
             bfunctions.CreditsScene();
         }
 
-        else if(menuItems[index].name == "Resume")
+        if(menuItems[index].name == "Resume")
         {
             bfunctions.resume();
         }
-        else if (menuItems[index].name == "Restart")
+        if (menuItems[index].name == "Restart")
         {
             bfunctions.restart();
         }
-        else if (menuItems[index].name == "Main Menu")
+         if (menuItems[index].name == "Main Menu")
         {
             bfunctions.MenuScene();
         }

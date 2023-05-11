@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015113503, g: 0.009046664, b: 0.014094996, a: 1}
+  m_IndirectSpecularColor: {r: 0.015113525, g: 0.009046665, b: 0.014095025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -128,17 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1176833039448804620, guid: 72fbd0610924ad2478c1e3e15bbd1d39, type: 3}
   m_PrefabInstance: {fileID: 1263856322}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &227070481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2045928742860572019, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
-  m_PrefabInstance: {fileID: 121575194170756178}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &261929208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +398,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!82 &580917115 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6529512346222618688, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
+  m_PrefabInstance: {fileID: 1299247098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &812166899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1179,15 +1173,15 @@ PrefabInstance:
     - target: {fileID: 3633287177471431365, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: HPBarDelay
       value: 
-      objectReference: {fileID: 227070481}
-    - target: {fileID: 3633287177471431365, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
-      propertyPath: HPBarDelay
-      value: 
       objectReference: {fileID: 404338674}
     - target: {fileID: 3633287177471431365, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 6078696204295905414}
+    - target: {fileID: 3633287177471431366, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 580917115}
     - target: {fileID: 3633287177941573938, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: m_Pivot.x
       value: 0

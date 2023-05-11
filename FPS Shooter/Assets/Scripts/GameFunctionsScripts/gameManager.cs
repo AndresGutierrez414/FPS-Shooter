@@ -102,7 +102,7 @@ public class gameManager : MonoBehaviour
             lavaText.gameObject.SetActive(false);        // lava
             StartCoroutine(lavaTextFunction());
             bossArrivalText.gameObject.SetActive(false); // enemy boss
-            //StartCoroutine(bossArrivalTextFunction());
+            StartCoroutine(bossArrivalTextFunction());
             introSkipText.gameObject.SetActive(false);   // intro skip 
             StartCoroutine(introSkipTextFunction());
         }
