@@ -33,7 +33,7 @@ public class buttonFunctions : MonoBehaviour
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
             audio.Play();
-            Invoke("MainSceneDelay", 0.5f);
+            Invoke("MainSceneDelay", 1f);
             
         });
         
@@ -91,7 +91,7 @@ public class buttonFunctions : MonoBehaviour
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
             audio.Play();
-            Invoke("MenuSceneDelay", 0.5f);
+            Invoke("MenuSceneDelay", 1f);
             gameManager.instance.unpauseStateWithCursor();
             
         });
@@ -107,7 +107,7 @@ public class buttonFunctions : MonoBehaviour
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
             audio.Play();
-            Invoke("OptionsSceneDelay", 0.5f);
+            Invoke("OptionsSceneDelay", 1f);
             
         });
         
@@ -122,7 +122,7 @@ public class buttonFunctions : MonoBehaviour
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
             audio.Play();
-            Invoke("CreditsSceneDelay", 0.5f);
+            Invoke("CreditsSceneDelay", 1f);
         });
         
     }
