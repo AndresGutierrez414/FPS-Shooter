@@ -308,6 +308,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4109825628669500156, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: HPBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: winMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: lavaText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: loseMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: SprintBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: checkPoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: endGoalText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: enemiesText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: weaponsText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: critHeathImg
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: dmgIndicator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: introSkipText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: bossArrivalText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109825628669500159, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: enemiesRemainingText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8137599417288448660, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
       propertyPath: m_Name
       value: LoadSceneUI
