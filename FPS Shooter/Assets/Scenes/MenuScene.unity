@@ -4639,6 +4639,7 @@ MonoBehaviour:
   cameraScript: {fileID: 0}
   playerSpawnLocation: {fileID: 0}
   HPBar: {fileID: 0}
+  HPBarDelay: {fileID: 0}
   SprintBar: {fileID: 0}
   critHeathImg: {fileID: 0}
   dmgIndicator: {fileID: 0}
@@ -4685,7 +4686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
-  fader: {fileID: 0}
+  fader: {fileID: 731634944}
   delayTransition: 1
 --- !u!1 &377821478328245903
 GameObject:
