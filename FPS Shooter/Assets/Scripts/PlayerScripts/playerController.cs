@@ -68,6 +68,8 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Effects -----")]
     [SerializeField] GameObject fireDamage;
+    [SerializeField] float hpDrainSpeed;
+    float hpDrainTimer;
 
     bool isPlayingSteps;
 
@@ -83,7 +85,7 @@ public class playerController : MonoBehaviour, IDamage
     private bool isSelecting = false;
     private float weaponSwitchDelay = 0.1f;
     public bool canMove = false;
-    GameObject bulletPrefab;
+    GameObject bulletPrefab; 
 
     private void Awake()
     {
@@ -127,6 +129,7 @@ public class playerController : MonoBehaviour, IDamage
             {
                 selectGun();
                 Movement();
+                playerUIUpdate();
 
                 if (gunList.Count > 0 && !isShooting && Input.GetButton("Shoot"))
                     StartCoroutine(shootBullet());
@@ -249,7 +252,9 @@ public class playerController : MonoBehaviour, IDamage
     //Updates the UI elements regarding the player (called every frame)
     void playerUIUpdate()
     {
+        hpDrainTimer += Time.deltaTime;
         gameManager.instance.HPBar.fillAmount = (float)HP / (float)maxHP;
+        gameManager.instance.HPBarDelay.fillAmount = Mathf.Lerp(gameManager.instance.HPBarDelay.fillAmount, (float)HP / (float)maxHP, hpDrainTimer / hpDrainSpeed);
     }
 
     //Coroutine handling shooting
