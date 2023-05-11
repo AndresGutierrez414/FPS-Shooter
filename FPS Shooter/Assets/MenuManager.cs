@@ -63,7 +63,7 @@ public class MenuManager : MonoBehaviour
         }
         else if (menuItems[index].name == "Credits")
         {
-            //bfunctions.quit();
+            bfunctions.CreditsScene();
         }
 
         else if(menuItems[index].name == "Resume")
@@ -78,6 +78,7 @@ public class MenuManager : MonoBehaviour
         {
             bfunctions.MenuScene();
         }
+        
 
     }
     void SelectMenuItem(int index)
