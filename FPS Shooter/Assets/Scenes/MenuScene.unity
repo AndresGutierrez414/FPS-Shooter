@@ -575,6 +575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadSceneUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8137599417288448660, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8137599417288448664, guid: 7c796ff1cd786e3459b7649ca5ca92c6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1407,6 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b883e2c55fd8e4aad37ad052d6d367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingText: {fileID: 0}
   loadingScreen: {fileID: 533823859}
   UIScreen: {fileID: 1724376364}
   loadingBar: {fileID: 1416210667}
@@ -3817,7 +3822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1724376365
 Transform:
   m_ObjectHideFlags: 0
