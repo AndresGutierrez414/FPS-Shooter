@@ -86,7 +86,7 @@ public class buttonFunctions : MonoBehaviour
     public void MenuScene()
     {
         fader.gameObject.SetActive(true);
-        LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
+        //LeanTween.scale(fader, new Vector3(0, 0, 0), 1);
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
         LeanTween.scale(fader, new Vector3(0, 0, 0), 1).setOnComplete(() =>
         {
