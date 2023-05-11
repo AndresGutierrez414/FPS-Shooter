@@ -2,31 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class sceneLoader : MonoBehaviour
 {
 
-    public void LoadScene(string sceneName)
-    {
-        Debug.Log("Loading scene: " + sceneName);
-        SceneManager.LoadScene("LoadingScene");
-        StartCoroutine(LoadTargetSceneAsync(sceneName));
-    }
+    [SerializeField] public GameObject _sceneLoader;
+    [SerializeField] public Image loadingBarRaw;
 
-    private IEnumerator LoadTargetSceneAsync(string sceneName)
+    public void SceneLoad(int sceneId)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        StartCoroutine(SceneLoadAsync(sceneId));
+    }
+    IEnumerator SceneLoadAsync(int sceneId)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        _sceneLoader.SetActive(true);
 
         while (!operation.isDone)
         {
-            // Here you can update your loading screen with progress information
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            Debug.Log("Loading progress: " + progress);
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            loadingBarRaw.fillAmount = progress;
             yield return null;
         }
-
-        yield return new WaitForSeconds(1f); // Add an artificial delay of 1 second
-
-        SceneManager.UnloadSceneAsync("LoadingScene");
     }
 }
