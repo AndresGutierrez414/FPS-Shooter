@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
     public List<GameObject> menuItems = new List<GameObject>(); 
     private int selectedIndex = 0;
     public buttonFunctions bfunctions;
+    public AudioSource moveAudio;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class MenuManager : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
+            moveAudio.Play();
            DeselectMenuItem(selectedIndex);
             selectedIndex--;
             if (selectedIndex < 0) 
@@ -28,6 +30,7 @@ public class MenuManager : MonoBehaviour
        
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
+            moveAudio.Play();
             DeselectMenuItem(selectedIndex);
             selectedIndex++;
             if (selectedIndex >= menuItems.Count) 
