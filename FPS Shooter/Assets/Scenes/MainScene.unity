@@ -398,11 +398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!82 &580917115 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6529512346222618688, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
-  m_PrefabInstance: {fileID: 1299247098}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &812166899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,6 +724,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 24512759634450872, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
+      propertyPath: pickupGunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ba76d3f01855643438119aea8939a95a, type: 3}
+    - target: {fileID: 24512760334263480, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
+      propertyPath: pickupGunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ba76d3f01855643438119aea8939a95a, type: 3}
+    - target: {fileID: 24512760559202723, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
+      propertyPath: pickupGunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ba76d3f01855643438119aea8939a95a, type: 3}
+    - target: {fileID: 24512760736403845, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
+      propertyPath: pickupGunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ba76d3f01855643438119aea8939a95a, type: 3}
     - target: {fileID: 3834269879910907106, guid: b3e65460f25c565429ee1d44f8de89b2, type: 3}
       propertyPath: m_Name
       value: Level 1 Gun Placement
@@ -1043,6 +1054,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 121575194170756179}
     - target: {fileID: 3991452640330104077, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
+      propertyPath: countdownDisplayParent
+      value: 
+      objectReference: {fileID: 2023570950}
+    - target: {fileID: 3991452640330104077, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
       propertyPath: onBossRising.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3730085013877071511}
@@ -1152,6 +1167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0574ad8dc0218324dbbc0ecea964eab7, type: 3}
+--- !u!1 &2023570950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8500296046554006209, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+  m_PrefabInstance: {fileID: 121575194170756178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2026254393 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 269636278666385032, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
@@ -1485,7 +1505,7 @@ PrefabInstance:
     - target: {fileID: 3633287177471431366, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: audio
       value: 
-      objectReference: {fileID: 580917115}
+      objectReference: {fileID: 3730085013877071514}
     - target: {fileID: 3633287177941573938, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1754,6 +1774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a47eeb3c19c52d4086b084804048bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &3730085013877071514 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 121575194920028713, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+  m_PrefabInstance: {fileID: 121575194170756178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5072801758629097309
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -62,6 +62,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] public float riseDelay;
     [SerializeField] private float riseTime;
     private float countdownTime;
+    [SerializeField] private GameObject countdownDisplayParent;
     [SerializeField] private TextMeshProUGUI countdownDisplay;
     [SerializeField] private float yOffset;
     private Vector3 initialPosition;
@@ -471,8 +472,8 @@ public class enemyAI : MonoBehaviour, IDamage
         countdownDisplay.text = "0";
 
         yield return new WaitForSeconds(1f);
-
-        countdownDisplay.gameObject.SetActive(false);
+        countdownDisplayParent.SetActive(false);
+       
     }
     public void startBossRising()
     {
