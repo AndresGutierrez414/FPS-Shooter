@@ -327,6 +327,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 582042810507264309, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 746630474925835848, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -354,6 +358,10 @@ PrefabInstance:
     - target: {fileID: 746630476809434570, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716667280652482352, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: fader
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2454141791482829606, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_Name
@@ -514,6 +522,22 @@ PrefabInstance:
     - target: {fileID: 7552207839034308079, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: sceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552207839726297620, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 633269642}
+    - target: {fileID: 7552207839726297620, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552207839726297620, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: sceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308901164955318549, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: fader
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8497375052384093943, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_LocalRotation.x

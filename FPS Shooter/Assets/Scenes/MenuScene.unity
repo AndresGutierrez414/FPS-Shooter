@@ -1882,10 +1882,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fader
       objectReference: {fileID: 0}
-    - target: {fileID: 7459041995010588988, guid: c5cdc85a202969440a9a597080960f27, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5cdc85a202969440a9a597080960f27, type: 3}
 --- !u!224 &731634944 stripped
