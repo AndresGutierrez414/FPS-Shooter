@@ -19,7 +19,6 @@ public class CS_VolumeControl : MonoBehaviour
         slider.onValueChanged.AddListener(HandleSliderValueChanged);
         toggle.onValueChanged.AddListener(HandleToggleValueChanged);
     }
-
     private void HandleToggleValueChanged(bool enableSound)
     {
         if (disableToggleEvent)
@@ -38,6 +37,7 @@ public class CS_VolumeControl : MonoBehaviour
 
     private void HandleSliderValueChanged(float value)
     {
+        slider.value = value;
         mixer.SetFloat(volumeParameter, Mathf.Log10(value) * multiplier);
         disableToggleEvent = true;
         toggle.isOn = slider.value > slider.minValue;
