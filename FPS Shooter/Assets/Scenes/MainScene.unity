@@ -1511,6 +1511,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3021343475667643930, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633287177274423196, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3633287177274423197, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: moveAudio
       value: 
@@ -1755,6 +1763,14 @@ PrefabInstance:
       propertyPath: moveAudio
       value: 
       objectReference: {fileID: 121575194170756185}
+    - target: {fileID: 5579961860539752511, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958551127946139194, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6070053802426167056, guid: 1bb25ac38fc086243ab0cfaf038f7a00, type: 3}
       propertyPath: m_IsActive
       value: 0
