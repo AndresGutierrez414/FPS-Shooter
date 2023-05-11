@@ -16,6 +16,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public cameraControls cameraScript;
     [SerializeField] public GameObject playerSpawnLocation;
     [SerializeField] public Image HPBar;
+    [SerializeField] public Image HPBarDelay;
     [SerializeField] public Image SprintBar;
     [SerializeField] public Image critHeathImg;
     [SerializeField] public Image dmgIndicator;
