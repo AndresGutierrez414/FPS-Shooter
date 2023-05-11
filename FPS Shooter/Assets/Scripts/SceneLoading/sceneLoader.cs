@@ -38,7 +38,7 @@ public class sceneLoader : MonoBehaviour
             float progress = Mathf.Clamp01(operation.progress / .9f);
             loadingBar.fillAmount = progress;
 
-            loadingText.SetText("Loading... " + Mathf.Round(progress * 100f) + "%");
+            loadingText.SetText(Mathf.Round(progress * 100f) + "%");
 
             // Check if scene is loaded
             if (operation.progress >= 0.9f)
