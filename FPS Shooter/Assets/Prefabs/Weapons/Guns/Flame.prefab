@@ -193,7 +193,7 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 9900c43facea91a4bb910c23497a89df, type: 2}
   model: {fileID: 8588910350290159770}
   mat: {fileID: 8588910350289193562}
-  audio: {fileID: 6529512346564680797}
+  pickupGunSound: {fileID: 8300000, guid: ba76d3f01855643438119aea8939a95a, type: 3}
 --- !u!114 &2498187904778640418
 MonoBehaviour:
   m_ObjectHideFlags: 0
