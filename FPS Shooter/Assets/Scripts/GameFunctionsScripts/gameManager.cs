@@ -164,7 +164,11 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        activeMenu.SetActive(false);
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+        }
+       
         activeMenu = null;
     }
     public void unpauseStateWithCursor()
