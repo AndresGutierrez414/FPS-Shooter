@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 633269642}
     - target: {fileID: 1634554923655327001, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: LoadSceneWithMouse
       objectReference: {fileID: 0}
     - target: {fileID: 1716667280652482352, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: fader
@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 633269642}
     - target: {fileID: 1918525660833267650, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: LoadSceneWithMouse
       objectReference: {fileID: 0}
     - target: {fileID: 2118656917965067177, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: fader
@@ -441,6 +441,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5310282602553873255, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 2058666411}
     - target: {fileID: 5310282602553873255, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -559,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 633269642}
     - target: {fileID: 6560963499599164638, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: LoadSceneWithMouse
       objectReference: {fileID: 0}
     - target: {fileID: 6560963499599164638, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

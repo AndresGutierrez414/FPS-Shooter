@@ -2144,7 +2144,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 543731052}
         m_TargetAssemblyTypeName: sceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneWithMouse
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 543731052}
         m_TargetAssemblyTypeName: sceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneWithMouse
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4830,6 +4830,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   backgroundMusic: {fileID: 3962505967997486689}
   bossBattleMusic: {fileID: 0}
+  fader: {fileID: 0}
   rapidUpgrade: 0
   gravityUpgrade: 0
   iceUpgrade: 0

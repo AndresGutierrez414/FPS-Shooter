@@ -130,7 +130,7 @@ public class gameManager : MonoBehaviour
             else
                 unpauseState();
         }
-        if (activeMenu == pauseMenu)
+        if (activeMenu == pauseMenu || activeMenu == loseMenu || activeMenu == winMenu)
         {
             fader.SetActive(false);
         }
@@ -176,7 +176,11 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        activeMenu.SetActive(false);
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+        }
+       
         activeMenu = null;
     }
 
