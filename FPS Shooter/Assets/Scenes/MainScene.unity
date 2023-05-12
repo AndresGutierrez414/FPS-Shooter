@@ -904,6 +904,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1132865012316615788, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: riseDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1618239259290132623, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_Enabled
       value: 0
