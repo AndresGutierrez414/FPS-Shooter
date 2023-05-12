@@ -7,9 +7,11 @@ public class MenuManager : MonoBehaviour
     private int selectedIndex = 0;
     public buttonFunctions bfunctions;
     public AudioSource moveAudio;
+     sceneLoader gM;
 
     void Start()
     {
+        gM = GameObject.FindAnyObjectByType<sceneLoader>();
         SelectMenuItem(selectedIndex);
     }
 
@@ -54,23 +56,20 @@ public class MenuManager : MonoBehaviour
         }
         if (menuItems[index].name == "Settings")
         {
-            bfunctions.OptionsScene();
+            gM.LoadSceneWithMouse(3);
         }
         if (menuItems[index].name == "New Game")
         {
-            bfunctions.gameStart();
+            gM.LoadScene(1);
         }
-        if (menuItems[index].name == "Settings")
-        {
-            //bfunctions.
-        }
+       
         if (menuItems[index].name == "Quit")
         {
             bfunctions.quit();
         }
        if (menuItems[index].name == "Credits")
         {
-            bfunctions.CreditsScene();
+            gM.LoadSceneWithMouse(4);
         }
 
         if(menuItems[index].name == "Resume")
@@ -79,11 +78,11 @@ public class MenuManager : MonoBehaviour
         }
         if (menuItems[index].name == "Restart")
         {
-            bfunctions.restart();
+            gM.ReloadScene();
         }
          if (menuItems[index].name == "Main Menu")
         {
-            bfunctions.MenuScene();
+            gM.LoadSceneWithMouse(0);
         }
         
 

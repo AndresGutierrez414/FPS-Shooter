@@ -59,7 +59,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public AudioClip backgroundMusic;
     [SerializeField] public AudioClip bossBattleMusic;
-
+    public GameObject  fader;
 
 
     float timeScaleOriginal;
@@ -130,7 +130,11 @@ public class gameManager : MonoBehaviour
             else
                 unpauseState();
         }
-
+        if (activeMenu == pauseMenu || activeMenu == loseMenu || activeMenu == winMenu)
+        {
+            fader.SetActive(false);
+        }
+        
         if (!cameraScript.introFinsished && !cameraScript.isSkippingIntro && bossSpawned)
         {
             if (audioSource.clip == bossBattleMusic && audioSource.isPlaying)
@@ -148,9 +152,11 @@ public class gameManager : MonoBehaviour
 
     public void pauseState()
     {
+       
         Time.timeScale = 0;                                 //Za Waruldo! Toki wo tomare! Oh, and allows the cursor to move in the window
         Cursor.visible = true;                              /*The World! Time is stopped!*/
         Cursor.lockState = CursorLockMode.Confined;
+        
     }
 
     public void unpauseState()
@@ -158,7 +164,11 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        activeMenu.SetActive(false);
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+        }
+       
         activeMenu = null;
     }
     public void unpauseStateWithCursor()
@@ -166,7 +176,11 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOriginal;                 //Active window is deactivated, cursor is locked, and time is set back
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        activeMenu.SetActive(false);
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+        }
+       
         activeMenu = null;
     }
 
