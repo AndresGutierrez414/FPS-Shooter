@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class EndGoalopen : MonoBehaviour
 {
+    public enemyAI bossEnemy;     // A reference to the enemyAI component
+    private bool isDead;
 
-    enemyAI enemy; 
-    bool isDead;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isDead = false;       // Set value of isDead to false
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        // Check if the boss is dead and the game object has not yet been destroyed
+        if (BossIsDead() && !isDead)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);   // Destroy the game object
+            isDead = true;          // Set isDead to true so that the game object is not destroyed again
         }
     }
 
+    // Check if the boss is dead
     public bool BossIsDead()
     {
-        return enemy.isBossDestroyed;
+        return bossEnemy.isBossDestroyed;   // Return the value of the isBossDestroyed flag from the enemyAI component
     }
 }
