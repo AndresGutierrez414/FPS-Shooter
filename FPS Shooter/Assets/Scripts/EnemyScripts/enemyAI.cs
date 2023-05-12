@@ -85,12 +85,18 @@ public class enemyAI : MonoBehaviour, IDamage
     float speed;
     public int experienceOnKill = 5;
     public bool frozen = false;
+    public GameObject box;
     void Start()
     {
         if (isBoss == true)
         {
-            countdownTime = riseDelay;
-            StartCoroutine(CountdownToStart());
+            if (box.CompareTag("Player"))
+            {
+
+
+                countdownTime = riseDelay;
+                StartCoroutine(CountdownToStart());
+            }
         }
        
         // Store the initial position
