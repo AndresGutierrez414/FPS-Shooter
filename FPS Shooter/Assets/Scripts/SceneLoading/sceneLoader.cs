@@ -43,6 +43,7 @@ public class sceneLoader : MonoBehaviour
             // Check if scene is loaded
             if (operation.progress >= 0.9f)
             {
+                gameManager.instance.unpauseState();
                 yield return new WaitForSeconds(1f);
 
                 operation.allowSceneActivation = true;
@@ -68,8 +69,8 @@ public class sceneLoader : MonoBehaviour
     {
         loadingBar.fillAmount = 0f;
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-
+       
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         operation.allowSceneActivation = false; // Disable auto activation
 
         UIScreen.SetActive(false);
@@ -84,14 +85,18 @@ public class sceneLoader : MonoBehaviour
             // Check if scene is loaded
             if (operation.progress >= 0.9f)
             {
+                
+                gameManager.instance.unpauseState();
                 yield return new WaitForSeconds(1f);
-
+               
                 operation.allowSceneActivation = true; // Allow scene activation
+               
             }
-
+           
             yield return null;
+            
         }
-
+        
         loadingScreen.SetActive(false);
 
         // Add error handling
