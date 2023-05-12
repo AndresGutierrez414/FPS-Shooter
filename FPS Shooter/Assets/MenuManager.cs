@@ -56,7 +56,7 @@ public class MenuManager : MonoBehaviour
         }
         if (menuItems[index].name == "Settings")
         {
-            gM.LoadScene(3);
+            gM.LoadSceneWithMouse(3);
         }
         if (menuItems[index].name == "New Game")
         {
@@ -69,7 +69,7 @@ public class MenuManager : MonoBehaviour
         }
        if (menuItems[index].name == "Credits")
         {
-            gM.LoadScene(4);
+            gM.LoadSceneWithMouse(4);
         }
 
         if(menuItems[index].name == "Resume")
@@ -82,7 +82,7 @@ public class MenuManager : MonoBehaviour
         }
          if (menuItems[index].name == "Main Menu")
         {
-            gM.LoadScene(0);
+            gM.LoadSceneWithMouse(0);
         }
         
 
