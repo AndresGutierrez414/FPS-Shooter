@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 6389163446254256847}
   m_Layer: 6
   m_Name: Lava Monster Enemy Hard
-  m_TagString: Untagged
+  m_TagString: Hard Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -776,6 +776,7 @@ MonoBehaviour:
   riseFromGround: 1
   riseDelay: 3
   riseTime: 3
+  countdownDisplayParent: {fileID: 0}
   countdownDisplay: {fileID: 0}
   yOffset: 5
   onBossRising:

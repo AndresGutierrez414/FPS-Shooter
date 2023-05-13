@@ -83,11 +83,21 @@ public class enemyAI : MonoBehaviour, IDamage
     bool destinationChosen;
     Vector3 startingPos;
     float speed;
-    public int experienceOnKill = 5;
+    public int experienceOnKill;
     public bool frozen = false;
     //public GameObject box;
+    private int easyEnemyKill;
+    private int medEnemyKill;
+    private int hardEnemyKill;
+    private int BossKill;
+
     void Start()
     {
+        easyEnemyKill = Random.Range(5, 60);
+        medEnemyKill = Random.Range(60, 130);
+        hardEnemyKill = Random.Range(130, 380);
+        BossKill = Random.Range(380, 850);
+
         if (isBoss == true)
         {
            // if (box.CompareTag("Player"))
@@ -327,20 +337,29 @@ public class enemyAI : MonoBehaviour, IDamage
             agent.stoppingDistance = 0;
         }
     }
-        public void Exp()
-        {
-            // Add experience to the player
-            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+    public void Exp()
+    {
+        // Add experience to the player
+        PlayerStats playerStats = FindObjectOfType<PlayerStats>();
 
-            if (playerStats != null)
-            {
+        if (playerStats != null)
+        {
             Debug.Log("lets good!!!");
-                playerStats.IncreaseExperience(experienceOnKill);
+            if (gameObject.CompareTag("Easy Enemy"))
+            {
+                playerStats.IncreaseEasyKill(easyEnemyKill);
+            }
+            else if (gameObject.CompareTag("Medium Enemy"))
+            {
+                playerStats.IncreaseMedKill(medEnemyKill);
+            }
+            else if (gameObject.CompareTag("Hard Enemy"))
+            {
+                playerStats.IncreaseHardKill(hardEnemyKill);
             }
         }
-
-
-            IEnumerator deathAnimation(float time)
+    }
+    IEnumerator deathAnimation(float time)
     {
         float elapsedTime = 0f;
         Quaternion initialRotation = transform.rotation;

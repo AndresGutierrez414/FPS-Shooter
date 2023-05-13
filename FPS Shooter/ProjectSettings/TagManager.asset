@@ -10,6 +10,9 @@ TagManager:
   - Decor
   - Boss
   - Enemy
+  - Easy Enemy
+  - Medium Enemy
+  - Hard Enemy
   layers:
   - Default
   - TransparentFX

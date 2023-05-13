@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] public int experience = 0;
-    private int skillPoints = 0;
-    private int experiencePerKill = 17;
-    private int experiencePerSkillPoint = 100;
+    [SerializeField] public int score = 0;
+    private int easyEnemyKill;
+    private int medEnemyKill;
+    private int hardEnemyKill;
+    private int BossKill;
 
+    private HighScore highScore;
+    private void Start()
+    {
+        highScore = FindAnyObjectByType<HighScore>();
+    }
 
     // Increase the player's experience and check if they've earned a skill point
-    public void IncreaseExperience(int amount)
+    public void IncreaseEasyKill(int amount)
     {
-        experience += amount + experiencePerKill;
-
-        if (experience >= experiencePerSkillPoint)
-        {
-            Debug.Log("You Got a SkillPoint!!");
-            skillPoints++;
-            experience -= experiencePerSkillPoint;
-        }
-        else
-            return;
+        score += amount + easyEnemyKill;
+        highScore.IncreaseScore(score);
+    }
+    public void IncreaseMedKill(int amount)
+    {
+        score += amount + medEnemyKill;
+        highScore.IncreaseScore(score);
+    }
+    public void IncreaseHardKill(int amount)
+    {
+        score += amount + hardEnemyKill;
+        highScore.IncreaseScore(score);
     }
     public void BossKilled()
     {
-        int bossExperience = Random.Range(60, 260);
-        experience += bossExperience;
-        Debug.Log("Boss Experience gain!!!");
+        score += BossKill;
+        highScore.IncreaseScore(score);
+        Debug.Log(BossKill + " gain!!!");
     }
 }
