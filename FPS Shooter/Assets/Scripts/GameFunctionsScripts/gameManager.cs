@@ -194,7 +194,7 @@ public class gameManager : MonoBehaviour
     private void spawnBoss()
     {
         if (bossSpawned) return;
-        Debug.Log("rise1");
+       
         bossEnemyScript.startBossRising();
         StartCoroutine(PlayBossBattleMusicAfterDelay(bossEnemyScript.riseDelay));
         StartCoroutine(bossArrivalTextFunction());

@@ -1139,6 +1139,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 633269642}
+    - target: {fileID: 7552207840271271370, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: iceUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552207840271271370, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: rapidUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552207840271271370, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: gravityUpgrade
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8497375052384093943, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.02265848

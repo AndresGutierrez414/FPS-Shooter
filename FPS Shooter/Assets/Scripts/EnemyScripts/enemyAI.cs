@@ -344,7 +344,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (playerStats != null)
         {
-            Debug.Log("lets good!!!");
+            
             if (gameObject.CompareTag("Easy Enemy"))
             {
                 playerStats.IncreaseEasyKill(easyEnemyKill);

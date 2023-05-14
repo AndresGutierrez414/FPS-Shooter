@@ -52,7 +52,7 @@ public class HighScore : MonoBehaviour
     // Update the score text
     private void UpdateScoreText()
     {
-        Debug.Log("plus one");
+       
         scoreText.text = score.ToString();
     }
 }
