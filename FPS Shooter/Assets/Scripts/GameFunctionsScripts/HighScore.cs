@@ -5,6 +5,7 @@ using TMPro;
 
 public class HighScore : MonoBehaviour
 {
+    HighScoreManager highScoreManager;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private string scoreKey = "highScore";
@@ -38,6 +39,10 @@ public class HighScore : MonoBehaviour
     // Reset the score and save the high score to PlayerPrefs when the game ends
     public void GameOver()
     {
+        if (highScoreManager != null)
+        {
+            highScoreManager.SaveHighScore(highScore);
+        }
         PlayerPrefs.SetInt(scoreKey, highScore);
         PlayerPrefs.Save();
         score = 0;
