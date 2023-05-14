@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class endGoal : MonoBehaviour
 {
-    HighScore highScore;
+    public HighScore highScore;
 
     private void OnTriggerEnter(Collider other)
     {

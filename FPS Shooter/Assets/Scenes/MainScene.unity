@@ -647,7 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1416737405}
   highScoreText: {fileID: 1827300400}
-  ScoreKey: HighScore
+  scoreKey: highScore
 --- !u!1 &1416737403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1349,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 633269642}
+    - target: {fileID: 1832818355810311833, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
+      propertyPath: highScore
+      value: 
+      objectReference: {fileID: 1292502043}
     - target: {fileID: 1918525660833267650, guid: 9ef3ec10a82907244bfc830b716b23d3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
