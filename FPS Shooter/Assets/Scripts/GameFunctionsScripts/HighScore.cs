@@ -35,17 +35,10 @@ public class HighScore : MonoBehaviour
         highScoreText.text = highScore.ToString();
         UpdateScoreText();
     }
-    private void OnApplicationQuit()
-    {
-        // Save the high score to PlayerPrefs
-        PlayerPrefs.SetInt(ScoreKey, highScore);
-        PlayerPrefs.Save();
-    }
 
     // Reset the score and save the high score to PlayerPrefs when the game ends
-    private void GameOver()
+    public void GameOver()
     {
-        
         PlayerPrefs.SetInt(ScoreKey, highScore);
         PlayerPrefs.Save();
         score = 0;
