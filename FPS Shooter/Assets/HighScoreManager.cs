@@ -16,31 +16,33 @@ public class HighScoreManager : MonoBehaviour
     void Start()
     {
         highScores = new int[maxHighScores];
+        for (int i = 0; i < maxHighScores; i++)
+        {
+            highScores[i] = PlayerPrefs.GetInt("ScoreKey" + i, 0);
+        }
         DisplayHighScores();
     }
 
     public void SaveHighScore(int score)
     {
-        // Load the existing high scores from player preferences
+        // Load the high scores from player preferences
         for (int i = 0; i < maxHighScores; i++)
         {
-            highScores[i] = PlayerPrefs.GetInt("HighScore" + i, 0);
+            highScores[i] = PlayerPrefs.GetInt("ScoreKey" + i, 0);
         }
 
         // Add the new high score to the array
         highScores[maxHighScores - 1] = score;
 
-        // Sort the array in descending order
+        // Sort in descending order
         Array.Sort(highScores);
         Array.Reverse(highScores);
 
         // Save the top 3 high scores to player preferences
         for (int i = 0; i < maxHighScores; i++)
         {
-            PlayerPrefs.SetInt("HighScore" + i, highScores[i]);
+            PlayerPrefs.SetInt("ScoreKey" + i, highScores[i]);
         }
-
-        // Save the changes
         PlayerPrefs.Save();
     }
 
@@ -50,10 +52,9 @@ public class HighScoreManager : MonoBehaviour
         int[] topHighScores = new int[maxHighScores];
         for (int i = 0; i < maxHighScores; i++)
         {
-            topHighScores[i] = PlayerPrefs.GetInt("HighScore" + i, 0);
+            topHighScores[i] = PlayerPrefs.GetInt("ScoreKey" + i, 0);
         }
 
-        // Set the text of each TextMeshPro component to the corresponding high score
         highScore1Text.text = "1. " + topHighScores[0];
         highScore2Text.text = "2. " + topHighScores[1];
         highScore3Text.text = "3. " + topHighScores[2];

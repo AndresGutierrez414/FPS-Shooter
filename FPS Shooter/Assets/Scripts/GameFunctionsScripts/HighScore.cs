@@ -8,12 +8,11 @@ public class HighScore : MonoBehaviour
     HighScoreManager highScoreManager;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
-    [SerializeField] private string scoreKey = "highScore";
+    [SerializeField] private string ScoreKey = "ScoreKey";
 
     private int score = 0;
     private int highScore = 0;
 
-    // Increase the player's score and update the high score if necessary
     public void IncreaseScore(int amount)
     {
         score += amount;
@@ -24,18 +23,12 @@ public class HighScore : MonoBehaviour
         }
         UpdateScoreText();
     }
-
-    // Load the high score from PlayerPrefs when the game starts
     private void Start()
     {
-        if (PlayerPrefs.HasKey(scoreKey))
-        {
-            highScore = PlayerPrefs.GetInt(scoreKey);
-        }
+        highScore = PlayerPrefs.GetInt(ScoreKey, 0);
         highScoreText.text = highScore.ToString();
         UpdateScoreText();
     }
-
     // Reset the score and save the high score to PlayerPrefs when the game ends
     public void GameOver()
     {
@@ -43,8 +36,7 @@ public class HighScore : MonoBehaviour
         {
             highScoreManager.SaveHighScore(highScore);
         }
-        PlayerPrefs.SetInt(scoreKey, highScore);
-        PlayerPrefs.Save();
+        PlayerPrefs.SetInt(ScoreKey, highScore);
         score = 0;
         UpdateScoreText();
     }
@@ -52,7 +44,6 @@ public class HighScore : MonoBehaviour
     // Update the score text
     private void UpdateScoreText()
     {
-       
         scoreText.text = score.ToString();
     }
 }
