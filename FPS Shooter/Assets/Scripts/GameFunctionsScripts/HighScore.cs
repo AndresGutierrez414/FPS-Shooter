@@ -8,7 +8,7 @@ public class HighScore : MonoBehaviour
     HighScoreManager highScoreManager;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
-    [SerializeField] private string ScoreKey = "ScoreKey";
+    //[SerializeField] private string ScoreKey = "ScoreKey";
 
     private int score = 0;
     private int highScore = 0;
@@ -25,18 +25,14 @@ public class HighScore : MonoBehaviour
     }
     private void Start()
     {
-        highScore = PlayerPrefs.GetInt(ScoreKey, 0);
+        highScore = PlayerPrefs.GetInt("ScoreKey");
         highScoreText.text = highScore.ToString();
         UpdateScoreText();
     }
     // Reset the score and save the high score to PlayerPrefs when the game ends
     public void GameOver()
     {
-        if (highScoreManager != null)
-        {
-            highScoreManager.SaveHighScore(highScore);
-        }
-        PlayerPrefs.SetInt(ScoreKey, highScore);
+        PlayerPrefs.SetInt("ScoreKey", highScore);
         score = 0;
         UpdateScoreText();
     }
