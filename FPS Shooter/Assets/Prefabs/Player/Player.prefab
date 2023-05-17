@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4303810387877515675}
+  - component: {fileID: 2611517404669217936}
   - component: {fileID: 4303810387877515673}
   - component: {fileID: 4303810387877515672}
   - component: {fileID: 4303810387877515687}
@@ -155,6 +156,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2611517404669217936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303810387877515686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4080949b93c0844b8d955019ebfc31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  animator: {fileID: 0}
+  audio: {fileID: 0}
+  HP: 0
+  critHP: 0
+  critHPPulseSpeed: 0
+  dmgIndicatorDuration: 0
+  playerSpeed: 0
+  playerSprint: 0
+  sprintAcceleration: 0
+  sprintDrainRate: 0
+  sprintRechargeRate: 0
+  gravityValue: 0
+  jumpHeight: 0
+  maxJumps: 0
+  gunList: []
+  shootDamage: 0
+  fireRate: 0
+  shootDist: 0
+  recoilAmount: 0.1
+  recoilSpeed: 5
+  bullet: {fileID: 0}
+  bulletSpeed: 0
+  shootPos: {fileID: 0}
+  gunMaterial: {fileID: 0}
+  gunModel: {fileID: 0}
+  selectedGun: 0
+  gunPos: {fileID: 0}
+  pillowShootRate: 0
+  pillowShootDist: 0
+  cube: {fileID: 0}
+  lavaFloor: {fileID: 0}
+  lavaFloorScript: {fileID: 0}
+  audioSteps: []
+  audioStepsVolume: 0
+  audioJump: []
+  audioJumpVolume: 0
+  audioDamage: []
+  audioDamageVolume: 0
+  giveHp: {fileID: 0}
+  fireDamage: {fileID: 0}
+  hpDrainSpeed: 0
+  isCritHP: 0
+  rotationAxis: 0
+  canMove: 0
 --- !u!33 &4303810387877515673
 MeshFilter:
   m_ObjectHideFlags: 0
