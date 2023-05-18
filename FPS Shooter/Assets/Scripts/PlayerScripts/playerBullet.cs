@@ -7,6 +7,8 @@ public class playerBullet : MonoBehaviour
     // variables //
     [SerializeField] public int damage;
     [SerializeField] public int maxTravelDistance;
+    [SerializeField] public int particleLifetime;
+    [SerializeField] public ParticleSystem particle;
     private Vector3 startPos;
     //[SerializeField] public int timer;
 
@@ -34,7 +36,12 @@ public class playerBullet : MonoBehaviour
             damagable.takeDamage(damage);
         }
 
-       
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        ParticleSystem ps = Instantiate(particle, gameObject.transform, gameObject.transform);
+        Destroy(ps, particleLifetime);
     }
 }
