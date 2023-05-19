@@ -1849,6 +1849,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724376365}
     m_Modifications:
+    - target: {fileID: 2611517404669217936, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4303810387877515675, guid: 16101a9ef40dfbc4192e051259f91c30, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9609,7 +9613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdb4914f78e2e16ec964e04376f0571b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb8cd313521bd8eed945fd0f1bf2dd22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10267,8 +10271,6 @@ MonoBehaviour:
   menuItems:
   - {fileID: 8257327859087686670}
   - {fileID: 8257327857905767413}
-  - {fileID: 0}
-  - {fileID: 0}
   bfunctions: {fileID: 8257327859706847272}
   moveAudio: {fileID: 8257327859616722646}
 --- !u!114 &8257327859706847268
