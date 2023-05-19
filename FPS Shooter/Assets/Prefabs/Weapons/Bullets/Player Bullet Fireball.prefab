@@ -261,6 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   maxTravelDistance: 30
+  particleLifetime: 1
+  particle: {fileID: 2178948895505591810, guid: 7b1bd57f611350f42966afea77e2f96c, type: 3}
 --- !u!135 &4589335534609046644
 SphereCollider:
   m_ObjectHideFlags: 0
