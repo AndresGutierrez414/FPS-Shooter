@@ -290,5 +290,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   maxTravelDistance: 30
-  knockbackForce: 30
+  knockbackForce: 70
   enemyTag: Enemy

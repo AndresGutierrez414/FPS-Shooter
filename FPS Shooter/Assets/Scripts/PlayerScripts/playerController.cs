@@ -68,11 +68,16 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Effects -----")]
     [SerializeField] GameObject fireDamage;
+    [SerializeField] GameObject fireFx;
+    [SerializeField] GameObject gravityFx;
+    [SerializeField] GameObject iceFx;
+    [SerializeField] GameObject rapidFx;
     [SerializeField] float hpDrainSpeed;
     float hpDrainTimer;
 
     bool isPlayingSteps;
-
+    public Vector3 recoilDirection;
+    
     private float currentSpeed;
     private float targetSpeed;
     bool isShooting;
@@ -102,11 +107,14 @@ public class playerController : MonoBehaviour, IDamage
     }
     void ApplyRecoil()
     {
-        // Calculate the local direction of the recoil
-        Vector3 localRecoilDirection = Vector3.forward;
+        // Get the recoil direction for the currently selected gun
+        Vector3 localRecoilDirection = gunList[selectedGun].recoilDirection;
 
         // Convert the local direction to world space
         Vector3 worldRecoilDirection = gunModel.transform.TransformDirection(localRecoilDirection);
+
+        // Use the recoil amount for the currently selected gun
+        float recoilAmount = gunList[selectedGun].recoilAmount;
 
         // Apply the recoil in world space
         gunModel.transform.position -= worldRecoilDirection * recoilAmount;
@@ -626,12 +634,42 @@ public class playerController : MonoBehaviour, IDamage
     }
     private void UpdateGunStats(GunLists gunStat)
 {
+        if (gunStat.name == "FlameStaff")
+        {
+            gravityFx.SetActive(false);
+            rapidFx.SetActive(false);
+            iceFx.SetActive(false);
+            fireFx.SetActive(true);
+        }
+        if (gunStat.name == "GravityStaff")
+        {
+            gravityFx.SetActive(true);
+            rapidFx.SetActive(false);
+            iceFx.SetActive(false);
+            fireFx.SetActive(false);
+        }
+        if (gunStat.name == "IceStaff")
+        {
+            gravityFx.SetActive(false);
+            rapidFx.SetActive(false);
+            iceFx.SetActive(true);
+            fireFx.SetActive(false);
+        }
+        if (gunStat.name == "RapidFireStaff")
+        {
+            gravityFx.SetActive(false);
+            rapidFx.SetActive(true);
+            iceFx.SetActive(false);
+            fireFx.SetActive(false);
+        }
+
         bullet = gunStat.gunBullet;
-       
         shootDamage = gunStat.shootingDamage;
     shootDist = gunStat.shootingDist;
     fireRate = gunStat.shootingRate;
-}
+        recoilDirection = gunStat.recoilDirection;
+        recoilAmount = gunStat.recoilAmount;
+    }
 
 private void SetGunModel(GunLists gunStat)
 {

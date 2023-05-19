@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b56a1d1f5eb4ca479e1538e493ca64c, type: 3}
   m_Name: GravityStaff
   m_EditorClassIdentifier: 
+  recoilDirection: {x: 0, y: -0.2, z: 0}
   shootingDamage: 3
   shootingRate: 0.7
   shootingDist: 30
   bulletCount: 1
   spreadAngle: 0
+  recoilAmount: 1
   gunModel: {fileID: 8588910350287197338, guid: 992891819f88b9241bb506e7c160728a, type: 3}
   gunBullet: {fileID: 8973868133043815996, guid: 309ce45f3e0698d46a6b50e91c509e62, type: 3}
   gunBlastAudio: {fileID: 8300000, guid: be64544bade297e4d872dd74c66256d2, type: 3}

@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b56a1d1f5eb4ca479e1538e493ca64c, type: 3}
   m_Name: FlameStaff
   m_EditorClassIdentifier: 
+  recoilDirection: {x: 0, y: -0.3, z: 0}
   shootingDamage: 4
   shootingRate: 1
   shootingDist: 30
   bulletCount: 1
   spreadAngle: 0
+  recoilAmount: 1
   gunModel: {fileID: 8588910350287197338, guid: 850132aafa8e922458964780d332cbbf, type: 3}
   gunBullet: {fileID: 8973868133043815996, guid: 9d7f10c8ba9c00147ac39017fb672ca2, type: 3}
   gunBlastAudio: {fileID: 8300000, guid: be64544bade297e4d872dd74c66256d2, type: 3}
