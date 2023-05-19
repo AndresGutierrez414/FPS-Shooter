@@ -41,7 +41,7 @@ public class playerBullet : MonoBehaviour
 
     private void OnDestroy()
     {
-        ParticleSystem ps = Instantiate(particle, gameObject.transform, gameObject.transform);
+        ParticleSystem ps = Instantiate(particle, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(ps, particleLifetime);
     }
 }
