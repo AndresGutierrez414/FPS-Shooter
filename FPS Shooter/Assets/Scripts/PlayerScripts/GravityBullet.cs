@@ -41,13 +41,16 @@ public class GravityBullet : MonoBehaviour
 
         if (gameManager.instance.gravityUpgrade == true)
         {
-            if (other.CompareTag(enemyTag))
+            if ((other.CompareTag("Easy Enemy") || other.CompareTag("Medium Enemy") || other.CompareTag("Hard Enemy") || other.CompareTag("Boss")))
             {
                 Rigidbody enemyRb = other.GetComponent<Rigidbody>();
                 if (enemyRb != null)
                 {
+                    Debug.Log("back");
                     Vector3 knockbackDirection = -other.transform.forward;
+                    Debug.Log("back2");
                     enemyRb.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+                    Debug.Log("back1");
                 }
             }
         }

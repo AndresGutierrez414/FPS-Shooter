@@ -102,11 +102,14 @@ public class playerController : MonoBehaviour, IDamage
     }
     void ApplyRecoil()
     {
-        // Calculate the local direction of the recoil
-        Vector3 localRecoilDirection = Vector3.forward;
+        // Get the recoil direction for the currently selected gun
+        Vector3 localRecoilDirection = gunList[selectedGun].recoilDirection;
 
         // Convert the local direction to world space
         Vector3 worldRecoilDirection = gunModel.transform.TransformDirection(localRecoilDirection);
+
+        // Use the recoil amount for the currently selected gun
+        float recoilAmount = gunList[selectedGun].recoilAmount;
 
         // Apply the recoil in world space
         gunModel.transform.position -= worldRecoilDirection * recoilAmount;
