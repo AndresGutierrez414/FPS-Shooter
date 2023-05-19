@@ -80,7 +80,12 @@ public class MenuManager : MonoBehaviour
         {
             gM.ReloadScene();
         }
-         if (menuItems[index].name == "Main Menu")
+       
+            if (menuItems[index].name == "HighScore")
+        {
+            gM.LoadSceneWithMouse(5);
+        }
+        if (menuItems[index].name == "Main Menu")
         {
             gM.LoadSceneWithMouse(0);
         }
