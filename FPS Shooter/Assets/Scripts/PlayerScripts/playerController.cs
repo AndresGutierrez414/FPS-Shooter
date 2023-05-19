@@ -68,11 +68,16 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Effects -----")]
     [SerializeField] GameObject fireDamage;
+    [SerializeField] GameObject fireFx;
+    [SerializeField] GameObject gravityFx;
+    [SerializeField] GameObject iceFx;
+    [SerializeField] GameObject rapidFx;
     [SerializeField] float hpDrainSpeed;
     float hpDrainTimer;
 
     bool isPlayingSteps;
-
+    public Vector3 recoilDirection;
+    
     private float currentSpeed;
     private float targetSpeed;
     bool isShooting;
@@ -629,12 +634,42 @@ public class playerController : MonoBehaviour, IDamage
     }
     private void UpdateGunStats(GunLists gunStat)
 {
+        if (gunStat.name == "FlameStaff")
+        {
+            gravityFx.SetActive(false);
+            rapidFx.SetActive(false);
+            iceFx.SetActive(false);
+            fireFx.SetActive(true);
+        }
+        if (gunStat.name == "GravityStaff")
+        {
+            gravityFx.SetActive(true);
+            rapidFx.SetActive(false);
+            iceFx.SetActive(false);
+            fireFx.SetActive(false);
+        }
+        if (gunStat.name == "IceStaff")
+        {
+            gravityFx.SetActive(false);
+            rapidFx.SetActive(false);
+            iceFx.SetActive(true);
+            fireFx.SetActive(false);
+        }
+        if (gunStat.name == "RapidFireStaff")
+        {
+            gravityFx.SetActive(false);
+            rapidFx.SetActive(true);
+            iceFx.SetActive(false);
+            fireFx.SetActive(false);
+        }
+
         bullet = gunStat.gunBullet;
-       
         shootDamage = gunStat.shootingDamage;
     shootDist = gunStat.shootingDist;
     fireRate = gunStat.shootingRate;
-}
+        recoilDirection = gunStat.recoilDirection;
+        recoilAmount = gunStat.recoilAmount;
+    }
 
 private void SetGunModel(GunLists gunStat)
 {
