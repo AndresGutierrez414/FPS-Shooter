@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EndGoalopen : MonoBehaviour
 {
     public enemyAI bossEnemy;     // A reference to the enemyAI component
+    public GameObject killBoss;
     private bool isDead;
 
     // Start is called before the first frame update
@@ -23,7 +25,42 @@ public class EndGoalopen : MonoBehaviour
             isDead = true;          // Set isDead to true so that the game object is not destroyed again
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!BossIsDead())
+        {
+            if (other.CompareTag("Player"))
+            {
 
+                killBoss.SetActive(true);
+            }
+        }
+        if (BossIsDead())
+        {
+            if (other.CompareTag("Player"))
+            {
+                killBoss.SetActive(false);
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (!BossIsDead())
+        {
+            if (other.CompareTag("Player"))
+            {
+
+                killBoss.SetActive(false);
+            }
+        }
+        if (BossIsDead())
+        {
+            if (other.CompareTag("Player"))
+            {
+                killBoss.SetActive(false);
+            }
+        }
+    }
     // Check if the boss is dead
     public bool BossIsDead()
     {
