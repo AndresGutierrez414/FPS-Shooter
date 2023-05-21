@@ -64,10 +64,18 @@ public class lavaFloor : MonoBehaviour
 
             if (player != null)
             {
-                // remove player collider frim HashSet //
+                // Remove player collider from HashSet
                 playerInLava.Remove(other);
 
-                statsReduced = false;
+                if (playerInLava.Count == 0) // Check if the player is still in the lava
+                {
+                    statsReduced = false;
+                }
+                else
+                {
+                    // Restart the damageAndSlowPlayer coroutine for the player
+                    StartCoroutine(damageAndSlowPlayer(player));
+                }
             }
         }
     }
