@@ -143,9 +143,6 @@ public class playerController : MonoBehaviour, IDamage
                     StartCoroutine(shootBullet());
                 //StartCoroutine(shoot());
 
-                if (!isPlacingP && Input.GetButton("Fire2"))         //Check for mouse 2 press
-                    StartCoroutine(placePillow());
-
                 if (isCritHP)
                     StartCoroutine(critHealthEffect());
             }
