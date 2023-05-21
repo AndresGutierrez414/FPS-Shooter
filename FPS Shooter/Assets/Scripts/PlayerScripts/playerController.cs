@@ -12,8 +12,8 @@ public class playerController : MonoBehaviour, IDamage
 
 
     [Header("----- Player Stats -----")]                        //Player current hit points and maximum hit points
-    [Range(1, 10)][SerializeField] public int HP;
-    [Range(1, 10)] [SerializeField] public int critHP;
+    [Range(1, 100)][SerializeField] public int HP;
+    [Range(1, 100)] [SerializeField] public int critHP;
     [SerializeField] public int critHPPulseSpeed;
     [SerializeField] public float dmgIndicatorDuration;
     int maxHP;
@@ -74,7 +74,6 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] GameObject rapidFx;
     [SerializeField] float hpDrainSpeed;
     float hpDrainTimer;
-
     bool isPlayingSteps;
     public Vector3 recoilDirection;
     
