@@ -66,4 +66,5 @@ public class EndGoalopen : MonoBehaviour
     {
         return bossEnemy.isBossDestroyed;   // Return the value of the isBossDestroyed flag from the enemyAI component
     }
+
 }

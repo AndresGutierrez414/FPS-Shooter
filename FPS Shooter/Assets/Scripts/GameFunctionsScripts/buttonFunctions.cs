@@ -59,7 +59,6 @@ public class buttonFunctions : MonoBehaviour
     public void resume()
     {
         gameManager.instance.unpauseState();
-        audio.Play();
 
 
         // toggle pause bool //
@@ -79,8 +78,8 @@ public class buttonFunctions : MonoBehaviour
 
     public void quit()
     {
-        audio.Play();
         Application.Quit();
+        Debug.Log("Quit");
     }
 
     public void MenuScene()
