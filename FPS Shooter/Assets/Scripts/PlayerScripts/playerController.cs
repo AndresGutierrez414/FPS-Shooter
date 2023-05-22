@@ -497,27 +497,24 @@ public class playerController : MonoBehaviour, IDamage
     }
     IEnumerator SwitchWeaponWithDelay(int direction)
     {
+        if (direction == 0)
+        {
+            // Invalid direction, exit the coroutine
+            yield break;
+        }
+
         isSelecting = true;
-
         int prevSelectedGun = selectedGun;
-
-        selectedGun += direction;
-        if (selectedGun >= gunList.Count)
+        int weaponCount = gunList.Count;
+        // Calculate the new selectedGun index
+        int newSelectedGun = (selectedGun + direction + weaponCount) % weaponCount;
+        yield return new WaitForSeconds(weaponSwitchDelay);
+        if (newSelectedGun != prevSelectedGun)
         {
-            selectedGun = 0;
-        }
-        else if (selectedGun < 0)
-        {
-            selectedGun = gunList.Count - 1;
-        }
-
-        if (prevSelectedGun != selectedGun && changing == false)
-        {
+            selectedGun = newSelectedGun;
             changing = true;
             changeGun();
         }
-
-        yield return new WaitForSeconds(weaponSwitchDelay);
 
         isSelecting = false;
     }
