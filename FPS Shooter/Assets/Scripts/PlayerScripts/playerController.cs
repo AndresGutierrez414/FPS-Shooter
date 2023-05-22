@@ -67,6 +67,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] AudioClip giveHp;
 
     [Header("----- Effects -----")]
+    [SerializeField] GameObject stunned;
     [SerializeField] GameObject fireDamage;
     [SerializeField] GameObject fireFx;
     [SerializeField] GameObject gravityFx;
@@ -320,25 +321,6 @@ public class playerController : MonoBehaviour, IDamage
 
         gameManager.instance.dmgIndicator.gameObject.SetActive(false);
     }
-
-    //This coroutine handles throwing pillows
-    IEnumerator placePillow()
-    {
-        isPlacingP = true;
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, pillowShootDist))
-        {
-            GameObject pillow = Instantiate(cube, hit.point, Quaternion.identity);   //Instantiates cube at the hit location // transform.rotation
-
-            // allign pillow up vector with surface //
-            //pillow.transform.forward = hit.normal;     // <- maybe
-        }
-
-        yield return new WaitForSeconds(pillowShootRate);
-        isPlacingP = false;
-    }
-
     public void reFillHealth(int amount)
     {
         audio.clip = giveHp;
@@ -407,15 +389,9 @@ public class playerController : MonoBehaviour, IDamage
                 0);
 
             // Calculate the direction vector from the shootPos to the target point
+
             Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
             shootDirection = randomRotation * shootDirection;
-
-            // Instantiate the bullet with the correct rotation
-
-            // Differentiate the bullet type based on the weapon name
-            //bulletPrefab = bullets[0]; // Default bullet
-
-
 
 
             GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
@@ -431,7 +407,6 @@ public class playerController : MonoBehaviour, IDamage
                     bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
                 }
 
-
                 RapidfireBullet rapidFireBulletScript;
                 if (gunList[selectedGun].name == "RapidFireStaff")
                 {
@@ -441,8 +416,8 @@ public class playerController : MonoBehaviour, IDamage
                         rapidFireBulletScript.damage = shootDamage;
                         rapidFireBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
                     }
-
                 }
+
                 IceBullet iceBulletScript;
                 if (gunList[selectedGun].name == "IceStaff")
                 {
@@ -465,13 +440,8 @@ public class playerController : MonoBehaviour, IDamage
                         gravityBulletScript.damage = shootDamage;
                         gravityBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
                     }
-
                 }
-
-
-
             }
-
             yield return new WaitForSeconds(fireRate);
             isShooting = false;
         }
@@ -479,18 +449,15 @@ public class playerController : MonoBehaviour, IDamage
     public void gunPick(GunLists gunStat)
     {
         ApplyGunTransform(gunStat);
-
         gunList.Add(gunStat);
 
         // Set the initial selected gun to the first one in the list.
         selectedGun = 0;
         UpdateGunStats(gunStat);
         SetGunModel(gunStat);
-
         // Store the original position
         originalPosition = gunModel.transform.localPosition;
     }
-
     void selectGun()
     {
         // If there are no weapons in the gunList or switching is in progress, return
@@ -707,19 +674,47 @@ private void SetGunModel(GunLists gunStat)
         }
     }
     //When the player hit the floor the player will be set on fire
+    private Coroutine flashCoroutine; // Reference to the flashing coroutine
+
+    private IEnumerator FlashStunnedObject()
+    {
+        float totalTime = 3f; // Total time for the flashing effect
+        float flashInterval = 0.5f; // Interval between each flash
+
+        float elapsedTime = 0f;
+        bool isVisible = true;
+
+        while (elapsedTime < totalTime)
+        {
+            stunned.SetActive(isVisible);
+            yield return new WaitForSeconds(flashInterval);
+            isVisible = !isVisible;
+            elapsedTime += flashInterval;
+        }
+
+        stunned.SetActive(false); // Ensure the object is deactivated at the end
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Floor"))
         {
             fireDamage.SetActive(true);
+            flashCoroutine = StartCoroutine(FlashStunnedObject());
         }
     }
-    //When the player leaves the floor the fire will be set off
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Floor"))
         {
             fireDamage.SetActive(false);
+            if (flashCoroutine != null)
+            {
+                StopCoroutine(flashCoroutine);
+                flashCoroutine = null;
+            }
+            stunned.SetActive(false);
         }
     }
 }
