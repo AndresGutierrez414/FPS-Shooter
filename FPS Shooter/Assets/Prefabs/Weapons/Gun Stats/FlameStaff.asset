@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FlameStaff
   m_EditorClassIdentifier: 
   recoilDirection: {x: 0, y: -0.3, z: 0}
-  shootingDamage: 8
+  shootingDamage: 4
   shootingRate: 1
-  shootingDist: 100
+  shootingDist: 30
   bulletCount: 1
   spreadAngle: 0
   recoilAmount: 1

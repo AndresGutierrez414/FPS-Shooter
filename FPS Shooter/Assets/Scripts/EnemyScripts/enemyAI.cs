@@ -105,7 +105,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
 
                 countdownTime = riseDelay;
-               
+                StartCoroutine(CountdownToStart());
             //}
         }
        
@@ -483,12 +483,10 @@ public class enemyAI : MonoBehaviour, IDamage
             yield return null;
         }
     }
-    public IEnumerator CountdownToStart()
+    IEnumerator CountdownToStart()
     {
-        
         while (countdownTime > 0)
         {
-            countdownDisplayParent.SetActive(true);
             countdownDisplay.text = countdownTime.ToString();
 
             yield return new WaitForSeconds(1f);

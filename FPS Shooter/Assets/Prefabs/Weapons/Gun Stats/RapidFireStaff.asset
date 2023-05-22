@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RapidFireStaff
   m_EditorClassIdentifier: 
   recoilDirection: {x: 0, y: -0.03, z: 0}
-  shootingDamage: 3
+  shootingDamage: 2
   shootingRate: 0.2
-  shootingDist: 100
+  shootingDist: 30
   bulletCount: 1
   spreadAngle: 0
   recoilAmount: 2

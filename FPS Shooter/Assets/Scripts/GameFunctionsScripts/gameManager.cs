@@ -64,8 +64,8 @@ public class gameManager : MonoBehaviour
 
     float timeScaleOriginal;
     [Header("BulletUpgrades")]
-    public bool gravityUpgrade = false;
     public bool rapidUpgrade = false;
+    public bool gravityUpgrade = false;
     public bool iceUpgrade = false;
     void Awake()
     {
@@ -146,7 +146,6 @@ public class gameManager : MonoBehaviour
         // start timer for boss spawning after intro is finished or skipped //
         if (cameraScript.introFinsished || cameraScript.isSkippingIntro)
         {
-            StartCoroutine(bossEnemyScript.CountdownToStart());
             spawnBoss();
         }
     }

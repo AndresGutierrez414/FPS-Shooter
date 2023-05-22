@@ -288,6 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5fe5a227fccfa4bb01695d1cebda0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 8
-  maxTravelDistance: 100
+  damage: 1
+  maxTravelDistance: 30
   freezeTime: 3
