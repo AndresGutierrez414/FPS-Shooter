@@ -678,7 +678,7 @@ private void SetGunModel(GunLists gunStat)
 
     private IEnumerator FlashStunnedObject()
     {
-        float totalTime = 3f; // Total time for the flashing effect
+        float totalTime = 2.5f; // Total time for the flashing effect
         float flashInterval = 0.5f; // Interval between each flash
 
         float elapsedTime = 0f;
