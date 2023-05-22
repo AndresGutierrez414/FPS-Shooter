@@ -15,7 +15,7 @@ MonoBehaviour:
   recoilDirection: {x: 0, y: -0.1, z: 0}
   shootingDamage: 8
   shootingRate: 0.5
-  shootingDist: 30
+  shootingDist: 100
   bulletCount: 1
   spreadAngle: 0
   recoilAmount: 1

@@ -288,5 +288,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38694a3b9e56f1468f7126d4b968c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3
   maxTravelDistance: 100
