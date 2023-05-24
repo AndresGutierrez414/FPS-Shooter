@@ -90,7 +90,7 @@ public class playerController : MonoBehaviour, IDamage
     private bool isSelecting = false;
     private float weaponSwitchDelay = 0.1f;
     public bool canMove = false;
-    bool canShoot = true;
+    public bool canShoot = true;
     GameObject bulletPrefab; 
 
     private void Awake()

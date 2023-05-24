@@ -129,6 +129,7 @@ public class gameManager : MonoBehaviour
             if (isPaused)                                   //Check for pause state
             {
                 playerScript.gunModel.gameObject.SetActive(false);
+                playerScript.canShoot = false;
                 pauseState();
             }
             else
