@@ -747,7 +747,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 616630729}
         m_TargetAssemblyTypeName: sceneLoader, Assembly-CSharp
-        m_MethodName: LoadSceneWithMouse
+        m_MethodName: LoadSceneAsyncwithMouseNoL
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
