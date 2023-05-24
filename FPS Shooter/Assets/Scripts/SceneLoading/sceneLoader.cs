@@ -16,6 +16,10 @@ public class sceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadSceneAsyncwithMouse(sceneId));
     }
+    public void LoadSceneAsyncwithMouseNoL(int sceneId)
+    {
+        StartCoroutine(LoadSceneAsyncwithMouseNoLoad(sceneId));
+    }
     public void LoadScene(int sceneId)
     {
         StartCoroutine(LoadSceneAsync(sceneId));
@@ -67,6 +71,24 @@ public class sceneLoader : MonoBehaviour
             // Error while loadin the scene
             Debug.LogError("Error loading scene: " + operation);
         }
+    }
+    private IEnumerator LoadSceneAsyncwithMouseNoLoad(int sceneId)
+    {
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        operation.allowSceneActivation = true;
+
+        yield return operation;
+
+        if (operation.isDone)
+        {
+            Debug.Log("Scene loaded successfully");
+        }
+        else
+        {
+            Debug.LogError("Error loading scene: " + operation);
+        }
+
     }
 
     private IEnumerator LoadSceneAsync(int sceneId)
