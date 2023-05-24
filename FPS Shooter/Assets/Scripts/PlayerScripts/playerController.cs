@@ -90,6 +90,7 @@ public class playerController : MonoBehaviour, IDamage
     private bool isSelecting = false;
     private float weaponSwitchDelay = 0.1f;
     public bool canMove = false;
+    bool canShoot = true;
     GameObject bulletPrefab; 
 
     private void Awake()
@@ -212,10 +213,14 @@ public class playerController : MonoBehaviour, IDamage
 
         if (Input.GetButtonDown("Jump") && timesJumped < maxJumps)  //Check for space bar press. Handles max amounts of jumps
         {
-            animator.SetTrigger("Jump");
-            audio.PlayOneShot(audioJump[Random.Range(0, audioJump.Length)], audioJumpVolume);
-            timesJumped++;
-            playerVelocity.y = jumpHeight;
+            if(canShoot == true)
+            {
+                animator.SetTrigger("Jump");
+                audio.PlayOneShot(audioJump[Random.Range(0, audioJump.Length)], audioJumpVolume);
+                timesJumped++;
+                playerVelocity.y = jumpHeight;
+            }
+           
         }
 
         playerVelocity.y -= gravityValue * Time.deltaTime;      //Applies gravity (and jump if there has been one) to the controller
@@ -250,6 +255,8 @@ public class playerController : MonoBehaviour, IDamage
 
         if (HP <= 0)                                            //Triggers a losing state if the player has no more hit points
         {
+            canShoot = false;
+            gunModel.gameObject.SetActive(false);
             gameManager.instance.playerDead();
         }
     }
@@ -357,94 +364,98 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator shootBullet()
     {
-        isShooting = true;
-
-        audio.PlayOneShot(gunList[selectedGun].gunBlastAudio, gunList[selectedGun].gunShotAudioVolume);
-
-        int bulletCount = gunList[selectedGun].bulletCount;
-
-        // for each bullet //
-        for (int i = 0; i < bulletCount; i++)
+        if (canShoot == true)
         {
-            RaycastHit hit;
-            Vector3 targetPoint;
-            float maxRaycastDistance = 1000f;
+            isShooting = true;
 
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            audio.PlayOneShot(gunList[selectedGun].gunBlastAudio, gunList[selectedGun].gunShotAudioVolume);
+
+            int bulletCount = gunList[selectedGun].bulletCount;
+
+            // for each bullet //
+            for (int i = 0; i < bulletCount; i++)
             {
-                // If the raycast hits an object, use the hit point as the target //
-                targetPoint = hit.point;
-            }
-            else
-            {
-                // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
-                targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
-            }
+                RaycastHit hit;
+                Vector3 targetPoint;
+                float maxRaycastDistance = 1000f;
 
-            // apply rand angle offset if shotgun //
-            float spreadAngle = gunList[selectedGun].spreadAngle;
-            Quaternion randomRotation = Quaternion.Euler(
-                Random.Range(-spreadAngle, spreadAngle),
-                Random.Range(-spreadAngle, spreadAngle),
-                0);
-
-            // Calculate the direction vector from the shootPos to the target point
-
-            Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
-            shootDirection = randomRotation * shootDirection;
-
-
-            GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
-            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
-            ApplyRecoil();
-            playerBullet bulletScript;
-            if (gunList[selectedGun].name == "FlameStaff")
-            {
-                bulletScript = bulletClone.GetComponent<playerBullet>();
-                if (bulletScript != null)
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
                 {
-                    bulletScript.damage = shootDamage;
-                    bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                    // If the raycast hits an object, use the hit point as the target //
+                    targetPoint = hit.point;
+                }
+                else
+                {
+                    // If the raycast doesn't hit anything, calculate a point at the maximum raycast distance //
+                    targetPoint = Camera.main.transform.position + (Camera.main.transform.forward * maxRaycastDistance);
                 }
 
-                RapidfireBullet rapidFireBulletScript;
-                if (gunList[selectedGun].name == "RapidFireStaff")
-                {
-                    rapidFireBulletScript = bulletClone.GetComponent<RapidfireBullet>();
-                    if (rapidFireBulletScript != null)
-                    {
-                        rapidFireBulletScript.damage = shootDamage;
-                        rapidFireBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
-                    }
-                }
+                // apply rand angle offset if shotgun //
+                float spreadAngle = gunList[selectedGun].spreadAngle;
+                Quaternion randomRotation = Quaternion.Euler(
+                    Random.Range(-spreadAngle, spreadAngle),
+                    Random.Range(-spreadAngle, spreadAngle),
+                    0);
 
-                IceBullet iceBulletScript;
-                if (gunList[selectedGun].name == "IceStaff")
+                // Calculate the direction vector from the shootPos to the target point
+
+                Vector3 shootDirection = (targetPoint - shootPos.position).normalized;
+                shootDirection = randomRotation * shootDirection;
+
+
+                GameObject bulletClone = Instantiate(bullet, shootPos.position, Quaternion.LookRotation(shootDirection));
+                bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
+                ApplyRecoil();
+                playerBullet bulletScript;
+                if (gunList[selectedGun].name == "FlameStaff")
                 {
-                    iceBulletScript = bulletClone.GetComponent<IceBullet>();
-                    if (iceBulletScript != null)
+                    bulletScript = bulletClone.GetComponent<playerBullet>();
+                    if (bulletScript != null)
                     {
-                        iceBulletScript.damage = shootDamage;
-                        iceBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                        bulletScript.damage = shootDamage;
+                        bulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
                     }
 
-                }
-
-                GravityBullet gravityBulletScript;
-
-                if (gunList[selectedGun].name == "GravityStaff")
-                {
-                    gravityBulletScript = bulletClone.GetComponent<GravityBullet>();
-                    if (gravityBulletScript != null)
+                    RapidfireBullet rapidFireBulletScript;
+                    if (gunList[selectedGun].name == "RapidFireStaff")
                     {
-                        gravityBulletScript.damage = shootDamage;
-                        gravityBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                        rapidFireBulletScript = bulletClone.GetComponent<RapidfireBullet>();
+                        if (rapidFireBulletScript != null)
+                        {
+                            rapidFireBulletScript.damage = shootDamage;
+                            rapidFireBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                        }
+                    }
+
+                    IceBullet iceBulletScript;
+                    if (gunList[selectedGun].name == "IceStaff")
+                    {
+                        iceBulletScript = bulletClone.GetComponent<IceBullet>();
+                        if (iceBulletScript != null)
+                        {
+                            iceBulletScript.damage = shootDamage;
+                            iceBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                        }
+
+                    }
+
+                    GravityBullet gravityBulletScript;
+
+                    if (gunList[selectedGun].name == "GravityStaff")
+                    {
+                        gravityBulletScript = bulletClone.GetComponent<GravityBullet>();
+                        if (gravityBulletScript != null)
+                        {
+                            gravityBulletScript.damage = shootDamage;
+                            gravityBulletScript.maxTravelDistance = gunList[selectedGun].shootingDist;
+                        }
                     }
                 }
+                yield return new WaitForSeconds(fireRate);
+                isShooting = false;
             }
-            yield return new WaitForSeconds(fireRate);
-            isShooting = false;
         }
+       
     }
     public void gunPick(GunLists gunStat)
     {

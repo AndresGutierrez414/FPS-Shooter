@@ -3584,7 +3584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5310822378997889218
 Transform:
   m_ObjectHideFlags: 0
@@ -3730,7 +3730,7 @@ MonoBehaviour:
   controller: {fileID: 5310822379055588851}
   animator: {fileID: 5310822379055588854}
   audio: {fileID: 3677625812656945478}
-  HP: 100
+  HP: 10
   critHP: 4
   critHPPulseSpeed: 5
   dmgIndicatorDuration: 0
@@ -3785,6 +3785,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 42514579da9d39143ae06c5fbe74d5b5, type: 3}
   audioDamageVolume: 0.5
   giveHp: {fileID: 8300000, guid: a53575f0051635c42a9f9794d317ac59, type: 3}
+  stunned: {fileID: 0}
   fireDamage: {fileID: 7729367998447365275}
   fireFx: {fileID: 6649413725090546101}
   gravityFx: {fileID: 5440663989175726723}
