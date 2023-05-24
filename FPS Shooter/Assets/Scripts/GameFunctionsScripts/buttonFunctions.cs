@@ -63,6 +63,7 @@ public class buttonFunctions : MonoBehaviour
 
         // toggle pause bool //
         gameManager.instance.isPaused = !gameManager.instance.isPaused;
+        gameManager.instance.playerScript.gunModel.gameObject.SetActive(true);
     }
 
     public void restart()

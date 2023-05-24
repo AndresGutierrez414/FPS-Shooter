@@ -31,6 +31,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject winMenu;
     [SerializeField] public GameObject loseMenu;
     [SerializeField] public GameObject checkPoint;
+    [SerializeField] public GameObject reticle;
+
     [SerializeField] public bool isPaused;
 
 
@@ -84,7 +86,7 @@ public class gameManager : MonoBehaviour
     {
         // play music //
         PlayBackgroundMusic();
-
+        reticle.SetActive(false);
 
         // intro text display // 
         if (!cameraScript.enableIntroSequence)
@@ -119,16 +121,23 @@ public class gameManager : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
         {
+           
             isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
 
             if (isPaused)                                   //Check for pause state
             {
+                playerScript.gunModel.gameObject.SetActive(false);
                 pauseState();
             }
             else
+            {
+                
                 unpauseState();
+               
+            }
+               
         }
         if (activeMenu == pauseMenu || activeMenu == loseMenu || activeMenu == winMenu)
         {
@@ -146,6 +155,7 @@ public class gameManager : MonoBehaviour
         // start timer for boss spawning after intro is finished or skipped //
         if (cameraScript.introFinsished || cameraScript.isSkippingIntro)
         {
+            reticle.SetActive(true);
             spawnBoss();
         }
     }
@@ -168,8 +178,9 @@ public class gameManager : MonoBehaviour
         {
             activeMenu.SetActive(false);
         }
-       
-        activeMenu = null;
+      
+
+       activeMenu = null;
     }
     public void unpauseStateWithCursor()
     {
