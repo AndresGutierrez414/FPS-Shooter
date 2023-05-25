@@ -77,36 +77,44 @@ public class gameManager : MonoBehaviour
         cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
         //bossEnemy = GameObject.FindGameObjectWithTag("Boss");
         playerSpawnLocation = GameObject.FindGameObjectWithTag("Spawn Location");
-        playerScript = player.GetComponent<playerController>();
-        cameraScript = cameraObject.GetComponent<cameraControls>();
-        bossEnemyScript = bossEnemy.GetComponent<enemyAI>();
+        if (player != null)
+        {
+            playerScript = player.GetComponent<playerController>();
+            cameraScript = cameraObject.GetComponent<cameraControls>();
+            bossEnemyScript = bossEnemy.GetComponent<enemyAI>();
+        }
+      
+       
     }
 
     private void Start()
     {
-        // play music //
-        PlayBackgroundMusic();
-        reticle.SetActive(false);
+       if (player!= null)
+        {
+            // play music //
+            PlayBackgroundMusic();
+            reticle.SetActive(false);
 
-        // intro text display // 
-        if (!cameraScript.enableIntroSequence)
-        {
-            StopAllCoroutines();
-        }
-        else
-        {
-            endGoalText.gameObject.SetActive(false);     // end goal
-            StartCoroutine(endGoalTextFunction());
-            enemiesText.gameObject.SetActive(false);     // enemies
-            StartCoroutine(enemiesTextFunction());
-            weaponsText.gameObject.SetActive(false);     // weapons 
-            StartCoroutine(weaponsTextFunction());
-            lavaText.gameObject.SetActive(false);        // lava
-            StartCoroutine(lavaTextFunction());
-            bossArrivalText.gameObject.SetActive(false); // enemy boss
-            StartCoroutine(bossArrivalTextFunction());
-            introSkipText.gameObject.SetActive(false);   // intro skip 
-            StartCoroutine(introSkipTextFunction());
+            // intro text display // 
+            if (!cameraScript.enableIntroSequence)
+            {
+                StopAllCoroutines();
+            }
+            else
+            {
+                endGoalText.gameObject.SetActive(false);     // end goal
+                StartCoroutine(endGoalTextFunction());
+                enemiesText.gameObject.SetActive(false);     // enemies
+                StartCoroutine(enemiesTextFunction());
+                weaponsText.gameObject.SetActive(false);     // weapons 
+                StartCoroutine(weaponsTextFunction());
+                lavaText.gameObject.SetActive(false);        // lava
+                StartCoroutine(lavaTextFunction());
+                bossArrivalText.gameObject.SetActive(false); // enemy boss
+                StartCoroutine(bossArrivalTextFunction());
+                introSkipText.gameObject.SetActive(false);   // intro skip 
+                StartCoroutine(introSkipTextFunction());
+            }
         }
     }
 
@@ -114,50 +122,52 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         // Check if the boss is destroyed and switch music
-        if (bossEnemyScript.isBossDestroyed && audioSource.clip != backgroundMusic)
-        {
-            PlayBackgroundMusic();
-        }
-
-        if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
-        {
-           
-            isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
-            activeMenu = pauseMenu;
-            activeMenu.SetActive(isPaused);
-
-            if (isPaused)                                   //Check for pause state
+        if (player != null){
+            if (bossEnemyScript.isBossDestroyed && audioSource.clip != backgroundMusic)
             {
-                playerScript.gunModel.gameObject.SetActive(false);
-                playerScript.canShoot = false;
-                pauseState();
+                PlayBackgroundMusic();
             }
-            else
-            {
-                
-                unpauseState();
-               
-            }
-               
-        }
-        if (activeMenu == pauseMenu || activeMenu == loseMenu || activeMenu == winMenu)
-        {
-            fader.SetActive(false);
-        }
-        
-        if (!cameraScript.introFinsished && !cameraScript.isSkippingIntro && bossSpawned)
-        {
-            if (audioSource.clip == bossBattleMusic && audioSource.isPlaying)
-            {
-                audioSource.Stop();
-            }
-        }
 
-        // start timer for boss spawning after intro is finished or skipped //
-        if (cameraScript.introFinsished || cameraScript.isSkippingIntro)
-        {
-            reticle.SetActive(true);
-            spawnBoss();
+            if (Input.GetButtonDown("Cancel") && activeMenu == null)    //Check for escape key press
+            {
+
+                isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
+                activeMenu = pauseMenu;
+                activeMenu.SetActive(isPaused);
+
+                if (isPaused)                                   //Check for pause state
+                {
+                    playerScript.gunModel.gameObject.SetActive(false);
+                    playerScript.canShoot = false;
+                    pauseState();
+                }
+                else
+                {
+
+                    unpauseState();
+
+                }
+
+            }
+            if (activeMenu == pauseMenu || activeMenu == loseMenu || activeMenu == winMenu)
+            {
+                fader.SetActive(false);
+            }
+
+            if (!cameraScript.introFinsished && !cameraScript.isSkippingIntro && bossSpawned)
+            {
+                if (audioSource.clip == bossBattleMusic && audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+            }
+
+            // start timer for boss spawning after intro is finished or skipped //
+            if (cameraScript.introFinsished || cameraScript.isSkippingIntro)
+            {
+                reticle.SetActive(true);
+                spawnBoss();
+            }
         }
     }
 
@@ -192,7 +202,7 @@ public class gameManager : MonoBehaviour
         {
             activeMenu.SetActive(false);
         }
-       
+
         activeMenu = null;
     }
 

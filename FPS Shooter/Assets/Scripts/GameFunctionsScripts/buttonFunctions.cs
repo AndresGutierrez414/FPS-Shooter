@@ -95,12 +95,19 @@ public class buttonFunctions : MonoBehaviour
             audio.Play();
             Invoke("MenuSceneDelay", 1f);
             gameManager.instance.unpauseStateWithCursor();
-            
+           
         });
         
 
     }
+    public void MenuSceneWithoutFade()
+    {
+        
+            audio.Play();
+            Invoke("MenuSceneDelay", 1f);
+            gameManager.instance.unpauseStateWithCursor();
 
+    }
     public void OptionsScene()
     {
         fader.gameObject.SetActive(true);
@@ -113,7 +120,6 @@ public class buttonFunctions : MonoBehaviour
             
         });
         
-
     }
 
     public void CreditsScene()
@@ -146,7 +152,7 @@ public class buttonFunctions : MonoBehaviour
 
     private void MenuSceneDelay()
     {
-        Debug.Log("yes");
+      
         SceneManager.LoadScene("MenuScene");
     }
 

@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c00f78fb9622942955d48c7d3c7ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3
   maxTravelDistance: 30
-  knockbackForce: 70
+  knockbackForce: 30
   enemyTag: Enemy
