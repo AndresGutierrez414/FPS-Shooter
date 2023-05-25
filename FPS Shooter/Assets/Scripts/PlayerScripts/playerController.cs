@@ -91,6 +91,7 @@ public class playerController : MonoBehaviour, IDamage
     private float weaponSwitchDelay = 0.1f;
     public bool canMove = false;
     public bool canShoot = true;
+    public bool imortal = false;
     GameObject bulletPrefab; 
 
     private void Awake()
@@ -244,6 +245,10 @@ public class playerController : MonoBehaviour, IDamage
     //Called whenever the player takes damage
     public void takeDamage(int amount)
     {
+        if (imortal)
+        {
+            return;
+        }
         audio.PlayOneShot(audioDamage[Random.Range(0, audioJump.Length)], audioDamageVolume);
         StartCoroutine(showDamageIndicator());
 
