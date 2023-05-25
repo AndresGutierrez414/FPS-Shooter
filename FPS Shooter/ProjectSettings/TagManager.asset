@@ -13,7 +13,6 @@ TagManager:
   - Easy Enemy
   - Medium Enemy
   - Hard Enemy
-  - Blocker
   layers:
   - Default
   - TransparentFX
