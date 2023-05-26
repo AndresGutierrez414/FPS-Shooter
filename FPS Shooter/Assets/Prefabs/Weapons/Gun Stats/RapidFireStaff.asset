@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recoilDirection: {x: 0, y: -0.03, z: 0}
   shootingDamage: 2
-  shootingRate: 0.2
+  shootingRate: 0.3
   shootingDist: 30
   bulletCount: 1
   spreadAngle: 0
   recoilAmount: 2
   gunModel: {fileID: 8588910350287197338, guid: 34b446baef66b3a4fa46b717790b55cd, type: 3}
   gunBullet: {fileID: 8973868133043815996, guid: d171ebbd738fbc848a2762631780022a, type: 3}
-  gunBlastAudio: {fileID: 8300000, guid: 0ee79c63beb5fe44bb0e014d888228d6, type: 3}
+  gunBlastAudio: {fileID: 8300000, guid: be64544bade297e4d872dd74c66256d2, type: 3}
   gunShotAudioVolume: 0.5
