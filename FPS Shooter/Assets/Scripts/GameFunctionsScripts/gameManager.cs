@@ -69,6 +69,7 @@ public class gameManager : MonoBehaviour
     public bool rapidUpgrade = false;
     public bool gravityUpgrade = false;
     public bool iceUpgrade = false;
+    bool bossTime = false;
     void Awake()
     {
         instance = this;
@@ -167,6 +168,12 @@ public class gameManager : MonoBehaviour
             {
                 reticle.SetActive(true);
                 spawnBoss();
+                if (bossTime == false)
+                {
+                    bossTime = true;
+                    bossEnemyScript.StartBossTimer();
+                }
+             
             }
         }
     }

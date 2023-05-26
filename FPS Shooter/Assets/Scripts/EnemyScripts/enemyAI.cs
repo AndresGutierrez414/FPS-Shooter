@@ -100,12 +100,12 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (isBoss == true)
         {
-           // if (box.CompareTag("Player"))
+            // if (box.CompareTag("Player"))
             //{
 
-
-                countdownTime = riseDelay;
-                StartCoroutine(CountdownToStart());
+            countdownDisplayParent.SetActive(false);
+            countdownTime = riseDelay;
+               
             //}
         }
        
@@ -119,6 +119,7 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             agent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
+          
             StartCoroutine(RiseFromGround(riseDelay, riseTime));
         }
         else if (isIntroEnemy)
@@ -178,6 +179,11 @@ public class enemyAI : MonoBehaviour, IDamage
                 StartCoroutine(roam());
             }
         }
+    }
+    public void StartBossTimer()
+    {
+        countdownDisplayParent.SetActive(true);
+        StartCoroutine(CountdownToStart());
     }
    
     IEnumerator roam()
@@ -503,19 +509,23 @@ public class enemyAI : MonoBehaviour, IDamage
     }
     IEnumerator CountdownToStart()
     {
-        while (countdownTime > 0)
+        if (isBoss)
         {
-            countdownDisplay.text = countdownTime.ToString();
+            while (countdownTime > 0)
+            {
+                countdownDisplay.text = countdownTime.ToString();
+
+                yield return new WaitForSeconds(1f);
+
+                countdownTime--;
+            }
+
+            countdownDisplay.text = "0";
 
             yield return new WaitForSeconds(1f);
-
-            countdownTime--;
+            countdownDisplayParent.SetActive(false);
         }
-
-        countdownDisplay.text = "0";
-
-        yield return new WaitForSeconds(1f);
-        countdownDisplayParent.SetActive(false);
+       
        
     }
     public void startBossRising()
