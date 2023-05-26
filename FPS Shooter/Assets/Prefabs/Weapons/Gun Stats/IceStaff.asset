@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: IceStaff
   m_EditorClassIdentifier: 
   recoilDirection: {x: 0, y: -0.1, z: 0}
-  shootingDamage: 8
-  shootingRate: 0.5
-  shootingDist: 30
+  shootingDamage: 11
+  shootingRate: 0.4
+  shootingDist: 40
   bulletCount: 1
   spreadAngle: 0
   recoilAmount: 1

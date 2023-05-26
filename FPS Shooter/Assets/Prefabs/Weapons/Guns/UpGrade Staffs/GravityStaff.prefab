@@ -134,12 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d4020dd20248e439291a110e94f8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
   verticalSpeed: 1
   height: 0.1
   rotateX: 0
   rotateY: 0
-  rotateZ: 0
+  rotateZ: 10
 --- !u!135 &6098614724776140338
 SphereCollider:
   m_ObjectHideFlags: 0

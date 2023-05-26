@@ -92,7 +92,7 @@ public class playerController : MonoBehaviour, IDamage
     public bool canMove = false;
     public bool canShoot = true;
     public bool imortal = false;
-    GameObject bulletPrefab; 
+    public bool takeDA = false;
 
     private void Awake()
     {
@@ -154,6 +154,7 @@ public class playerController : MonoBehaviour, IDamage
     //Player movement handler
     void Movement()
     {
+        takeDA = false;
         isPlayerGrounded = controller.isGrounded;       //Reset player.y velocity and times jumped if the player is grounded
         if (isPlayerGrounded)
         {
@@ -251,7 +252,7 @@ public class playerController : MonoBehaviour, IDamage
         }
         audio.PlayOneShot(audioDamage[Random.Range(0, audioJump.Length)], audioDamageVolume);
         StartCoroutine(showDamageIndicator());
-
+        takeDA = true;
         HP -= amount;                                           //Updates the player's hit points and the respective UI element
         playerUIUpdate();
 
@@ -356,6 +357,7 @@ public class playerController : MonoBehaviour, IDamage
     //Function that will respawn the player
     public void respawnPlayer()
     {
+        takeDA = false;
         HP = maxHP;
         playerUIUpdate();
         controller.enabled = false;
@@ -484,17 +486,19 @@ public class playerController : MonoBehaviour, IDamage
 
         int newSelectedGun = selectedGun;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scrollInput > 0)
         {
-            newSelectedGun += 1;
+            newSelectedGun++;
             if (newSelectedGun >= gunList.Count)
             {
                 newSelectedGun = 0;
             }
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        else if (scrollInput < 0)
         {
-            newSelectedGun -= 1;
+            newSelectedGun--;
             if (newSelectedGun < 0)
             {
                 newSelectedGun = gunList.Count - 1;
@@ -509,6 +513,7 @@ public class playerController : MonoBehaviour, IDamage
         if (newSelectedGun != selectedGun)
         {
             StartCoroutine(SwitchWeaponWithDelay(newSelectedGun - selectedGun));
+            selectedGun = newSelectedGun;  // Update the selectedGun value
         }
     }
     IEnumerator SwitchWeaponWithDelay(int direction)
@@ -710,7 +715,7 @@ private void SetGunModel(GunLists gunStat)
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Floor"))
+        if (other.CompareTag("Floor") && takeDA == true)
         {
             fireDamage.SetActive(true);
             flashCoroutine = StartCoroutine(FlashStunnedObject());
