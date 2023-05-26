@@ -160,6 +160,18 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(roam());
             }
+
+            if (agent.enabled && playerInRange && !canSeePlayer() && IsPlayerBehind())
+            {
+               // animator.SetTrigger("Damage");
+                if (agent.enabled == true)
+                {
+                    agent.SetDestination(gameManager.instance.player.transform.position);
+                }
+
+                agent.stoppingDistance = 0;
+
+            }
             // if can see player //
             else if (agent.destination != gameManager.instance.player.transform.position)
             {
@@ -167,7 +179,7 @@ public class enemyAI : MonoBehaviour, IDamage
             }
         }
     }
-
+   
     IEnumerator roam()
     {
         if (!destinationChosen && agent.remainingDistance < 0.05f)
@@ -447,7 +459,13 @@ public class enemyAI : MonoBehaviour, IDamage
             Destroy(audioObject, explosionSound.length);
         }
     }
+    bool IsPlayerBehind()
+    {
+        Vector3 playerDir = gameManager.instance.player.transform.position - transform.position;
+        float angle = Vector3.Angle(transform.forward, playerDir);
 
+        return Mathf.Abs(angle) > 90f;
+    }
     private void applyExplosionDamage(Vector3 explosionPosition, float explosionRadius, int damage)
     {
         // Get all colliders inside the explosion radius
