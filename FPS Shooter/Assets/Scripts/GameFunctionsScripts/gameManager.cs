@@ -171,6 +171,19 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus && isPaused == false)
+        {
+            isPaused = !isPaused;                           //Toggle paused and set pause menu as active (or inactive)
+            activeMenu = pauseMenu;
+            activeMenu.SetActive(isPaused);
+            playerScript.gunModel.gameObject.SetActive(false);
+            playerScript.canShoot = false;
+            pauseState();
+        }
+    }
+
     public void pauseState()
     {
        
