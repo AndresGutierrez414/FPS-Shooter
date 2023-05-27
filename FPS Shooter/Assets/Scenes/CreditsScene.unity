@@ -460,6 +460,7 @@ MonoBehaviour:
 
 
 
+
     Animators
 
 
@@ -2319,15 +2320,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Trayvion Coats\r\nChance Drumheiser\r\nAndres Gutierrez\r\nTynne Meadowcroft\r\nTemitayo
-    Shorunke\r\n\r\nChance Drumheiser\r\nTemitayo Shorunke\r\n\r\nAndres Gutierrez\r\n\r\nTrayvion
-    Coats\r\nAndres Gutierrez\r\nTynne Meadowcroft\r\n\r\nTrayvion Coats\r\nAndres
-    Gutierrez\r\nTynne Meadowcroft\r\n\r\nVolcano - Andres Gutierrez\r\nFantasy Menu
-    SFX - Chris M Audio\r\nFantasy RPG Cursor Pack - ToxicDelta\r\nStylized Fantasy
-    Elementals Pack - N-hance Studio\r\nFree Rocks - Triplebrick\r\nMedieval Bridge
-    - AndreiCG\r\nWell and Bridge - Medieval - ILYAsquared Team\r\nModular Wooden
-    Bridge Tiles - Laxer\r\nRock and Boulders 2 - Manufactura K4\r\nSkull Platform
-    - Kubiqual\r\nStylized Lava materials - Rob luo\r\nRPG&Fantasy Mobile GUI with
-    Source Files - bonk!\r\nAllSky Free - 10 Sky / Skybox Set - rpgwhitelock\r\nGrenade
+    Shorunke\r\n\r\nTrayvion Coats\nChance Drumheiser\r\nTemitayo Shorunke\r\n\r\nAndres
+    Gutierrez\r\n\r\nTrayvion Coats\r\nAndres Gutierrez\r\nTynne Meadowcroft\r\n\r\nTrayvion
+    Coats\r\nAndres Gutierrez\r\nTynne Meadowcroft\r\n\r\nVolcano - Andres Gutierrez\r\nFantasy
+    Menu SFX - Chris M Audio\r\nFantasy RPG Cursor Pack - ToxicDelta\r\nStylized
+    Fantasy Elementals Pack - N-hance Studio\r\nFree Rocks - Triplebrick\r\nMedieval
+    Bridge - AndreiCG\r\nWell and Bridge - Medieval - ILYAsquared Team\r\nModular
+    Wooden Bridge Tiles - Laxer\r\nRock and Boulders 2 - Manufactura K4\r\nSkull
+    Platform - Kubiqual\r\nStylized Lava materials - Rob luo\r\nRPG&Fantasy Mobile
+    GUI with Source Files - bonk!\r\nAllSky Free - 10 Sky / Skybox Set - rpgwhitelock\r\nGrenade
     Sound FX - MGWSoundDesign\r\nPost Apocalypse Guns - Sound Earth Game Audio\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d2a2a44d59c339746a7f68d4fe8d869a, type: 2}
